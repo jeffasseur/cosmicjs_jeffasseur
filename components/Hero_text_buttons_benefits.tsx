@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Hero_text_buttons_benefits = ({ page }: { page: any }) => {
   return (
-    <section className="p-6 lg:pt-12">
+    <section className="p-6 mt-10 lg:pt-12 2xl:mt-32">
       <div className="w-full mx-auto">
         <div className="flex flex-col gap-8 text-center items-center">
           <h1 className="max-w-6xl">{page.metadata.h1}</h1>

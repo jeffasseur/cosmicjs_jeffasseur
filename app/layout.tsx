@@ -10,6 +10,7 @@ import { Suspense } from "react";
 import { AuthProvider } from "@/cosmic/blocks/user-management/AuthContext";
 import Footer from "@/components/Footer";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import CookieConsent from "@/components/CookieConsent";
 
 const sans = Libre_Franklin({ subsets: ["latin"], variable: "--font-sans" });
 const display = Fjalla_One({
@@ -56,13 +57,14 @@ export default function RootLayout({
               disableTransitionOnChange
               themes={["light"]}
             >
-              <CartProvider>
-                <div>
-                  <Header />
-                  {children}
-                </div>
-                <Footer />
-              </CartProvider>
+              {/* <CartProvider> */}
+              <div>
+                <Header />
+                {children}
+              </div>
+              <Footer />
+              <CookieConsent />
+              {/* </CartProvider> */}
               {
                 // only in dev environment
                 process.env.NODE_ENV === "development" && <TailwindIndicator />

@@ -68,7 +68,7 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border box-border;
   }
   body {
     @apply bg-background text-foreground;
@@ -94,7 +94,7 @@
 section {
   margin-top: 8rem;
   margin-bottom: 8rem;
-  @apply mt-2 mb-10 px-4 overflow-hidden md:px-8 xl:my-32 xl:px-16;
+  @apply px-4 overflow-hidden md:px-8 xl:my-32 xl:px-16;
 }
 
 h1 {
@@ -124,6 +124,9 @@ p {
 }
 .footer-btn:hover {
   @apply bg-light-50 text-white shadow-inner;
+}
+.btn-outline {
+  @apply px-4 py-2 rounded-full bg-transparent border border-light-30 text-light-30 hover:bg-light-30 hover:text-white;
 }
 
 .input {
