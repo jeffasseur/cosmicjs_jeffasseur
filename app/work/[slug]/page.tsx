@@ -61,7 +61,7 @@ export default async function SingleProjectsPage({
             dangerouslySetInnerHTML={{ __html: project.metadata.content }}
           />
           <div className="my-10">
-            <Link href="/work" className="flex text-sky-500 dark:text-sky-400">
+            <Link href="/work" className="flex text-primary dark:text-light-50">
               <ArrowLeftIcon className="w-4 h-4 mr-2 mt-1" /> Back to projects
             </Link>
           </div>

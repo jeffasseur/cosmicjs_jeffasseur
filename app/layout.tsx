@@ -50,9 +50,11 @@ export default function RootLayout({
           <AuthProvider>
             <ThemeProvider
               attribute="class"
-              defaultTheme="system"
+              // defaultTheme="system"
+              defaultTheme="light"
               enableSystem
               disableTransitionOnChange
+              themes={["light"]}
             >
               <CartProvider>
                 <div>

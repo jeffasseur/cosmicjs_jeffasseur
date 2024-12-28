@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { cosmic } from "@/cosmic/client";
+import { ArrowRightIcon } from "lucide-react";
 import { buttonVariants } from "@/cosmic/elements/Button";
 import { MailIcon, PhoneIcon } from "lucide-react";
 import { ModeToggle } from "./theme-toggle";
@@ -52,7 +53,7 @@ const Footer = async () => {
               <h5 className="hidden md:block text-2xl md:text-4xl xl:text-6xl font-bold text-light-50">
                 over here
               </h5>
-              <p className="hidden md:block">Arrow Right Icon</p>
+              <ArrowRightIcon className="hidden md:block text-light-50 w-12" />
               <a className="btn font-medium" href="mailto:jef@jeffasseur.be">
                 Send me an e-mail
               </a>

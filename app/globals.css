@@ -35,7 +35,7 @@
     --radius: 0.5rem;
   }
 
-  .dark {
+  /* .dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
 
@@ -63,7 +63,7 @@
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
-  }
+  } */
 }
 
 @layer base {
@@ -73,6 +73,14 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+::-moz-selection { /* Code for Firefox */
+  @apply text-light-90 bg-primary;
+}
+
+::selection {
+  @apply text-light-90 bg-primary;
 }
 
 .dark .custom-zoom [data-rmiz-modal-overlay="visible"] {
@@ -94,6 +102,12 @@ h1 {
 }
 h2 {
   @apply text-2xl font-medium md:text-5xl leading-normal;
+}
+h3 {
+  @apply text-xl font-medium md:text-4xl leading-normal;
+}
+h4 {
+  @apply text-lg font-medium md:text-3xl leading-normal;
 }
 p {
   @apply text-base;

@@ -32,7 +32,7 @@ export async function SingleBlog({
             <div className="lg:absolute lg:-left-[170px] lg:top-2">
               <Link
                 href="/blog"
-                className="flex text-sky-500 dark:text-sky-400"
+                className="flex text-primary dark:text-light-50"
               >
                 <ArrowLeftIcon className="mr-2 mt-1 h-4 w-4" /> Back to blog
               </Link>
@@ -80,18 +80,10 @@ export async function SingleBlog({
             <Markdown className="space-y-4 text-zinc-700 dark:text-zinc-300">
               {blog.metadata.content}
             </Markdown>
-            <Comments
-              query={{
-                type: "comments",
-                "metadata.resource": blog.id,
-                "metadata.approved": true,
-              }}
-              className="mt-10 w-full"
-            />
             <div className="my-10">
               <Link
                 href="/blog"
-                className="flex text-sky-500 dark:text-sky-400"
+                className="flex text-primary dark:text-light-50"
               >
                 <ArrowLeftIcon className="mr-2 mt-1 h-4 w-4" /> Back to blog
               </Link>
