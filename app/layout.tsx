@@ -61,7 +61,10 @@ export default function RootLayout({
                 </div>
                 <Footer />
               </CartProvider>
-              <TailwindIndicator />
+              {
+                // only in dev environment
+                process.env.NODE_ENV === "development" && <TailwindIndicator />
+              }
             </ThemeProvider>
           </AuthProvider>
         </Suspense>
