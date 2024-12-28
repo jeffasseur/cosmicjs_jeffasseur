@@ -34,7 +34,7 @@ export function ProjectCard({ project }: { project: ProjectType }) {
         className="absolute inset-0 bg-projectCard-gradient"
         style={{
           background:
-            "linear-gradient(-160deg, transparent 50%, rgb(11, 12, 200) 95%);",
+            "linear-gradient(-160deg, transparent 50%, rgb(11, 12, 200) 95%)",
         }}
       >
         <p className="absolute top-4 right-4 px-4 py-2 bg-dark-90 bg-opacity-15 backdrop-blur rounded-full text-white border border-white text-xs">
