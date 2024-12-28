@@ -30,13 +30,11 @@ export default async function SingleProjectsPage({
   return (
     <main className="p-4">
       <div className="mb-10 w-full overflow-hidden">
-        {project.metadata.image?.imgix_url && (
-          <img
-            src={`${project.metadata.image.imgix_url}?w=2000&auto=format,compression`}
-            alt={project.title}
-            className="aspect-video w-full md:max-w-5xl mx-auto object-cover border border-zinc-100 dark:border-zinc-800 rounded-lg"
-          />
-        )}
+        <img
+          src={`${project.metadata.image?.imgix_url}?w=2000&auto=format,compression`}
+          alt={project.title}
+          className="aspect-video w-full md:max-w-5xl mx-auto object-cover border border-zinc-100 dark:border-zinc-800 rounded-lg"
+        />
       </div>
       <section className="md:container grid items-center pb-8 m-auto">
         <div className="relative m-auto flex max-w-[750px] flex-col items-start gap-2">
@@ -46,7 +44,7 @@ export default async function SingleProjectsPage({
           <div className="flex w-full items-center mb-8">
             <img
               className="mr-2 h-12 w-12 rounded-full object-cover"
-              src={`${project.metadata.client.metadata.logo.imgix_url}?w=120&auto=format,compression`}
+              src={`${project.metadata.client.metadata.logo?.imgix_url}?w=120&auto=format,compression`}
               alt={project.metadata.client.title}
             />
             <div className="flex justify-between w-full">
