@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["imgix.cosmicjs.com"], // Add your Cosmic CDN domain
+    domains: ["imgix.cosmicjs.com", "res.cloudinary.com"], // Add your Cosmic CDN domain
   },
 };
 

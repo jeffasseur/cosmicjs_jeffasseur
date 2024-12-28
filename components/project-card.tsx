@@ -15,40 +15,50 @@ export type ProjectType = {
     };
     year: number;
     content: number;
+    category: {
+      title?: string;
+    };
   };
 };
 
 export function ProjectCard({ project }: { project: ProjectType }) {
   return (
-    <Link href={`/work/${project.slug}`} className="group relative w-full">
-      <div className="w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75">
-        {project.metadata.image?.imgix_url && (
-          <img
-            src={`${project.metadata.image.imgix_url}?w=1200&auto=format,compression`}
-            alt={project.title}
-            className="h-full w-full object-cover object-center aspect-square lg:h-full lg:w-full border border-zinc-100 dark:border-zinc-800"
-          />
-        )}
-      </div>
-      <div className="mt-4">
-        <div>
-          <h3 className="text-lg font-medium leading-tight text-zinc-700 dark:text-zinc-300">
-            <span aria-hidden="true" className="absolute inset-0"></span>
-            {project.title}
-          </h3>
-        </div>
-      </div>
+    <Link
+      href={`/work/${project.slug}`}
+      className="group block relative aspect-square drop-shadow-md rounded-2xl p-0 bg-cover bg-center w-full overflow-hidden transition-all transition-500 ease-in-out cursor-pointer bg-dark-90 lg:duration-300 hover:scale-105 hover:shadow-md"
+      style={{
+        backgroundImage: `url(${project.metadata.image.imgix_url}?w=1200&auto=format,compression)`,
+      }}
+    >
       <div
-        className="pt-2 text-sm font-medium text-zinc-500 dark:text-zinc-300"
-        dangerouslySetInnerHTML={{ __html: project.metadata.summary }}
-      />
-      <div className="flex justify-between">
-        <p className="pt-2 text-sm font-medium text-zinc-900 dark:text-zinc-50">
-          {project.metadata.client.title}
+        className="absolute inset-0 bg-projectCard-gradient"
+        style={{
+          background:
+            "linear-gradient(-160deg, transparent 50%, rgb(11, 12, 200) 95%);",
+        }}
+      >
+        <p className="absolute top-4 right-4 px-4 py-2 bg-dark-90 bg-opacity-15 backdrop-blur rounded-full text-white border border-white text-xs">
+          {project.metadata.category.title}
         </p>
-        <p className="pt-2 text-sm font-medium text-zinc-500 dark:text-zinc-400 font-mono">
-          {project.metadata.year}
-        </p>
+        <div className="h-full p-6">
+          <div className="h-full flex justify-between items-end w-full">
+            <div
+              className="flex flex-col gap-1 leading-none rounded-2xl mt-auto mb-2 text-lg font-semibold drop-shadow-sm tracking-tight"
+              style={{ color: "rgb(181, 204, 255);" }}
+            >
+              <span className="text-xs uppercase tracking-wide">
+                {project.metadata.client.title}
+              </span>
+              <span
+                className="text-lg lg:text-3xl"
+                style={{ color: "rgb(233, 240, 255);" }}
+              >
+                {project.title}
+                <br></br>
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     </Link>
   );

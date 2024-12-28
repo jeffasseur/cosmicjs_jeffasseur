@@ -42,7 +42,7 @@ export async function SingleBlog({
             </h1>
             <div className="mb-10 w-full overflow-hidden rounded-xl">
               <img
-                src={`${blog.metadata.image.imgix_url}?w=2000&auto=format,compression`}
+                src={`${blog.metadata.image?.imgix_url}?w=2000&auto=format,compression`}
                 alt={blog.title}
                 className="aspect-video w-full object-cover"
               />
@@ -50,7 +50,7 @@ export async function SingleBlog({
             <div className="mb-8 md:flex">
               <img
                 className="mr-2 h-[60px] w-[60px] rounded-full object-cover"
-                src={`${blog.metadata.author.metadata.image.imgix_url}?w=120&auto=format,compression`}
+                src={`${blog.metadata.author.metadata?.image?.imgix_url}?w=120&auto=format,compression`}
                 alt={blog.metadata.author.title}
               />
               <div className="mb-4 flex flex-col">

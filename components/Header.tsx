@@ -2,7 +2,6 @@
 import Link from "next/link";
 import { cosmic } from "@/cosmic/client";
 import { NavMenu } from "@/cosmic/blocks/navigation-menu/NavMenu";
-import { CheckOut } from "@/cosmic/blocks/ecommerce/CheckOut";
 
 export default async function Header() {
   // Header data
@@ -15,8 +14,8 @@ export default async function Header() {
     .depth(1);
 
   return (
-    <nav className="sticky top-0 bg-white/20 dark:bg-black/20 backdrop-blur-lg w-full z-[9999]">
-      <div className="flex w-full items-center md:container justify-between p-4 flex-wrap gap-4">
+    <nav className="relative w-full h-32">
+      <div className="bg-white w-full rounded-none flex items-center justify-between px-8 pt-8 md:py-4 gap-16 md:inline-flex md:justify-center md:w-auto lg:rounded-full lg:bg-light-90 fixed lg:top-8 left-1/2 -translate-x-1/2 lg:backdrop:shadow-lg z-[9999]">
         <Link href="/" className="flex-shrink-0">
           <img
             src={`${settings.metadata.logo.imgix_url}?w=500&auto=format,compression`}
@@ -35,7 +34,6 @@ export default async function Header() {
             hasMobileMenu
             className="flex flex-wrap"
           />
-          <CheckOut className="ml-4" productPath={"/services"} />
         </div>
       </div>
     </nav>

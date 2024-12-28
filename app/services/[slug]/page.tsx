@@ -4,6 +4,28 @@ import { cosmic } from "@/cosmic/client";
 
 export const revalidate = 60;
 
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const { object: product } = await cosmic.objects
+    .findOne({
+      type: "products",
+      slug: params.slug,
+    })
+    .props("title,metadata");
+  return {
+    title: `${product.metadata.seo?.title} | ${product.title}`,
+    description: product.metadata.seo?.description,
+    openGraph: {
+      title: `${product.metadata.seo?.title} | ${product.title}`,
+      description: product.metadata.seo?.description,
+      images: [product.metadata.seo?.og_image?.imgix_url],
+    },
+  };
+}
+
 export async function generateStaticParams() {
   const { objects: products } = await cosmic.objects.find({
     type: "products",

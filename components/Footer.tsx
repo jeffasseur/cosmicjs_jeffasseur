@@ -1,11 +1,27 @@
-// components/footer.tsx
+import Link from "next/link";
 import { cosmic } from "@/cosmic/client";
 import { buttonVariants } from "@/cosmic/elements/Button";
 import { MailIcon, PhoneIcon } from "lucide-react";
 import { ModeToggle } from "./theme-toggle";
 import { NavMenu } from "@/cosmic/blocks/navigation-menu/NavMenu";
 
-export default async function Footer() {
+const navigationSocials = [
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/jef.fasseur/",
+    icon: "instagram",
+  },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/company/jef-fasseur/",
+    icon: "location",
+  },
+  { name: "Email", href: "mailto:sayhi@jeffasseur.be", icon: "sms" },
+  { name: "Youtube", href: "https://youtube.com", icon: "youtube" },
+  { name: "Webflow", href: "https://webflow.com/@jeffasseur", icon: "monitor" },
+];
+
+const Footer = async () => {
   const { object: settings } = await cosmic.objects
     .findOne({
       type: "global-settings",
@@ -23,44 +39,138 @@ export default async function Footer() {
   };
 
   return (
-    <nav className="pb-8 md:my-10 mx-auto flex flex-col lg:flex-row items-center justify-between container w-full">
-      <div className="my-8">
-        <NavMenu query={{ type: "navigation-menus", slug: "footer" }} />
-      </div>
-      <div className="flex mb-6 lg:mb-0 gap-x-8 justify-center text-zinc-700 dark:text-zinc-300">
-        <div>
-          <a
-            href={`mailto:${settings.metadata.email}`}
-            className={buttonVariants({ variant: "outline" })}
-          >
-            <MailIcon className="w-4 inline-block mr-2" />
-            Email us
-          </a>
-        </div>
-        <div>
-          <a
-            href={`tel:${settings.metadata.phone}`}
-            className={buttonVariants({ variant: "outline" })}
-          >
-            <PhoneIcon className="w-4 inline-block mr-2" />
-            Call us
-          </a>
-        </div>
-      </div>
-      <div className="flex gap-x-8 justify-center mb-6 lg:mb-0">
-        {settings.metadata.links.map((link: Link) => {
-          return (
-            <a href={link.url} key={link.url} target="_blank" rel="noreferrer">
-              <img
-                className="h-[26px]"
-                src={`${link.icon.imgix_url}?w=500&auto=format,compression`}
-                alt={link.company}
+    <footer className="m-2 lg:m-12 mb-6 relative z-[999]">
+      <div className="bg-primary rounded-[3rem] px-4 py-12 md:p-24">
+        <div className="container mx-auto flex flex-col gap-24">
+          <div className="text-center md:text-left flex flex-col gap-6 items-center md:items-start">
+            <div>
+              <h5 className="text-2xl font-bold text-white md:text-4xl xl:text-6xl">
+                Hello, let&apos;s work together
+              </h5>
+            </div>
+            <div className="flex gap-4 align-center items-center">
+              <h5 className="hidden md:block text-2xl md:text-4xl xl:text-6xl font-bold text-light-50">
+                over here
+              </h5>
+              <p className="hidden md:block">Arrow Right Icon</p>
+              <a className="btn font-medium" href="mailto:jef@jeffasseur.be">
+                Send me an e-mail
+              </a>
+            </div>
+          </div>
+          <div className="flex flex-col gap-4 items-center md:items-end">
+            <div>
+              <h5 className="text-2xl md:text-4xl xl:text-6xl font-bold text-light-50">
+                Get your strategy call
+              </h5>
+            </div>
+            <div className="flex gap-4 align-center items-center">
+              <a
+                className="btn font-medium"
+                href="https://calendly.com/jef-fasseur/online-coffee"
+                target="_blank"
+              >
+                Book a call
+              </a>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-24 mt-12">
+            <div className="flex flex-col gap-6 order-last md:order-first">
+              <Link className="text-white font-bold text-2xl" href="/">
+                JEF .FASSEUR
+              </Link>
+              <div className="flex flex-col gap-2 text-light-80 text-sm">
+                <p>BE0739922235</p>
+                <Link href="mailto:sayhi@jeffasseur.be" className="underline">
+                  sayhi@jeffasseur.be
+                </Link>
+              </div>
+              <p className="text-light-80 flex-grow">
+                Design & Develop amazing digital products with a focus on user
+                experience.
+              </p>
+              <a
+                href="https://www.withlukas.be"
+                target="_blank"
+                rel="nofollow"
+                className="text-light-30"
+              >
+                Designed by <span className="underline">WithLukas</span>
+              </a>
+            </div>
+            <div className="hidden menu-list flex-col gap-4 text-light-90">
+              <h3 className="text-light-50 font-bold uppercase">Menu</h3>
+              <NavMenu
+                query={{
+                  type: "navigation-menus",
+                  slug: "footer",
+                  hasMobileMenu: false,
+                  status: "published",
+                }}
+                className="*:flex *:flex-col *:gap-4 -ml-4 *:text-light-90!"
               />
-            </a>
-          );
-        })}
+            </div>
+            <div className="menu-list flex flex-col gap-4 text-light-90">
+              <h3 className="text-light-50 font-bold uppercase">What we do</h3>
+              <Link href="/services/webflow-development">
+                Web(flow) Development
+              </Link>
+              <Link href="/services/software-web-apps">
+                Software & Web Application
+              </Link>
+              <Link href="/services/photo-video">Digital Content</Link>
+              <Link href="/services/sea-seo-advertisement">
+                SEA, SEO & Advertisement
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
-      <ModeToggle />
-    </nav>
+      <div className="container mx-auto flex flex-col items-center gap-6 px-8 pt-6 md:grid md:grid-cols-3 md:gap-4">
+        <div className="flex gap-4 justify-end order-last text-xs lg:text-sm">
+          <a
+            href="https://www.iubenda.com/privacy-policy/15316412"
+            className="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe"
+            title="Privacy Policy "
+          >
+            Privacy Policy
+          </a>
+          <a
+            href="https://www.iubenda.com/privacy-policy/15316412/cookie-policy"
+            className="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe"
+            title="Cookie Policy "
+          >
+            Cookie Policy
+          </a>
+        </div>
+        {/* <a href="https://www.withlukas.be" target="_blank" rel="nofollow" className="text-light-30 text-center">Designed by <span className='underline'>WithLukas</span></a> */}
+        <p className="text-light-30 text-center text-xs lg:text-sm">
+          © {new Date().getFullYear()}{" "}
+          <span className="uppercase">Jef .Fasseur</span> – All rights reserved.
+        </p>
+        <div className="flex gap-4 justify-start order-first">
+          {/** Social media */}
+          {settings.metadata.links.map((link: Link) => {
+            return (
+              <a
+                href={link.url}
+                key={link.url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  className="h-[26px]"
+                  src={`${link.icon.imgix_url}?w=500&auto=format,compression`}
+                  alt={link.company}
+                />
+              </a>
+            );
+          })}
+        </div>
+      </div>
+      <div className="h-8"></div>
+    </footer>
   );
-}
+};
+
+export default Footer;

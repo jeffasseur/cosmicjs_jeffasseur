@@ -27,10 +27,6 @@ module.exports = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
@@ -54,6 +50,34 @@ module.exports = {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        projectCard: {
+          gradient:
+            "linear-gradient(-150deg, transparent 45%, rgb(11, 12, 200) 100%)",
+        },
+        primary: "#13179A",
+        dark: {
+          100: "#18181B",
+          90: "#02020F",
+          80: "#04051F",
+          70: "#06072E",
+          60: "#08093E",
+          50: "#0A0C4D",
+          40: "#0B0E5C",
+          30: "#0D106C",
+          20: "#0F127B",
+          10: "#11158B",
+        },
+        light: {
+          90: "#E7E8F5",
+          80: "#D0D1EB",
+          70: "#B8B9E1",
+          60: "#A1A2D7",
+          50: "#898BCD",
+          40: "#7174C2",
+          30: "#5A5DB8",
+          20: "#4245AE",
+          10: "#2B2EA4",
         },
       },
       borderRadius: {

@@ -82,3 +82,33 @@
 .custom-zoom img {
   @apply rounded-2xl;
 }
+
+section {
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+  @apply mt-2 mb-10 px-4 overflow-hidden md:px-8 xl:my-32 xl:px-16;
+}
+
+h1 {
+  @apply text-4xl leading-normal font-medium md:text-6xl;
+}
+h2 {
+  @apply text-2xl font-medium md:text-5xl leading-normal;
+}
+p {
+  @apply text-base;
+}
+
+.btn {
+  @apply px-4 py-2 text-white bg-light-50 rounded-full transition-all duration-200 text-center;
+}
+.btn:hover {
+  @apply bg-light-30 shadow-inner;
+}
+
+.input {
+  @apply px-4 py-2 rounded-md border transition-all duration-200;
+}
+label {
+  @apply text-xs uppercase font-bold text-light-50;
+}

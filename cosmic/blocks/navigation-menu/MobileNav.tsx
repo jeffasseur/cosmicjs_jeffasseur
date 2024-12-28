@@ -17,7 +17,7 @@ export function MobileNav({
 }) {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
-    <div className={cn("relative md:hidden", className)}>
+    <div className={cn("md:hidden", className)}>
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="h-6 w-6 cursor-pointer"
@@ -29,7 +29,7 @@ export function MobileNav({
         )}
       </button>
       {isOpen && (
-        <div className="absolute -right-3 top-full z-[9999] mt-2 w-[90svw] rounded-xl bg-white p-4 shadow-lg dark:bg-zinc-800">
+        <div className="absolute -left-1/2 top-full z-[9999] mt-2 w-[100svw] rounded-xl bg-white p-4 shadow-lg dark:bg-zinc-800">
           <div>
             {items.map((item: ItemType) => {
               return (
