@@ -3,24 +3,7 @@ import { cosmic } from "@/cosmic/client";
 import { ArrowRightIcon } from "lucide-react";
 import { buttonVariants } from "@/cosmic/elements/Button";
 import { MailIcon, PhoneIcon } from "lucide-react";
-import { ModeToggle } from "./theme-toggle";
 import { NavMenu } from "@/cosmic/blocks/navigation-menu/NavMenu";
-
-const navigationSocials = [
-  {
-    name: "Instagram",
-    href: "https://www.instagram.com/jef.fasseur/",
-    icon: "instagram",
-  },
-  {
-    name: "LinkedIn",
-    href: "https://www.linkedin.com/company/jef-fasseur/",
-    icon: "location",
-  },
-  { name: "Email", href: "mailto:sayhi@jeffasseur.be", icon: "sms" },
-  { name: "Youtube", href: "https://youtube.com", icon: "youtube" },
-  { name: "Webflow", href: "https://webflow.com/@jeffasseur", icon: "monitor" },
-];
 
 const Footer = async () => {
   const { object: settings } = await cosmic.objects
@@ -45,34 +28,36 @@ const Footer = async () => {
         <div className="container mx-auto flex flex-col gap-24">
           <div className="text-center md:text-left flex flex-col gap-6 items-center md:items-start">
             <div>
-              <h5 className="text-2xl font-bold text-white md:text-4xl xl:text-6xl">
+              <h5 className="text-2xl font-bold text-white md:text-4xl lg:text-5xl xl:text-6xl">
                 Hello, let&apos;s work together
               </h5>
             </div>
             <div className="flex gap-4 align-center items-center">
-              <h5 className="hidden md:block text-2xl md:text-4xl xl:text-6xl font-bold text-light-50">
+              <h5 className="hidden md:block text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-light-50 flex-shrink-0">
                 over here
               </h5>
               <ArrowRightIcon className="hidden md:block text-light-50 w-12" />
-              <a className="btn font-medium" href="mailto:jef@jeffasseur.be">
-                Send me an e-mail
-              </a>
+              <Link className="footer-btn" href="mailto:jef@jeffasseur.be">
+                <MailIcon className="mr-2 w-6" />
+                <span className="flex-shrink-0">Send me an e-mail</span>
+              </Link>
             </div>
           </div>
-          <div className="flex flex-col gap-4 items-center md:items-end">
+          <div className="flex flex-col gap-6 items-center md:items-end">
             <div>
-              <h5 className="text-2xl md:text-4xl xl:text-6xl font-bold text-light-50">
+              <h5 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-light-50">
                 Get your strategy call
               </h5>
             </div>
             <div className="flex gap-4 align-center items-center">
-              <a
-                className="btn font-medium"
+              <Link
+                className="footer-btn"
                 href="https://calendly.com/jef-fasseur/online-coffee"
                 target="_blank"
               >
-                Book a call
-              </a>
+                <PhoneIcon className="mr-2 w-6" />
+                <span className="flex-shrink-0">Book a call</span>
+              </Link>
             </div>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-24 mt-12">
@@ -90,17 +75,19 @@ const Footer = async () => {
                 Design & Develop amazing digital products with a focus on user
                 experience.
               </p>
-              <a
+              <Link
                 href="https://www.withlukas.be"
                 target="_blank"
                 rel="nofollow"
                 className="text-light-30"
               >
                 Designed by <span className="underline">WithLukas</span>
-              </a>
+              </Link>
             </div>
             <div className="hidden menu-list flex-col gap-4 text-light-90">
-              <h3 className="text-light-50 font-bold uppercase">Menu</h3>
+              <h3 className="text-light-50 text-lg font-bold uppercase">
+                Menu
+              </h3>
               <NavMenu
                 query={{
                   type: "navigation-menus",
@@ -112,7 +99,9 @@ const Footer = async () => {
               />
             </div>
             <div className="menu-list flex flex-col gap-4 text-light-90">
-              <h3 className="text-light-50 font-bold uppercase">What we do</h3>
+              <h3 className="text-light-50 text-lg font-bold uppercase">
+                What we do
+              </h3>
               <Link href="/services/webflow-development">
                 Web(flow) Development
               </Link>
