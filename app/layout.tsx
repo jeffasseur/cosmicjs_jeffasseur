@@ -3,13 +3,15 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import { ThemeProvider } from "@/components/theme-provider";
-import { CartProvider } from "@/cosmic/blocks/ecommerce/CartProvider";
+// import { CartProvider } from "@/cosmic/blocks/ecommerce/CartProvider";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { Suspense } from "react";
 import { AuthProvider } from "@/cosmic/blocks/user-management/AuthContext";
 import Footer from "@/components/Footer";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import CookieConsent from "@/components/CookieConsent";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   display: "swap",
@@ -57,10 +59,16 @@ export default function RootLayout({
               </div>
               <Footer />
               <CookieConsent />
+              <Analytics />
+              <SpeedInsights />
               {/* </CartProvider> */}
               {
                 // only in dev environment
-                process.env.NODE_ENV === "development" && <TailwindIndicator />
+                process.env.NODE_ENV === "development" && (
+                  <>
+                    <TailwindIndicator />
+                  </>
+                )
               }
             </ThemeProvider>
           </AuthProvider>

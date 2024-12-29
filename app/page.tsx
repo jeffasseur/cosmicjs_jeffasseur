@@ -46,14 +46,7 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
-      {/* <section className="md:container mt-12 pb-8 m-auto px-4">
-        <div className="relative m-auto flex max-w-[950px] flex-col items-start gap-2">
-          <h3 className="m-auto mb-4 text-2xl md:text-4xl font-display text-zinc-900 dark:text-zinc-100 tracking-tighter">
-            Hear from our customers
-          </h3>
-          <Testimonials query={{ type: "testimonials" }} />
-        </div>
-      </section> */}
+
       <section className="mx-2 lg:mx-12 py-20 bg-light-90 rounded-[3rem] px-4 md:p-24 shadow-lg">
         <div className="container">
           <h2>Don't take our word for it</h2>

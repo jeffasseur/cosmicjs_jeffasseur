@@ -18,7 +18,7 @@ export default async function AboutPage() {
             {page.metadata.h1}
           </h1>
           <div
-            dangerouslySetInnerHTML={{ __html: page.metadata.content }}
+            dangerouslySetInnerHTML={{ __html: page.metadata?.content }}
             className="text-zinc-700 dark:text-zinc-300"
           />
         </div>
