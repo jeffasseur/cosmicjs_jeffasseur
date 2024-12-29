@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
-import { ThemeProvider } from "@/components/theme-provider";
+// import { ThemeProvider } from "@/components/theme-provider";
 // import { CartProvider } from "@/cosmic/blocks/ecommerce/CartProvider";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { Suspense } from "react";
@@ -44,33 +44,33 @@ export default function RootLayout({
       >
         <Suspense>
           <AuthProvider>
-            <ThemeProvider
+            {/* <ThemeProvider
               attribute="class"
               // defaultTheme="system"
               defaultTheme="light"
               // enableSystem
               disableTransitionOnChange
               themes={["light"]}
-            >
-              {/* <CartProvider> */}
-              <div>
-                <Header />
-                {children}
-              </div>
-              <Footer />
-              <CookieConsent />
-              <Analytics />
-              <SpeedInsights />
-              {/* </CartProvider> */}
-              {
-                // only in dev environment
-                process.env.NODE_ENV === "development" && (
-                  <>
-                    <TailwindIndicator />
-                  </>
-                )
-              }
-            </ThemeProvider>
+            > */}
+            {/* <CartProvider> */}
+            <div>
+              <Header />
+              {children}
+            </div>
+            <Footer />
+            <CookieConsent />
+            <Analytics />
+            <SpeedInsights />
+            {/* </CartProvider> */}
+            {
+              // only in dev environment
+              process.env.NODE_ENV === "development" && (
+                <>
+                  <TailwindIndicator />
+                </>
+              )
+            }
+            {/* </ThemeProvider> */}
           </AuthProvider>
         </Suspense>
       </body>
