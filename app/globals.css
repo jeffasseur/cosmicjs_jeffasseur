@@ -87,9 +87,9 @@
   @apply text-light-90 bg-primary;
 }
 
-.dark .custom-zoom [data-rmiz-modal-overlay="visible"] {
+/* .dark .custom-zoom [data-rmiz-modal-overlay="visible"] {
   background-color: black;
-}
+} */
 
 .custom-zoom img {
   @apply rounded-2xl;
