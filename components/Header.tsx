@@ -30,7 +30,10 @@ export default async function Header() {
         </Link>
         <div className="flex items-center flex-wrap">
           <NavMenu
-            query={{ type: "navigation-menus", slug: "header" }}
+            query={{
+              type: "navigation-menus",
+              slug: "header",
+            }}
             hasMobileMenu
             className="flex flex-wrap"
           />

@@ -51,8 +51,8 @@ export default async function HomePage() {
         <div className="container">
           <h2>Don't take our word for it</h2>
           <Testimonials
-            query={{ type: "testimonials", limit: 3, orderBy: "random" }}
-            className="mt-12 flex gap-6"
+            query={{ type: "testimonials", status: "published" }}
+            className="mt-12 flex flex-col gap-6"
           />
         </div>
       </section>

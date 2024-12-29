@@ -7,6 +7,7 @@ export type ItemType = {
   title: string;
   link: string;
   open_in_new_tab: boolean;
+  published: boolean;
 };
 
 export async function NavMenu({
@@ -30,6 +31,7 @@ export async function NavMenu({
       {/* Desktop */}
       <div className={hasMobileMenu ? "md:flex items-center gap-4 hidden" : ""}>
         {nav.metadata.items.map((item: ItemType) => {
+          if (item.published === false) return <></>;
           return (
             <Link
               href={item.link}

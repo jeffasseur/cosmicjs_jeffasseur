@@ -42,17 +42,11 @@ export function ProjectCard({ project }: { project: ProjectType }) {
         </p>
         <div className="h-full p-6">
           <div className="h-full flex justify-between items-end w-full">
-            <div
-              className="flex flex-col gap-1 leading-none rounded-2xl mt-auto mb-2 text-lg font-semibold drop-shadow-sm tracking-tight"
-              style={{ color: "rgb(181, 204, 255);" }}
-            >
+            <div className="flex flex-col gap-1 leading-none rounded-2xl mt-auto mb-2 text-lg font-semibold drop-shadow-sm tracking-tight text-light-70">
               <span className="text-xs uppercase tracking-wide">
                 {project.metadata.client.title}
               </span>
-              <span
-                className="text-lg lg:text-3xl"
-                style={{ color: "rgb(233, 240, 255);" }}
-              >
+              <span className="text-lg lg:text-3xl text-light-90">
                 {project.title}
                 <br></br>
               </span>

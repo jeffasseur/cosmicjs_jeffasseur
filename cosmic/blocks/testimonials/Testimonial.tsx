@@ -28,8 +28,8 @@ export function Testimonial({
       )}
     >
       <img
-        className="mx-auto h-24 w-24 rounded-full object-cover md:h-auto md:w-48 md:rounded-none"
-        src={`${testimonial.metadata.image.imgix_url}?w=500&h=500&auto=format,compression&fit=facearea&facepad=3`}
+        className="h-24 w-24 rounded-full object-cover md:h-auto md:w-48 md:rounded-none"
+        src={`${testimonial.metadata.image?.imgix_url}?w=500&h=500&auto=format,compression&fit=facearea&facepad=3`}
         alt={testimonial.title}
       />
       <div className="space-y-4 text-center md:p-8 md:text-left">

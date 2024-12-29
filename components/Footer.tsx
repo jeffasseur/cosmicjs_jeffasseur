@@ -102,16 +102,10 @@ const Footer = async () => {
               <h3 className="text-light-50 text-lg font-bold uppercase">
                 What we do
               </h3>
-              <Link href="/services/webflow-development">
-                Web(flow) Website
-              </Link>
-              <Link href="/services/software-web-apps">
-                Software & Web Application
-              </Link>
-              <Link href="/services/photo-video">Digital Content</Link>
-              <Link href="/services/sea-seo-advertisement">
-                SEA, SEO & Advertisement
-              </Link>
+              <Link href="#">Web(flow) Website</Link>
+              <Link href="#">Software & Web Application</Link>
+              <Link href="#">Digital Content</Link>
+              <Link href="#">SEA, SEO & Advertisement</Link>
             </div>
           </div>
         </div>
