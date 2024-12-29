@@ -50,7 +50,7 @@ export default function RootLayout({
               defaultTheme="light"
               enableSystem
               disableTransitionOnChange
-              themes={["light", "dark"]}
+              themes={["light"]}
             >
               {/* <CartProvider> */}
               <div>
