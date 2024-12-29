@@ -7,7 +7,7 @@ module.exports = {
     "./src/**/*.{ts,tsx}",
     "./cosmic/**/*.{ts,tsx,js,jsx}",
   ],
-  darkMode: "class",
+  // darkMode: "class",
   theme: {
     container: {
       center: true,
