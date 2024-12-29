@@ -33,7 +33,9 @@ export async function FAQs({
         return (
           <Accordion type="single" collapsible key={faq.question}>
             <AccordionItem value="item-1">
-              <AccordionTrigger>{faq.question}</AccordionTrigger>
+              <AccordionTrigger className="text-lg">
+                {faq.question}
+              </AccordionTrigger>
               <AccordionContent>{faq.answer}</AccordionContent>
             </AccordionItem>
           </Accordion>

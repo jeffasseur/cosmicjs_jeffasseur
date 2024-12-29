@@ -11,7 +11,7 @@ export async function generateMetadata({
 }) {
   const { object: product } = await cosmic.objects
     .findOne({
-      type: "products",
+      type: "services",
       slug: params.slug,
     })
     .props("title,metadata");
@@ -28,7 +28,7 @@ export async function generateMetadata({
 
 export async function generateStaticParams() {
   const { objects: products } = await cosmic.objects.find({
-    type: "products",
+    type: "services",
   });
   return products.map((product: { slug: string }) => ({
     slug: product.slug,
@@ -46,7 +46,7 @@ export default async function SingleProductPage({
   return (
     <main className="p-4">
       <SingleProduct
-        query={{ slug: params.slug, type: "products" }}
+        query={{ slug: params.slug, type: "services" }}
         purchased={searchParams.success ? true : false}
       />
     </main>

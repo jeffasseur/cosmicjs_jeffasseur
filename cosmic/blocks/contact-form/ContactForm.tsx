@@ -79,7 +79,6 @@ export function ContactForm({ className }: { className?: string }) {
   }
   return (
     <div className={cn("mb-8", className)}>
-      <h2 className="mb-4 text-2xl">Contact us</h2>
       {error && (
         <div className="mb-4 flex rounded-xl border border-red-500 p-8">
           <XCircle className="relative top-1 mr-4 h-4 w-4 shrink-0 text-red-500" />
@@ -134,19 +133,21 @@ export function ContactForm({ className }: { className?: string }) {
               onClick={handleSubmitComment}
               type="submit"
               disabled={submitting}
+              className="btn"
+              size="lg"
             >
               {submitting ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Submitting...
+                  🚀 Sending...
                 </>
               ) : (
-                `Submit`
+                `Send`
               )}
             </Button>
           </div>
         </>
       )}
     </div>
-  )
+  );
 }

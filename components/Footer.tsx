@@ -24,19 +24,19 @@ const Footer = async () => {
 
   return (
     <footer className="m-2 lg:m-12 mb-6 relative z-[999]">
-      <div className="bg-primary rounded-[3rem] px-4 py-12 md:p-24">
+      <div className="bg-primary rounded-[3rem] px-4 py-12 md:p-24 shadow-2xl">
         <div className="container mx-auto flex flex-col gap-24">
           <div className="text-center md:text-left flex flex-col gap-6 items-center md:items-start">
             <div>
-              <h5 className="text-2xl font-bold text-white md:text-4xl lg:text-5xl xl:text-6xl">
+              <h5 className="text-2xl font-semibold text-white md:text-4xl lg:text-6xl">
                 Hello, let&apos;s work together
               </h5>
             </div>
             <div className="flex gap-4 align-center items-center">
-              <h5 className="hidden md:block text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-light-50 flex-shrink-0">
+              <h5 className="hidden md:block text-2xl md:text-4xl lg:text-6xl font-semibold text-light-50 flex-shrink-0">
                 over here
               </h5>
-              <ArrowRightIcon className="hidden md:block text-light-50 w-12" />
+              <ArrowRightIcon className="hidden md:block text-light-50 h-12 w-12 mt-2" />
               <Link className="footer-btn" href="mailto:jef@jeffasseur.be">
                 <MailIcon className="mr-2 w-6" />
                 <span className="flex-shrink-0">Send me an e-mail</span>
@@ -45,7 +45,7 @@ const Footer = async () => {
           </div>
           <div className="flex flex-col gap-6 items-center md:items-end">
             <div>
-              <h5 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-light-50">
+              <h5 className="text-2xl md:text-4xl lg:text-6xl font-semibold text-light-50">
                 Get your strategy call
               </h5>
             </div>
@@ -103,7 +103,7 @@ const Footer = async () => {
                 What we do
               </h3>
               <Link href="/services/webflow-development">
-                Web(flow) Development
+                Web(flow) Website
               </Link>
               <Link href="/services/software-web-apps">
                 Software & Web Application
@@ -142,7 +142,7 @@ const Footer = async () => {
           {/** Social media */}
           {settings.metadata.links.map((link: Link) => {
             return (
-              <a
+              <Link
                 href={link.url}
                 key={link.url}
                 target="_blank"
@@ -153,7 +153,7 @@ const Footer = async () => {
                   src={`${link.icon.imgix_url}?w=500&auto=format,compression`}
                   alt={link.company}
                 />
-              </a>
+              </Link>
             );
           })}
         </div>

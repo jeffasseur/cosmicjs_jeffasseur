@@ -28,8 +28,8 @@ export default async function ShopPage() {
             />
           </div>
           <ProductList
-            className="mt-6 w-full grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
-            query={{ type: "products" }}
+            className="mt-6 w-full grid grid-cols-1 gap-x-6 gap-y-10 lg:grid-cols-2 xl:gap-x-8"
+            query={{ type: "services" }}
           />
         </div>
       </section>
