@@ -47,7 +47,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="mx-2 lg:mx-12 py-20 bg-light-90 rounded-[3rem] px-4 md:p-24 shadow-lg">
+      <section className="mx-2 lg:mx-12 py-20 bg-light-90 dark:bg-light-40 rounded-[3rem] px-4 md:p-24 shadow-lg">
         <div className="container">
           <h2>Don't take our word for it</h2>
           <Testimonials

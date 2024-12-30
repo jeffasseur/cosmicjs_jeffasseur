@@ -23,7 +23,7 @@ export function Testimonial({
   return (
     <figure
       className={cn(
-        "mb-6 flex flex-col gap-4 overflow-hidden rounded-xl bg-white p-8 dark:bg-zinc-800 md:flex-row md:p-0 shadow-md",
+        "mb-6 flex flex-col gap-4 overflow-hidden rounded-xl bg-white p-8 dark:bg-dark-80 md:flex-row md:p-0 shadow-md",
         className
       )}
     >
@@ -34,15 +34,15 @@ export function Testimonial({
       />
       <div className="space-y-4 text-center md:p-8 md:text-left">
         <blockquote className="relative">
-          <p className="relative z-10 text-lg text-zinc-600 dark:text-zinc-300">
+          <p className="relative z-10 text-lg text-zinc-600 dark:text-light-90">
             &quot;{testimonial.metadata.quote}&quot;
           </p>
         </blockquote>
         <figcaption className="font-medium">
-          <div className="text-primary dark:text-light-80">
+          <div className="text-primary dark:text-light-50 text-lg">
             {testimonial.title}
           </div>
-          <div className="text-zinc-500 dark:text-zinc-400">
+          <div className="text-sm text-zinc-500 dark:text-light-90">
             {testimonial.metadata.position}, {testimonial.metadata.company}
           </div>
         </figcaption>
