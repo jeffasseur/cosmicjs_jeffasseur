@@ -36,7 +36,7 @@
   }
 
   .dark {
-    --background: 240 10% 3.9%;
+    --background: #11158b;
     --foreground: 0 0% 98%;
 
     --card: 240 10% 3.9%;
@@ -71,7 +71,7 @@
     @apply border-border box-border;
   }
   body {
-    @apply bg-background text-foreground dark:text-light-90;
+    @apply bg-white dark:bg-dark-80 text-foreground dark:text-light-90;
   }
 
   main {
@@ -88,7 +88,7 @@
 }
 
 .dark .custom-zoom [data-rmiz-modal-overlay="visible"] {
-  background-color: black;
+  @apply bg-dark-80;
 }
 
 .custom-zoom img {

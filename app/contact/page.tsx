@@ -41,7 +41,7 @@ export default async function ContactPage() {
                   {/** Social media */}
                   {settings.metadata?.links.map((link: Link) => {
                     return (
-                      <li>
+                      <li className="dark:bg-light-50 dark:p-2 dark:rounded-sm flex justify-center items-center">
                         <Link
                           href={link.url}
                           key={link.url}
@@ -67,7 +67,7 @@ export default async function ContactPage() {
           </div>
         </div>
       </header>
-      <section className="mx-2 lg:mx-12 py-20 bg-light-90 rounded-[3rem] px-4 md:p-24 shadow-lg">
+      <section className="mx-2 lg:mx-12 py-20 bg-light-90 dark:bg-light-40 rounded-[3rem] px-4 md:p-24 shadow-lg">
         <div className="container">
           <h2>Don't take our word for it</h2>
           <Testimonials

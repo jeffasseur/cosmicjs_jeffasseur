@@ -141,6 +141,7 @@ const Footer = async () => {
                 key={link.url}
                 target="_blank"
                 rel="noreferrer"
+                className="dark:bg-light-50 dark:p-2 dark:rounded-sm"
               >
                 <img
                   className="h-[26px]"

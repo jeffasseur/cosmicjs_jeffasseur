@@ -40,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${plusJakartaSans.variable} font-sans md:p-0 bg-white dark:bg-dark-90 dark:text-light-90 h-dvh w-full`}
+        className={`${plusJakartaSans.variable} font-sans md:p-0 h-dvh w-full`}
       >
         <Suspense>
           <AuthProvider>
