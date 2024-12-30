@@ -20,7 +20,6 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://jeffasseur.be"),
-  colorScheme: "light",
   alternates: {
     canonical: "/",
     languages: {
@@ -40,28 +39,36 @@ export default function RootLayout({
   return (
     <html lang="en" className="light" suppressHydrationWarning>
       <body
-        className={`${plusJakartaSans.variable} font-sans md:p-0 bg-white dark:bg-dark-90 dark:text-light-90 h-dvh w-full`}
+        className={`${plusJakartaSans.variable} font-sans md:p-0 h-dvh w-full`}
       >
         <Suspense>
           <AuthProvider>
-            {/* <CartProvider> */}
-            <div>
-              <Header />
-              {children}
-            </div>
-            <Footer />
-            <CookieConsent />
-            <Analytics />
-            <SpeedInsights />
-            {/* </CartProvider> */}
-            {
-              // only in dev environment
-              process.env.NODE_ENV === "development" && (
-                <>
-                  <TailwindIndicator />
-                </>
-              )
-            }
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="light"
+              enableSystem
+              disableTransitionOnChange
+              themes={["light", "dark"]}
+            >
+              {/* <CartProvider> */}
+              <div>
+                <Header />
+                {children}
+              </div>
+              <Footer />
+              <CookieConsent />
+              <Analytics />
+              <SpeedInsights />
+              {/* </CartProvider> */}
+              {
+                // only in dev environment
+                process.env.NODE_ENV === "development" && (
+                  <>
+                    <TailwindIndicator />
+                  </>
+                )
+              }
+            </ThemeProvider>
           </AuthProvider>
         </Suspense>
       </body>

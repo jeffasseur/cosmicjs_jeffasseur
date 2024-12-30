@@ -1,7 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["imgix.cosmicjs.com", "res.cloudinary.com"], // Add your Cosmic CDN domain
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "imgix.cosmicjs.com",
+      },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
+    ],
+    domains: ["imgix.cosmicjs.com", "res.cloudinary.com"],
   },
 };
 
