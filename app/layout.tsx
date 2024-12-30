@@ -21,7 +21,6 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://jeffasseur.be"),
-  colorScheme: "light",
   alternates: {
     canonical: "/",
     languages: {
@@ -41,13 +40,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${plusJakartaSans.variable} font-sans md:p-0 bg-white dark:bg-dark-90 dark:text-light-90 h-dvh w-full`}
+        className={`${plusJakartaSans.variable} font-sans md:p-0 h-dvh w-full`}
       >
         <Suspense>
           <AuthProvider>
             <ThemeProvider
               attribute="class"
-              defaultTheme="system"
+              defaultTheme="light"
               enableSystem
               disableTransitionOnChange
               themes={["light", "dark"]}
