@@ -32,7 +32,7 @@ export default async function SingleProjectsPage({
   return (
     <main className="p-4">
       <section className="mt-0 mb-0">
-        <div className="mb-0 md:mb-12 md:container pt-12 md:pt-28 bg-white text-black mx-auto relative w-full">
+        <div className="mb-0 md:mb-12 md:container pt-12 md:pt-28 text-black mx-auto relative w-full dark:text-light-90">
           <div className="relative">
             <Link
               href={project.metadata?.live_link ?? "#"}
