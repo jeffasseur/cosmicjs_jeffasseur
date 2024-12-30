@@ -35,7 +35,7 @@
     --radius: 0.5rem;
   }
 
-  /* .dark {
+  .dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
 
@@ -63,7 +63,7 @@
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
-  } */
+  }
 }
 
 @layer base {
@@ -71,7 +71,7 @@
     @apply border-border box-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground dark:text-light-90;
   }
 
   main {
@@ -87,9 +87,9 @@
   @apply text-light-90 bg-primary;
 }
 
-/* .dark .custom-zoom [data-rmiz-modal-overlay="visible"] {
+.dark .custom-zoom [data-rmiz-modal-overlay="visible"] {
   background-color: black;
-} */
+}
 
 .custom-zoom img {
   @apply rounded-2xl;
