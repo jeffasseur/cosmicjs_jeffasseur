@@ -29,7 +29,7 @@ const logos = [
 
 const LogoSlider = () => {
   return (
-    <div className="flex flex-col gap-4 items-center py-4 lg:p-6 lg:rounded-full lg:bg-light-70">
+    <div className="flex flex-col gap-4 items-center py-4 lg:p-6 rounded-2xl lg:rounded-full lg:bg-light-70 dark:bg-light-70">
       <h2 className="text-2xl font-bold dark:text-dark-90">Trusted by</h2>
       <div className="flex items-center gap-20 justify-center flex-wrap overflow-hidden lg:flex-nowrap">
         {logos.map((logo, index) => (

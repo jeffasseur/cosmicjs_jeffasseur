@@ -6,7 +6,7 @@ import { cn } from "@/cosmic/utils";
 
 import { MenuIcon, XIcon } from "lucide-react";
 import { ItemType } from "./NavMenu";
-import { AuthButtons } from "../user-management/AuthButtons";
+// import { AuthButtons } from "../user-management/AuthButtons";
 
 export function MobileNav({
   items,
@@ -29,9 +29,10 @@ export function MobileNav({
         )}
       </button>
       {isOpen && (
-        <div className="absolute -left-1/2 top-full z-[9999] mt-2 w-[100svw] rounded-xl bg-white p-4 shadow-lg dark:bg-zinc-800">
+        <div className="absolute left-full -translate-x-full top-full z-[9999] mt-2 w-[100svw] rounded-xl bg-light-70 p-4 shadow-lg dark:bg-light-40">
           <div>
             {items.map((item: ItemType) => {
+              if (item.published === false) return <></>;
               return (
                 <Link
                   href={item.link}
@@ -44,7 +45,7 @@ export function MobileNav({
                 </Link>
               );
             })}
-            <AuthButtons />
+            {/* <AuthButtons /> */}
           </div>
         </div>
       )}
