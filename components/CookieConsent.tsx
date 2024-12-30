@@ -33,7 +33,7 @@ const CookieConsent = () => {
 
   if (cookieConsentState === CookieConsentState.NotAnswered) {
     return (
-      <div className="fixed bottom-0 right-0 p-4 bg-light-90 rounded-tl-lg flex flex-col gap-4 z-[99999999]">
+      <div className="fixed bottom-0 right-0 p-4 bg-light-90 rounded-tl-lg flex flex-col gap-4 z-[99999999] dark:bg-light-40">
         <p>We use cookies to improve your experience. Do you accept?</p>
         <div className="flex gap-4 items-center">
           <button
