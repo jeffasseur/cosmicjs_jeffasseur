@@ -38,9 +38,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // force light theme in cookies
-  localStorage.setItem("theme", "light");
-
   return (
     <html lang="en" suppressHydrationWarning>
       <body
