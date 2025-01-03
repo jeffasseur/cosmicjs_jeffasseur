@@ -63,12 +63,17 @@ export default async function SingleProjectsPage({
                   <span>{project.metadata.category.title}</span>
                 </p>
               </div>
-              <div className="flex flex-col gap-2">
-                <p className="tag">Collab with</p>
-                <p className="text-sm md:text-base">
-                  {project.metadata.collab.title}
-                </p>
-              </div>
+              {
+                // only show if there is a collab
+                project.metadata.collab && (
+                  <div className="flex flex-col gap-2">
+                    <p className="tag">Collab with</p>
+                    <p className="text-sm md:text-base">
+                      {project.metadata.collab.title}
+                    </p>
+                  </div>
+                )
+              }
             </div>
           </div>
         </div>
