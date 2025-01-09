@@ -16,11 +16,12 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function SingleProjectsPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default async function SingleProjectsPage(
+  props0: {
+    params: Promise<{ slug: string }>;
+  }
+) {
+  const params = await props0.params;
   const { object: project } = await cosmic.objects
     .findOne({
       type: "projects",

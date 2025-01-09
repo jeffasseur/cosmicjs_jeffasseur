@@ -29,7 +29,7 @@ export async function FAQs({
   if (!page?.metadata?.faqs) return <></>;
   return (
     <div className={className}>
-      {(page?.metadata?.faqs).map((faq: FAQ) => {
+      {page.metadata.faqs.map((faq: FAQ) => {
         return (
           <Accordion type="single" collapsible key={faq.question}>
             <AccordionItem value="item-1">

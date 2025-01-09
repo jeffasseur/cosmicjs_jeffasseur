@@ -4,11 +4,12 @@ import { cosmic } from "@/cosmic/client";
 
 export const revalidate = 60;
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export async function generateMetadata(
+  props0: {
+    params: Promise<{ slug: string }>;
+  }
+) {
+  const params = await props0.params;
   const { object: product } = await cosmic.objects
     .findOne({
       type: "services",
@@ -34,15 +35,16 @@ export async function generateStaticParams() {
     slug: product.slug,
   }));
 }
-export default async function SingleProductPage({
-  params,
-  searchParams,
-}: {
-  params: { slug: string };
-  searchParams: {
-    success?: string;
-  };
-}) {
+export default async function SingleProductPage(
+  props: {
+    params: Promise<{ slug: string }>;
+    searchParams: Promise<{
+      success?: string;
+    }>;
+  }
+) {
+  const searchParams = await props.searchParams;
+  const params = await props.params;
   return (
     <main className="p-4">
       <SingleProduct

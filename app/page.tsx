@@ -7,6 +7,7 @@ import { cosmic } from "@/cosmic/client";
 import { ProjectCard, ProjectType } from "@/components/project-card";
 import LogoSlider from "@/components/LogoSlider";
 import Link from "next/link";
+import { Accordion, AccordionItem } from "@nextui-org/accordion";
 
 export default async function HomePage() {
   const { object: page } = await cosmic.objects
@@ -24,6 +25,16 @@ export default async function HomePage() {
     .props("id,slug,title,metadata")
     .depth(1)
     .limit(3);
+
+  const { objects: services } = await cosmic.objects
+    .find({
+      type: "services",
+    })
+    .props("id,slug,title,metadata")
+    .depth(1);
+
+  const defaultContent =
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
   return (
     <main>
@@ -44,6 +55,22 @@ export default async function HomePage() {
               View All Projects
             </Link>
           </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="container mx-auto">
+          <Accordion>
+            <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
+              {defaultContent}
+            </AccordionItem>
+            <AccordionItem key="2" aria-label="Accordion 2" title="Accordion 2">
+              {defaultContent}
+            </AccordionItem>
+            <AccordionItem key="3" aria-label="Accordion 3" title="Accordion 3">
+              {defaultContent}
+            </AccordionItem>
+          </Accordion>
         </div>
       </section>
 

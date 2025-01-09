@@ -13,13 +13,13 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function BlogPost({
-  params,
-  searchParams,
-}: {
-  params: { slug: string };
-  searchParams?: { [key: string]: string | string[] | undefined };
-}) {
+export default async function BlogPost(
+  props: {
+    params: Promise<{ slug: string }>;
+    searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
+  }
+) {
+  const params = await props.params;
   return (
     <main className="p-4">
       <SingleBlog query={{ slug: params.slug, type: "blog-posts" }} />
