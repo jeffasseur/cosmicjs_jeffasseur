@@ -11,7 +11,6 @@ const nextConfig = {
         hostname: "res.cloudinary.com",
       },
     ],
-    domains: ["imgix.cosmicjs.com", "res.cloudinary.com"],
   },
 };
 

@@ -40,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${plusJakartaSans.className} font-sans md:p-0 h-dvh w-full`}
+        className={`${plusJakartaSans.className} font-sans md:p-0 h-dvh w-full bg-white dark:bg-dark-90 text-dark-90 dark:text-light-90`}
       >
         <Suspense>
           <AuthProvider>
@@ -54,12 +54,16 @@ export default function RootLayout({
               {/* <CartProvider> */}
               <div>
                 <Header />
-                {children}
+                <main>{children}</main>
               </div>
               <Footer />
-              <CookieConsent />
-              <Analytics />
-              <SpeedInsights />
+              {process.env.NODE_ENV === "production" && (
+                <>
+                  <CookieConsent />
+                  <Analytics />
+                  <SpeedInsights />
+                </>
+              )}
               {/* </CartProvider> */}
               {
                 // only in dev environment

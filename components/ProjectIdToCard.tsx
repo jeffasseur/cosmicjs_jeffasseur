@@ -1,8 +1,16 @@
 // components/product-card.tsx
 import Link from "next/link";
-import { ProjectType } from "@/interfaces";
+import { cosmic } from "@/cosmic/client";
 
-export function ProjectCard({ project }: { project: ProjectType }) {
+export async function ProjectIdToCard({ id }: { id: string }) {
+  const { object: project } = await cosmic.objects
+    .findOne({
+      type: "projects",
+      id: id,
+    })
+    .props("title,slug,metadata")
+    .depth(1);
+
   return (
     <Link
       href={`/work/${project.slug}`}

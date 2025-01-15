@@ -1,13 +1,15 @@
 // app/page.tsx
 import { FAQs } from "@/cosmic/blocks/faqs/FAQs";
-import { Page } from "@/cosmic/blocks/pages/Page";
 import { Testimonials } from "@/cosmic/blocks/testimonials/Testimonials";
 import Hero_text_buttons_benefits from "@/components/Hero_text_buttons_benefits";
 import { cosmic } from "@/cosmic/client";
-import { ProjectCard, ProjectType } from "@/components/project-card";
+import { ProjectCard } from "@/components/project-card";
 import LogoSlider from "@/components/LogoSlider";
 import Link from "next/link";
-import { Accordion, AccordionItem } from "@nextui-org/accordion";
+import Accordion from "@/components/Accordion";
+import ServiceCard from "@/components/ServiceCard";
+import { ContentInterface, ProjectType } from "@/interfaces";
+import ServiceRow from "@/components/ServiceRow";
 
 export default async function HomePage() {
   const { object: page } = await cosmic.objects
@@ -33,11 +35,20 @@ export default async function HomePage() {
     .props("id,slug,title,metadata")
     .depth(1);
 
-  const defaultContent =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+  const lastService = {
+    title: "Get your project started",
+    slug: "start",
+    metadata: {
+      seo: {
+        description: "Let's get started on your project today.",
+      },
+    },
+    id: 999,
+  };
+  // services.push(lastService);
 
   return (
-    <main>
+    <>
       <Hero_text_buttons_benefits page={page} />
       <section>
         <LogoSlider />
@@ -58,19 +69,14 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section>
+      <section id="services">
         <div className="container mx-auto">
-          <Accordion>
-            <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
-              {defaultContent}
-            </AccordionItem>
-            <AccordionItem key="2" aria-label="Accordion 2" title="Accordion 2">
-              {defaultContent}
-            </AccordionItem>
-            <AccordionItem key="3" aria-label="Accordion 3" title="Accordion 3">
-              {defaultContent}
-            </AccordionItem>
-          </Accordion>
+          <h2 className="mb-12 text-center">Services</h2>
+          <div className="flex flex-col gap-8 mb-12">
+            {services.map((service: ContentInterface, index: number) => {
+              return <ServiceRow key={index} service={service} />;
+            })}
+          </div>
         </div>
       </section>
 
@@ -78,20 +84,22 @@ export default async function HomePage() {
         <div className="container">
           <h2>Don't take our word for it</h2>
           <Testimonials
-            query={{ type: "testimonials", status: "published" }}
+            query={{ type: "testimonials", status: "published", limit: 1 }}
             className="mt-12 flex flex-col gap-6"
           />
         </div>
       </section>
 
-      <section className="md:container mt-12 pb-8 m-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="mb-8 text-zinc-800 dark:text-zinc-100">
+      <section className="mt-12 pb-8 m-auto px-4">
+        <div className="container mx-auto">
+          <h2 className="mb-8 text-dark-90 dark:text-light-90 text-center">
             Frequently Asked Questions
           </h2>
-          <FAQs query={{ slug: "home", type: "pages" }} />
+          <div className="max-w-4xl mx-auto">
+            <FAQs query={{ slug: "home", type: "pages" }} />
+          </div>
         </div>
       </section>
-    </main>
+    </>
   );
 }

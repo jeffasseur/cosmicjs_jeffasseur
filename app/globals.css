@@ -102,7 +102,7 @@ section {
 }
 
 h1 {
-  @apply text-4xl leading-normal font-medium md:text-6xl;
+  @apply text-4xl leading-tight font-medium md:text-6xl;
 }
 h2 {
   @apply text-2xl font-medium md:text-5xl leading-normal;
@@ -118,16 +118,16 @@ p {
 }
 
 .btn {
-  @apply px-4 py-2 text-white bg-light-50 rounded-full transition-all duration-200 text-center;
+  @apply px-6 py-4 text-white bg-light-50 rounded-md transition-all duration-200 text-center mb-1;
 }
 .btn:hover {
-  @apply bg-light-30 shadow-inner;
+  @apply bg-light-30 shadow-inner translate-y-1;
 }
 .footer-btn {
-  @apply flex gap-2 items-center text-light-50 border border-light-50 rounded-full transition-all duration-200 text-center font-medium text-xl px-6 py-4 lg:px-8 lg:py-6 lg:text-2xl;
+  @apply flex gap-2 items-center text-light-50 border-2 border-light-50 rounded-full transition-all duration-200 text-center font-medium text-xl px-6 py-4 lg:px-8 lg:py-6 lg:text-2xl;
 }
 .footer-btn:hover {
-  @apply bg-light-50 text-white shadow-inner;
+  @apply bg-light-50 text-white shadow-inner translate-y-1;
 }
 .btn-outline {
   @apply px-4 py-2 rounded-full bg-transparent border border-light-30 text-light-30 hover:bg-light-30 hover:text-white;

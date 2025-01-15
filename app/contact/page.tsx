@@ -28,7 +28,7 @@ export default async function ContactPage() {
         <div className="px-4 md:container md:mx-auto">
           <div className="flex flex-col gap-6 md:grid md:grid-cols-2">
             <div className="flex flex-col gap-6 justify-between max-w-2xl">
-              <h1 text-split className="text-4xl md:text-6xl *:opacity-0">
+              <h1 className="text-4xl md:text-6xl *:opacity-0">
                 Let's chat about your project
               </h1>
               <div>
@@ -39,9 +39,12 @@ export default async function ContactPage() {
                 <h3 className="text-xl font-medium">Follow us</h3>
                 <ul className="mt-4 flex items-center gap-6">
                   {/** Social media */}
-                  {settings.metadata?.links.map((link: Link) => {
+                  {settings.metadata?.links.map((link: Link, index: number) => {
                     return (
-                      <li className="dark:bg-light-50 dark:p-2 dark:rounded-sm flex justify-center items-center">
+                      <li
+                        className="dark:bg-light-50 dark:p-2 dark:rounded-sm flex justify-center items-center"
+                        key={index}
+                      >
                         <Link
                           href={link.url}
                           key={link.url}

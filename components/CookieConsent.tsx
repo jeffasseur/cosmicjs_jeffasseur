@@ -33,9 +33,9 @@ const CookieConsent = () => {
 
   if (cookieConsentState === CookieConsentState.NotAnswered) {
     return (
-      <div className="fixed bottom-0 right-0 p-4 bg-light-90 rounded-tl-lg flex flex-col gap-4 z-[99999999] dark:bg-light-40">
+      <div className="fixed max-w-[30rem] bottom-2 right-2 p-4 bg-light-90 rounded-lg flex flex-col gap-4 z-[99999999] dark:bg-light-40">
         <p>We use cookies to improve your experience. Do you accept?</p>
-        <div className="flex gap-4 items-center">
+        <div className="flex gap-4 items-center flex-wrap">
           <button
             onClick={() => handleConsent(CookieConsentState.Accepted)}
             className="btn"
@@ -48,7 +48,11 @@ const CookieConsent = () => {
           >
             Decline
           </button>
-          <Link href={cookieConsentPage} target="_blank" className="flex gap-2">
+          <Link
+            href={cookieConsentPage}
+            target="_blank"
+            className="flex gap-2 shrink-0"
+          >
             🍪
             <span className="underline text-light-50">Cookie Consent</span>
           </Link>

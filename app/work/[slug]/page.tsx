@@ -4,6 +4,7 @@ import { ArrowLeftIcon } from "lucide-react";
 import Link from "next/link";
 import CtaSection from "@/components/CtaSection";
 import { ArrowRightIcon } from "lucide-react";
+import { metadata } from "../../layout";
 
 export const revalidate = 60;
 
@@ -45,7 +46,7 @@ export default async function SingleProjectsPage(
               </h1>
               <ArrowRightIcon className="w-6 h-6 mt-2 self-start -rotate-45" />
             </Link>
-            <div className="grid md:grid-cols-4 ml-2 gap-6">
+            <div className="flex flex-col md:flex-row ml-2 gap-12 flex-wrap">
               <div className="flex flex-col gap-2">
                 <p className="tag">Client</p>
                 <p className="text-sm md:text-base">
@@ -60,9 +61,12 @@ export default async function SingleProjectsPage(
               </div>
               <div className="flex flex-col gap-2">
                 <p className="tag">Services</p>
-                <p className="flex flex-wrap gap-4 text-sm md:text-base">
+                <Link
+                  href={`/services/${project.metadata.category.slug}`}
+                  className="flex flex-wrap gap-4 text-sm md:text-base"
+                >
                   <span>{project.metadata.category.title}</span>
-                </p>
+                </Link>
               </div>
               {
                 // only show if there is a collab
@@ -95,18 +99,22 @@ export default async function SingleProjectsPage(
             dangerouslySetInnerHTML={{ __html: project.metadata.content }}
           />
           {/* Video */}
-          <h3 className="mt-12">Extra media</h3>
-          {project.metadata.mockup_video?.imgix_url && (
-            <div className="w-full aspect-video mt-8">
-              <video
-                className="w-full h-full object-cover rounded-lg overflow-hidden"
-                src={project.metadata.mockup_video.imgix_url}
-                controls
-                loop
-                muted
-                autoPlay
-              />
-            </div>
+          {project.metadata.mockup_video && (
+            <>
+              <h3 className="mt-12">Extra media</h3>
+              {project.metadata.mockup_video?.imgix_url && (
+                <div className="w-full aspect-video mt-8">
+                  <video
+                    className="w-full h-full object-cover rounded-lg overflow-hidden"
+                    src={project.metadata.mockup_video.imgix_url}
+                    controls
+                    loop
+                    muted
+                    autoPlay
+                  />
+                </div>
+              )}
+            </>
           )}
           <div className="my-10">
             <Link href="/work" className="flex text-primary dark:text-light-50">

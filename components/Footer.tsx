@@ -4,6 +4,11 @@ import { ArrowRightIcon } from "lucide-react";
 import { buttonVariants } from "@/cosmic/elements/Button";
 import { MailIcon, PhoneIcon } from "lucide-react";
 import { NavMenu } from "@/cosmic/blocks/navigation-menu/NavMenu";
+import {
+  Link as LinkType,
+  ContentInterface,
+  NavLinkInterface,
+} from "@/interfaces";
 
 const Footer = async () => {
   const { object: settings } = await cosmic.objects
@@ -14,13 +19,21 @@ const Footer = async () => {
     .props("metadata")
     .depth(1);
 
-  type Link = {
-    url: string;
-    company: string;
-    icon: {
-      imgix_url: string;
-    };
-  };
+  const { objects: services } = await cosmic.objects
+    .find({
+      type: "services",
+    })
+    .props("id,slug,title,metadata")
+    .depth(1);
+
+  const { object: nav } = await cosmic.objects
+    .findOne({
+      type: "navigation-menus",
+      slug: "footer",
+    })
+    .props("metadata")
+    .depth(1)
+    .status("published");
 
   return (
     <footer className="m-2 lg:m-12 mb-6 relative z-[999]">
@@ -102,10 +115,27 @@ const Footer = async () => {
               <h3 className="text-light-50 text-lg font-bold uppercase">
                 What we do
               </h3>
-              <Link href="#">Web(flow) Website</Link>
-              <Link href="#">Software & Web Application</Link>
-              <Link href="#">Digital Content</Link>
-              <Link href="#">SEA, SEO & Advertisement</Link>
+              {services.map((service: ContentInterface, index: number) => {
+                return (
+                  <Link href={`/services/${service.slug}`} key={index}>
+                    {service.title}
+                  </Link>
+                );
+              })}
+            </div>
+            <div className="menu-list flex flex-col gap-4 text-light-90">
+              <h3 className="text-light-50 text-lg font-bold uppercase">
+                Menu
+              </h3>
+              {nav.metadata.items.map(
+                (item: NavLinkInterface, index: number) => {
+                  return (
+                    <Link href={item?.link} key={index}>
+                      {item.title}
+                    </Link>
+                  );
+                }
+              )}
             </div>
           </div>
         </div>
@@ -134,7 +164,7 @@ const Footer = async () => {
         </p>
         <div className="flex gap-4 justify-start order-first">
           {/** Social media */}
-          {settings.metadata.links.map((link: Link) => {
+          {settings.metadata.links.map((link: LinkType) => {
             return (
               <Link
                 href={link.url}
