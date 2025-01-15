@@ -28,7 +28,7 @@ export function ProductCard({
       href={`/services/${product.slug}`}
       className={cn("group relative", className)}
     >
-      <div className="h-52 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75">
+      <div className="aspect-video w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75">
         <img
           src={`${product.metadata.image?.imgix_url}?w=1200&auto=format,compression`}
           alt={product.title}
