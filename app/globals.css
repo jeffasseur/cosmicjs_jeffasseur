@@ -77,6 +77,22 @@
   main {
     @apply min-h-[50vh];
   }
+
+  h1,h2,h3,h4 {
+    @apply mb-6 mt-2;
+  }
+
+  p {
+    @apply mb-4;
+  }
+
+  ul li {
+    @apply list-disc mb-2 ml-4;
+  }
+
+  img {
+    @apply rounded-md;
+  }
 }
 
 ::-moz-selection { /* Code for Firefox */
