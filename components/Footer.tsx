@@ -94,7 +94,7 @@ const Footer = async () => {
                 rel="nofollow"
                 className="text-light-30"
               >
-                Designed by <span className="underline">WithLukas</span>
+                Branding by <span className="underline">WithLukas</span>
               </Link>
             </div>
             <div className="hidden menu-list flex-col gap-4 text-light-90">

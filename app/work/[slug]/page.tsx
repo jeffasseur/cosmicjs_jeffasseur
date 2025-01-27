@@ -34,7 +34,7 @@ export default async function SingleProjectsPage(
   return (
     <main className="p-4">
       <section className="mt-0 mb-0">
-        <div className="mb-0 md:mb-12 md:container pt-12 md:pt-28 text-black mx-auto relative w-full dark:text-light-90">
+        <div className="mb-0 md:mb-12 container pt-12 md:pt-28 text-black mx-auto relative w-full dark:text-light-90">
           <div className="relative">
             <Link
               href={project.metadata?.live_link ?? "#"}
@@ -46,7 +46,7 @@ export default async function SingleProjectsPage(
               </h1>
               <ArrowRightIcon className="w-6 h-6 mt-2 self-start -rotate-45" />
             </Link>
-            <div className="flex flex-col md:flex-row ml-2 gap-12 flex-wrap">
+            <div className="flex flex-col md:flex-row ml-2 gap-12 flex-wrap *:flex-grow">
               <div className="flex flex-col gap-2">
                 <p className="tag">Client</p>
                 <p className="text-sm md:text-base">
@@ -82,7 +82,7 @@ export default async function SingleProjectsPage(
             </div>
           </div>
         </div>
-        <div className="mt-8">
+        <div className="mt-8 container">
           <img
             src={`${project.metadata.image?.imgix_url}?w=2000&auto=format,compression`}
             alt={project.title}
@@ -92,7 +92,7 @@ export default async function SingleProjectsPage(
       </section>
 
       <section className="mt-0 md:container lg:my-8 grid items-center pb-8 mx-auto">
-        <div className="relative m-auto flex max-w-[750px] flex-col items-start gap-2">
+        <div className="relative m-auto flex max-w-[750px] flex-col items-start gap-2 p-4 md:p-8 lg:p-10 bg-light-90 bg-opacity-50 rounded-xl dark:bg-dark-80 shadow-lg">
           <h2 className="mb-6">About the project</h2>
           <div
             className="text-zinc-700 dark:text-zinc-300 space-y-4"

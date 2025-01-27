@@ -6,6 +6,7 @@ import CtaSection from "@/components/CtaSection";
 import { ServiceHighlightedProjectsInterface } from "@/interfaces";
 import { stat } from "fs";
 import { metadata } from "../../layout";
+import { Section } from "@/cosmic/blocks/pages/PageSection";
 
 export const revalidate = 60;
 
@@ -53,7 +54,10 @@ export default async function SingleProductPage(props: {
       type: "services",
       slug: params.slug,
     })
-    .props("title,metadata");
+    .props("title,metadata")
+    .depth(1);
+
+  console.log(product);
 
   return (
     <>
@@ -138,6 +142,60 @@ export default async function SingleProductPage(props: {
           </div>
         </div>
       </section>
+      {product.metadata?.sections.length > 0 && (
+        <section>
+          {product.metadata.sections.map((section: any, index: number) => (
+            // "grid-layout-image-info" === section.layout.key && (
+            //   <div className="container grid lg:grid-cols-3 gap-1 *:rounded-2xl *:shadow-inner *:bg-opacity-50 *:bg-light-90">
+            //     <div className="lg:row-start-1 lg:row-end-3">
+            //       <img
+            //         alt={section.section_title}
+            //         className="rounded-xl h-full w-full object-cover"
+            //         src={`${section.section_image.imgix_url}?w=1600&auto=format,compression`}
+            //       />
+            //     </div>
+            //     <div className="lg:col-start-2 lg:col-end-4 lg:row-span-1">
+            //       <h2 className="mb-4 text-center font-bold">
+            //         {section.section_title}
+            //       </h2>
+            //     </div>
+            //     <div className="lg:col-start-2 lg:col-end-4 lg:row-span-2 overflow-y-scroll max-h-[400px]">
+            //       <div
+            //         dangerouslySetInnerHTML={{
+            //           __html: section.section_content,
+            //         }}
+            //       />
+            //     </div>
+            //   </div>
+            // )
+            <div key={index} className="container mb-12">
+              <div className="">
+                <div className="w-full lg:relative lg:aspect-video overflow-hidden">
+                  <div className="lg:absolute lg:left-0 lg:bottom-0 pb-8 pt-4 pl-2 lg:pl-8 pr-4 lg:pr-6 bg-white dark:bg-dark-80 rounded-xl">
+                    <h2 className="mb-4 text-center font-bold">
+                      {section.section_title}
+                    </h2>
+                  </div>
+                  <img
+                    alt={section.section_title}
+                    className="rounded-xl h-full w-full object-cover"
+                    src={`${section.section_image.imgix_url}?w=1600&auto=format,compression`}
+                  />
+                </div>
+                <div>
+                  <div
+                    className="mb-6 *:mb-12"
+                    dangerouslySetInnerHTML={{
+                      __html: section.section_content,
+                    }}
+                  />
+                  <div></div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </section>
+      )}
       {product.metadata.highlighted_projects.length > 0 && (
         <section>
           <div className="container mb-12">
