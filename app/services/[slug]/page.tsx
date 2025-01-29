@@ -249,10 +249,10 @@ export default async function SingleProductPage(props: {
                         className="translate-0 w-auto h-px bg-gradient-to-r flex-auto from-transparent from-10% to-light-50"
                       ></div>
                     </time>
-                    <h4 className="font-medium text-primary mb-4">
+                    <h4 className="font-medium text-primary mb-4 dark:text-light-90">
                       {step.title}
                     </h4>
-                    <p className="text-dark-70 font-light">
+                    <p className="text-dark-70 font-light dark:text-light-70">
                       {step.description}
                     </p>
                   </div>
