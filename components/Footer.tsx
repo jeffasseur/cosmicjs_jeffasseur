@@ -158,7 +158,7 @@ const Footer = async () => {
           </a>
         </div>
         {/* <a href="https://www.withlukas.be" target="_blank" rel="nofollow" className="text-light-30 text-center">Designed by <span className='underline'>WithLukas</span></a> */}
-        <p className="text-light-30 text-center text-xs lg:text-sm">
+        <p className="text-light-30 text-center text-xs lg:text-sm mb-0">
           © {new Date().getFullYear()}{" "}
           <span className="uppercase">Jef .Fasseur</span> – All rights reserved.
         </p>
