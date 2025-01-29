@@ -36,16 +36,17 @@ export default async function HomePage() {
     .depth(1);
 
   const lastService = {
-    title: "Get your project started",
-    slug: "start",
+    title: "Mix & Match",
+    slug: "/contact",
     metadata: {
       seo: {
-        description: "Let's get started on your project today.",
+        description:
+          "Go for a total solution and combine some of all the services.",
       },
     },
     id: 999,
   };
-  // services.push(lastService);
+  services.push(lastService);
 
   return (
     <>

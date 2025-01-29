@@ -159,3 +159,23 @@ label {
   @apply text-light-50;
   font-weight: 700;
 }
+
+.of {
+  @apply w-1 h-1;
+}
+.ir { @apply mr-4; }
+.la { @apply flex items-center gap-2; }
+.dpl{
+  width: auto;
+}
+.alm {
+  /* background-color: linear-gradient(0deg, #02020F 10%, transparent 100%); */
+  @apply bg-dark-90 mr-2 ml-2;
+}
+.dqo{
+  --tw-translate-x: 0;
+  translate: 0;
+}
+.dio { position: static; }
+.dqe { flex: auto; }
+.rl {height: 1px;}
