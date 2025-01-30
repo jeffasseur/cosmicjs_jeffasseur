@@ -27,7 +27,7 @@ const steps = [
       "Once we have a deal, we will start working on your project. We will keep you updated on the progress and will ask for your feedback.",
   },
   {
-    title: "Delivery & care",
+    title: "Delivery & support",
     description:
       "Once the project is finished, we will deliver it to you. We will also provide you with the necessary documentation and training.",
   },
