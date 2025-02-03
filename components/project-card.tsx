@@ -18,9 +18,14 @@ export function ProjectCard({ project }: { project: ProjectType }) {
             "linear-gradient(-160deg, transparent 50%, rgb(11, 12, 200) 95%)",
         }}
       >
-        <p className="absolute top-4 right-4 px-4 py-2 bg-dark-90 bg-opacity-15 backdrop-blur rounded-full text-white border border-white text-xs">
-          {project.metadata.category.title}
-        </p>
+        <div className="absolute top-4 right-4 flex gap-2">
+          <p className="px-4 py-2 bg-dark-90 bg-opacity-15 backdrop-blur rounded-full text-white border border-white text-xs">
+            {project.metadata.category.title}
+          </p>
+          <p className="px-4 py-2 bg-dark-90 bg-opacity-15 backdrop-blur rounded-full text-white border border-white text-xs">
+            {project.metadata.service?.title}
+          </p>
+        </div>
         <div className="h-full p-6">
           <div className="h-full flex justify-between items-end w-full">
             <div className="flex flex-col gap-1 leading-none rounded-2xl mt-auto mb-2 text-lg font-semibold drop-shadow-sm tracking-tight text-light-70">

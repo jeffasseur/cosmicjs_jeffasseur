@@ -80,7 +80,7 @@ export default async function SingleProductPage(props: {
     .props("title,metadata")
     .depth(1);
 
-  console.log(product);
+  console.log("product", product);
 
   return (
     <>

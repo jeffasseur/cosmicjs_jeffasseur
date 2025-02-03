@@ -27,6 +27,9 @@ export type ProjectType = {
     category: {
       title?: string;
     };
+    service: {
+      title?: string;
+    };
   };
 };
 
