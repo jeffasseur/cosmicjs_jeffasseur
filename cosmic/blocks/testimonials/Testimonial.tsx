@@ -1,17 +1,5 @@
 import { cn } from "@/cosmic/utils";
-
-export type TestimonialType = {
-  title: string;
-  slug: string;
-  metadata: {
-    company: string;
-    position: string;
-    quote: string;
-    image: {
-      imgix_url: string;
-    };
-  };
-};
+import { TestimonialType } from "@/interfaces";
 
 export function Testimonial({
   testimonial,
@@ -23,7 +11,7 @@ export function Testimonial({
   return (
     <figure
       className={cn(
-        "mb-6 flex flex-col gap-4 overflow-hidden rounded-xl bg-white p-8 dark:bg-dark-80 md:flex-row md:p-0 shadow-md",
+        "mb-6 flex flex-col items-center md:items-stretch gap-4 overflow-hidden rounded-xl bg-white p-8 dark:bg-dark-80 md:flex-row md:p-0 shadow-md",
         className
       )}
     >

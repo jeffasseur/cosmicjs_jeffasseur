@@ -1,5 +1,8 @@
 import { cosmic } from "@/cosmic/client";
-import { Testimonial, TestimonialType } from "./Testimonial";
+import { TestimonialType } from "@/interfaces";
+
+import "swiper/css";
+import SwiperComponent from "@/components/Swiper";
 
 export async function Testimonials({
   query,
@@ -16,19 +19,18 @@ export async function Testimonials({
   className?: string;
   status?: "draft" | "published" | "any";
 }) {
-  const { objects: testimonials } = await cosmic.objects
-    .find(query)
-    .props("id,slug,title,metadata")
-    .depth(1)
-    .sort(sort ? sort : "-order")
-    .limit(limit ? limit : 100)
-    .skip(skip ? skip : 0)
-    .status(status ? status : "published");
+  const { objects: testimonials }: { objects: TestimonialType[] } =
+    await cosmic.objects
+      .find(query)
+      .props("id,slug,title,metadata")
+      .depth(1)
+      .sort(sort ? sort : "-order")
+      .limit(limit ? limit : 100)
+      .skip(skip ? skip : 0)
+      .status(status ? status : "published");
   return (
     <div className={className}>
-      {testimonials?.map((testimonial: TestimonialType) => {
-        return <Testimonial testimonial={testimonial} key={testimonial.slug} />;
-      })}
+      <SwiperComponent testimonials={testimonials} />
     </div>
   );
 }

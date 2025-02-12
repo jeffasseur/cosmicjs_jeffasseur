@@ -10,6 +10,7 @@ import Accordion from "@/components/Accordion";
 import ServiceCard from "@/components/ServiceCard";
 import { ContentInterface, ProjectType } from "@/interfaces";
 import ServiceRow from "@/components/ServiceRow";
+import { stat } from "fs";
 
 export default async function HomePage() {
   const { object: page } = await cosmic.objects
@@ -85,7 +86,8 @@ export default async function HomePage() {
         <div className="container">
           <h2>Don't take our word for it</h2>
           <Testimonials
-            query={{ type: "testimonials", status: "published", limit: 1 }}
+            query={{ type: "testimonials" }}
+            status="published"
             className="mt-12 flex flex-col gap-6"
           />
         </div>

@@ -49,3 +49,16 @@ export interface NavLinkInterface {
 export interface ServiceHighlightedProjectsInterface {
   project: string;
 }
+
+export type TestimonialType = {
+  title: string;
+  slug: string;
+  metadata: {
+    company: string;
+    position: string;
+    quote: string;
+    image: {
+      imgix_url: string;
+    };
+  };
+};

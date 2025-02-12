@@ -5,6 +5,7 @@ import Link from "next/link";
 import CtaSection from "@/components/CtaSection";
 import { ArrowRightIcon } from "lucide-react";
 import { metadata } from "../../layout";
+import { Testimonial } from "@/cosmic/blocks/testimonials/Testimonial";
 
 export const revalidate = 60;
 
@@ -17,16 +18,22 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function SingleProjectsPage(
-  props0: {
-    params: Promise<{ slug: string }>;
-  }
-) {
+export default async function SingleProjectsPage(props0: {
+  params: Promise<{ slug: string }>;
+}) {
   const params = await props0.params;
   const { object: project } = await cosmic.objects
     .findOne({
       type: "projects",
       slug: params.slug,
+    })
+    .props("id,slug,title,metadata")
+    .depth(1);
+
+  const { object: testimonial } = await cosmic.objects
+    .findOne({
+      type: "testimonials",
+      "project.slug": params.slug,
     })
     .props("id,slug,title,metadata")
     .depth(1);
@@ -120,6 +127,13 @@ export default async function SingleProjectsPage(
             <Link href="/work" className="flex text-primary dark:text-light-50">
               <ArrowLeftIcon className="w-4 h-4 mr-2 mt-1" /> Back to projects
             </Link>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div className="px-0 container md:px-8 pb-8">
+          <div className="md:mx-2 lg:mx-12 py-10 md:py-20 bg-light-90 dark:bg-light-40 rounded-2xl md:rounded-[3rem] px-4 md:p-24 shadow-lg">
+            <Testimonial testimonial={testimonial} />
           </div>
         </div>
       </section>

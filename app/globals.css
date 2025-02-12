@@ -179,3 +179,7 @@ label {
 .dio { position: static; }
 .dqe { flex: auto; }
 .rl {height: 1px;}
+.swiper-button-prev,
+.swiper-button-next {
+  @apply !text-dark-90 !opacity-0 !h-full;
+}
