@@ -1,5 +1,6 @@
 // app/contact/page.tsx
 import CtaSection from "@/components/CtaSection";
+import TypeForm from "@/components/TypeForm";
 import { ContactForm } from "@/cosmic/blocks/contact-form/ContactForm";
 import { Testimonials } from "@/cosmic/blocks/testimonials/Testimonials";
 import { cosmic } from "@/cosmic/client";
@@ -80,7 +81,11 @@ export default async function ContactPage() {
         </div>
       </section>
       <div className="container">
-        <CtaSection />
+        <h2>Do you have a concrete idea?</h2>
+        <div className="p-2">
+          <TypeForm />
+          ``
+        </div>
       </div>
     </main>
   );
