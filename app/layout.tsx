@@ -27,9 +27,10 @@ export const metadata: Metadata = {
       "en-US": "/",
     },
   },
-  title: "JEF .F | Web(Flow) Developer & Photographer",
+  title:
+    "JEF .F | Antwerp based Web(Flow) Developer & Photographer at your service",
   description:
-    "A Cosmic template built with BlBelgium based Web(Flow) Developer & Photographer. I make cool websites and professional photos.",
+    "Antwerp based Web(Flow) Developer & Photographer. I make cool websites and professional photos. We value personal contact and a good relationship with our customers. We are happy to help you with your project.",
 };
 
 export default function RootLayout({
