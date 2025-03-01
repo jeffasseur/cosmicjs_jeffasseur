@@ -6,11 +6,9 @@ import { cosmic } from "@/cosmic/client";
 import { ProjectCard } from "@/components/project-card";
 import LogoSlider from "@/components/LogoSlider";
 import Link from "next/link";
-import Accordion from "@/components/Accordion";
-import ServiceCard from "@/components/ServiceCard";
 import { ContentInterface, ProjectType } from "@/interfaces";
 import ServiceRow from "@/components/ServiceRow";
-import { stat } from "fs";
+import Head from "next/head";
 
 export default async function HomePage() {
   const { object: page } = await cosmic.objects
@@ -51,6 +49,23 @@ export default async function HomePage() {
 
   return (
     <>
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "JEF .F | Web(flow) Developer & Photographer",
+              url: "https://www.jeffasseur.be",
+              author: {
+                "@type": "Person",
+                name: "Jef Fasseur",
+              },
+            }),
+          }}
+        />
+      </Head>
       <Hero_text_buttons_benefits page={page} />
       <section>
         <LogoSlider />
