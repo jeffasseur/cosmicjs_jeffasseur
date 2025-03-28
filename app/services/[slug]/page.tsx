@@ -4,9 +4,7 @@ import Link from "next/link";
 import { ProjectIdToCard } from "@/components/ProjectIdToCard";
 import CtaSection from "@/components/CtaSection";
 import { ServiceHighlightedProjectsInterface } from "@/interfaces";
-import { stat } from "fs";
-import { metadata } from "../../layout";
-import { Section } from "@/cosmic/blocks/pages/PageSection";
+import PricingComponent from "@/components/Pricing/PricingComponent";
 
 export const revalidate = 60;
 
@@ -79,8 +77,6 @@ export default async function SingleProductPage(props: {
     })
     .props("title,metadata")
     .depth(1);
-
-  console.log("product", product);
 
   return (
     <>
@@ -272,6 +268,17 @@ export default async function SingleProductPage(props: {
           <CtaSection />
         </div>
       </section>
+
+      {
+        //only show on webflow-website
+        params.slug === "webflow-website" && (
+          <section>
+            <div className="container">
+              <PricingComponent />
+            </div>
+          </section>
+        )
+      }
     </>
   );
 }
