@@ -129,8 +129,18 @@ const Footer = async () => {
               </h3>
               {nav.metadata.items.map(
                 (item: NavLinkInterface, index: number) => {
+                  if (!item.published) {
+                    return null;
+                  }
+                  if (item.open_in_new_tab) {
+                    return (
+                      <Link href={item.link} key={index} target="_blank">
+                        {item.title}
+                      </Link>
+                    );
+                  }
                   return (
-                    <Link href={item?.link} key={index}>
+                    <Link href={item.link} key={index}>
                       {item.title}
                     </Link>
                   );

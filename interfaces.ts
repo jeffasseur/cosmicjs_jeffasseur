@@ -44,6 +44,8 @@ export type Link = {
 export interface NavLinkInterface {
   title: string;
   link: string;
+  published: boolean;
+  open_in_new_tab: boolean;
 }
 
 export interface ServiceHighlightedProjectsInterface {
