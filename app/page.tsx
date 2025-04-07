@@ -34,19 +34,6 @@ export default async function HomePage() {
     .props("id,slug,title,metadata")
     .depth(1);
 
-  const lastService = {
-    title: "Mix & Match",
-    slug: "/contact",
-    metadata: {
-      seo: {
-        description:
-          "Go for a total solution and combine some of all the services.",
-      },
-    },
-    id: 999,
-  };
-  services.push(lastService);
-
   return (
     <>
       <Head>
@@ -108,7 +95,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="mt-12 pb-8 m-auto px-4">
+      <section className="mt-12 pb-8 m-auto px-4" id="faq">
         <div className="container mx-auto">
           <h2 className="mb-8 text-dark-90 dark:text-light-90 text-center">
             Frequently Asked Questions

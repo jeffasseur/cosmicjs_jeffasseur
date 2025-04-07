@@ -272,7 +272,7 @@ export default async function SingleProductPage(props: {
       {
         //only show on webflow-website
         params.slug === "webflow-website" && (
-          <section>
+          <section id="webflow-pricing">
             <div className="container">
               <PricingComponent />
             </div>
