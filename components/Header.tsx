@@ -38,7 +38,7 @@ export default async function Header() {
             hasMobileMenu
             className="flex flex-wrap"
           />
-          <div className="hidden ml-4 lg:flex items-center gap-2">
+          <div className="hidden ml-4 xl:flex items-center gap-2">
             <div className="relative rounded-full aspect-square w-12 h-12">
               <Image
                 src="https://res.cloudinary.com/dfi4sldbm/image/upload/v1744035563/JEF-F-avatar-small_fcltdi.webp"
