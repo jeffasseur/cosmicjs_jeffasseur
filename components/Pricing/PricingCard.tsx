@@ -23,7 +23,7 @@ const PricingCard = ({ title, description, price, content }: {title: string, des
         suffix={yearly ? " /year" : " /month"}
         className="text-3xl md:text-5xl font-light mb-8 text-dark-60 dark:text-light-90" // Add your custom class here
       />
-      <Link href={mailtoLink} className="btn !rounded-full w-full">
+      <Link href={mailtoLink} className="btn !rounded-full !block">
         Get started
       </Link>
       <p className="my-6 opacity-80 h-[4rem]">{description}</p>
