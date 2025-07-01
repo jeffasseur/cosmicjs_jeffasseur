@@ -4,7 +4,7 @@ import { Testimonials } from "@/cosmic/blocks/testimonials/Testimonials";
 import Hero_text_buttons_benefits from "@/components/Hero_text_buttons_benefits";
 import { cosmic } from "@/cosmic/client";
 import { ProjectCard } from "@/components/project-card";
-import LogoSlider from "@/components/LogoSlider";
+import LogoSlider from "@/components/brilio/logoSlider/LogoSlider";
 import Link from "next/link";
 import { ContentInterface, ProjectType } from "@/interfaces";
 import ServiceRow from "@/components/ServiceRow";
@@ -48,9 +48,8 @@ export default async function HomePage() {
         />
       </Head>
       <Hero_text_buttons_benefits page={page} />
-      <section>
-        <LogoSlider />
-      </section>
+
+      <LogoSlider />
 
       <PortfolioSection />
 

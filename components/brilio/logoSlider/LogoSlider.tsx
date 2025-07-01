@@ -1,4 +1,5 @@
 import Image from "next/image";
+import styles from "./styles.module.css";
 
 const logos = [
   {
@@ -25,38 +26,30 @@ const logos = [
     title: "Jef Fasseur - Revi Food",
     url: "https://res.cloudinary.com/dfi4sldbm/image/upload/v1727511534/logo%27s/Revi-logo_ncvqa0.webp",
   },
+  {
+    title: "Belfine - Belgian Chocolate",
+    url: "https://res.cloudinary.com/dfi4sldbm/image/upload/v1751397000/Belfine-logo_nqbezn.webp",
+  },
+  {
+    title: "Thomas More University of Applied Sciences",
+    url: "https://res.cloudinary.com/dfi4sldbm/image/upload/v1751397004/thomasmore_logo_oranje_ad0alj.svg",
+  }
 ];
 
 const LogoSlider = () => {
   return (
-    // <div className="flex flex-col gap-4 items-center py-4 lg:p-6 rounded-2xl lg:rounded-full lg:bg-light-70 dark:bg-light-70">
-    //   <h2 className="text-2xl font-bold dark:text-dark-90">Trusted by</h2>
-    //   <div className="flex items-center gap-20 justify-center flex-wrap overflow-hidden lg:flex-nowrap">
-    //     {logos.map((logo, index) => (
-    //       <Image
-    //         key={index}
-    //         src={logo.url}
-    //         alt={logo.title}
-    //         width={100}
-    //         height={100}
-    //         className="rounded-none"
-    //       />
-    //     ))}
-    //   </div>
-    // </div>
-    <div className="marquee">
-      <ul className="list-unstyled">
+    <div className={styles.marquee}>
+      <ul className="!list-none flex items-center gap-[50px]">
         {logos.map((logo, index) => (
-          <li key={index} className="item">
-            <a href="/about" className="marquee-item rounded">
-              <div className="marquee-content">
+          <li key={index} className={styles.item}>
+            <a href="/about" className={`${styles.marqueeItem} rounded`}>
+              <div className={styles.marqueeContent}>
                 <Image
                   key={index}
                   src={logo.url}
                   alt={logo.title}
-                  width={100}
-                  height={100}
-                  className="rounded-none"
+                  fill
+                  className="rounded-none max-w-[70%] mx-auto object-contain"
                 />
               </div>
             </a>
@@ -64,16 +57,15 @@ const LogoSlider = () => {
         ))}
         {/* Duplicate items for seamless marquee effect */}
         {logos.map((logo, index) => (
-          <li key={`duplicate-${index}`} className="item">
-            <a href="/about" className="marquee-item rounded">
-              <div className="marquee-content">
+          <li key={`duplicate-${index}`} className={styles.item}>
+            <a href="/about" className={`${styles.marqueeItem} rounded flex items-center justify-center h-full`}>
+              <div className={styles.marqueeContent}>
                 <Image
                   key={index}
                   src={logo.url}
                   alt={logo.title}
-                  width={100}
-                  height={100}
-                  className="rounded-none"
+                  fill
+                  className="rounded-none max-w-[70%] mx-auto object-contain"
                 />
               </div>
             </a>
