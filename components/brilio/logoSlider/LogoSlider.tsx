@@ -38,40 +38,46 @@ const logos = [
 
 const LogoSlider = () => {
   return (
-    <div className={styles.marquee}>
-      <ul className="!list-none flex items-center gap-[50px]">
-        {logos.map((logo, index) => (
-          <li key={index} className={styles.item}>
-            <a href="/about" className={`${styles.marqueeItem} rounded`}>
-              <div className={styles.marqueeContent}>
-                <Image
-                  key={index}
-                  src={logo.url}
-                  alt={logo.title}
-                  fill
-                  className="rounded-none max-w-[70%] mx-auto object-contain"
-                />
-              </div>
-            </a>
-          </li>
-        ))}
-        {/* Duplicate items for seamless marquee effect */}
-        {logos.map((logo, index) => (
-          <li key={`duplicate-${index}`} className={styles.item}>
-            <a href="/about" className={`${styles.marqueeItem} rounded flex items-center justify-center h-full`}>
-              <div className={styles.marqueeContent}>
-                <Image
-                  key={index}
-                  src={logo.url}
-                  alt={logo.title}
-                  fill
-                  className="rounded-none max-w-[70%] mx-auto object-contain"
-                />
-              </div>
-            </a>
-          </li>
-        ))}
-      </ul>
+    <div className="flex flex-col gap-0 items-center">
+      <h2 className="text-xl dark:text-dark-90 mb-0">Trusted by</h2>
+      <div className={styles.marquee}>
+        <ul className="!list-none flex items-center gap-[50px]">
+          {logos.map((logo, index) => (
+            <li key={index} className={styles.item}>
+              <a href="/about" className={`${styles.marqueeItem} rounded`}>
+                <div className={styles.marqueeContent}>
+                  <Image
+                    key={index}
+                    src={logo.url}
+                    alt={logo.title}
+                    fill
+                    className="rounded-none max-w-[70%] mx-auto object-contain"
+                  />
+                </div>
+              </a>
+            </li>
+          ))}
+          {/* Duplicate items for seamless marquee effect */}
+          {logos.map((logo, index) => (
+            <li key={`duplicate-${index}`} className={styles.item}>
+              <a
+                href="/about"
+                className={`${styles.marqueeItem} rounded flex items-center justify-center h-full`}
+              >
+                <div className={styles.marqueeContent}>
+                  <Image
+                    key={index}
+                    src={logo.url}
+                    alt={logo.title}
+                    fill
+                    className="rounded-none max-w-[70%] mx-auto object-contain"
+                  />
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

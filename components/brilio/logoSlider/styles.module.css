@@ -46,7 +46,7 @@
     transform: translateX(0px);
   }
   100% {
-    transform: translateX(-3918px);
+    transform: translateX(-4668px);
   }
 }
 @media (min-width: 768px) {
