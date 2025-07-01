@@ -14,7 +14,7 @@ const PortfolioOne = async () => {
   return (
     <div className={`mx-0 flex flex-wrap mt-0`}>
       <div
-        className={`${styles.stackWrapper} flex-shrink-0 w-full max-w-full mt-0 px-20`}
+        className={`${styles.stackWrapper} flex-shrink-0 w-full max-w-full mt-0 lg:px-20`}
       >
         {projects.map((item: ProjectType) => (
           <div className={`${styles.stackItem} cursor-pointer`} key={item.id}>

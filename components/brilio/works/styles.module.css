@@ -3,7 +3,7 @@
   flex: 0 0 100%;
 }
 .stackWrapper {
-  grid-row-gap: 40px;
+  grid-row-gap: 60px;
   flex-direction: column;
   display: flex;
   position: relative;
@@ -14,13 +14,13 @@
 }
 @media (max-width: 991px) {
   .stackWrapper .stackItem {
-    top: 4rem;
+    top: 7.5rem;
     height: 500px;
   }
 }
 @media (max-width: 575px) {
   .stackWrapper .stackItem {
-    top: 3rem;
+    top: 7rem;
     height: 60vh;
   }
 }
