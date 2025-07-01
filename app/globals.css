@@ -74,10 +74,6 @@
     @apply bg-white dark:bg-dark-80 text-foreground dark:text-light-90;
   }
 
-  main {
-    @apply min-h-[50vh] overflow-hidden;
-  }
-
   h1,h2,h3,h4 {
     @apply mb-6 mt-2;
   }
