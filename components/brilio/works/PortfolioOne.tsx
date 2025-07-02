@@ -4,12 +4,12 @@ import styles from "./styles.module.css"; // Assuming you have a CSS module for 
 
 const PortfolioOne = async () => {
   const { objects: projects } = await cosmic.objects
-      .find({
-        type: "projects",
-      })
-      .props("id,slug,title,metadata")
-      .depth(1)
-      .limit(3);
+    .find({
+      type: "projects",
+    })
+    .props("id,slug,title,metadata")
+    .depth(1)
+    .limit(4);
 
   return (
     <div className={`mx-0 flex flex-wrap mt-0`}>

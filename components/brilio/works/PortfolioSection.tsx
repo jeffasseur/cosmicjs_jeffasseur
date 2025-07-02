@@ -4,17 +4,22 @@ import styles from "./styles.module.css";
 
 const PortfolioSection = ({
   title = "Selected Works",
-  viewAllLink = "/works",
+  viewAllLink = "/work",
 }) => {
   return (
-    <section id="works" className='block !relative !p-0' style={{ padding: 0 }}>
+    <section id="works" className="block !relative !p-0" style={{ padding: 0 }}>
       <div className={`container`}>
         <div className={`mx-0 flex flex-wrap mt-0`}>
           <div className={`${styles.col12}`}>
             {/* Intro */}
-            <div className={`${styles.intro} flex justify-between items-center relative mb-10`}>
+            <div
+              className={`${styles.intro} flex justify-between items-center relative mb-10`}
+            >
               <h3 className={`${styles.title}`}>{title}</h3>
-              <a className={`${styles.btn} btn btn-outline content-btn`} href={viewAllLink}>
+              <a
+                className={`${styles.btn} btn btn-outline content-btn`}
+                href={viewAllLink}
+              >
                 View all projects
               </a>
             </div>

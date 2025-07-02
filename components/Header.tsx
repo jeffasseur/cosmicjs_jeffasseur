@@ -16,7 +16,7 @@ export default async function Header() {
 
   return (
     <nav className="relative w-full h-32">
-      <div className="bg-white w-full rounded-none flex items-center justify-between pt-8 px-8 py-4 gap-16 lg:pt-4 lg:justify-center lg:w-auto lg:rounded-full lg:bg-light-90 fixed lg:top-8 left-1/2 -translate-x-1/2 lg:backdrop:shadow-lg z-[9999] dark:bg-light-50">
+      <div className="bg-white w-full rounded-none flex items-center justify-between pt-8 px-8 py-4 gap-16 lg:pt-4 lg:justify-center lg:w-auto lg:rounded-full lg:bg-light-90 fixed lg:top-4 left-1/2 -translate-x-1/2 lg:backdrop:shadow-lg z-[9999] dark:bg-light-50">
         <Link href="/" className="flex-shrink-0 *:rounded-none">
           <img
             src={`${settings.metadata.logo.imgix_url}?w=500&auto=format,compression`}
