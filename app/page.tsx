@@ -4,11 +4,14 @@ import { Testimonials } from "@/cosmic/blocks/testimonials/Testimonials";
 import Hero_text_buttons_benefits from "@/components/Hero_text_buttons_benefits";
 import { cosmic } from "@/cosmic/client";
 import { ProjectCard } from "@/components/project-card";
-import LogoSlider from "@/components/LogoSlider";
+import LogoSlider from "@/components/brilio/logoSlider/LogoSlider";
 import Link from "next/link";
 import { ContentInterface, ProjectType } from "@/interfaces";
 import ServiceRow from "@/components/ServiceRow";
 import Head from "next/head";
+import PortfolioSection from "@/components/brilio/works/PortfolioSection";
+import { ItemType } from "../cosmic/blocks/navigation-menu/NavMenu";
+import BlogSection from "@/components/brilio/insights/BlogSections";
 
 export default async function HomePage() {
   const { object: page } = await cosmic.objects
@@ -18,14 +21,6 @@ export default async function HomePage() {
     })
     .props("slug,title,metadata")
     .depth(1);
-
-  const { objects: projects } = await cosmic.objects
-    .find({
-      type: "projects",
-    })
-    .props("id,slug,title,metadata")
-    .depth(1)
-    .limit(3);
 
   const { objects: services } = await cosmic.objects
     .find({
@@ -54,24 +49,10 @@ export default async function HomePage() {
         />
       </Head>
       <Hero_text_buttons_benefits page={page} />
-      <section>
-        <LogoSlider />
-      </section>
-      <section>
-        <div className="container mx-auto">
-          <h2 className="mb-12 text-center">Latest Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
-            {projects.map((project: ProjectType) => {
-              return <ProjectCard key={project.id} project={project} />;
-            })}
-          </div>
-          <div className="flex justify-center">
-            <Link href="/work" className="btn">
-              View All Projects
-            </Link>
-          </div>
-        </div>
-      </section>
+
+      <LogoSlider />
+
+      <PortfolioSection />
 
       <section id="services">
         <div className="container mx-auto">
@@ -105,6 +86,8 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+
+      <BlogSection />
     </>
   );
 }

@@ -29,20 +29,57 @@ const logos = [
 
 const LogoSlider = () => {
   return (
-    <div className="flex flex-col gap-4 items-center py-4 lg:p-6 rounded-2xl lg:rounded-full lg:bg-light-70 dark:bg-light-70">
-      <h2 className="text-2xl font-bold dark:text-dark-90">Trusted by</h2>
-      <div className="flex items-center gap-20 justify-center flex-wrap overflow-hidden lg:flex-nowrap">
+    // <div className="flex flex-col gap-4 items-center py-4 lg:p-6 rounded-2xl lg:rounded-full lg:bg-light-70 dark:bg-light-70">
+    //   <h2 className="text-2xl font-bold dark:text-dark-90">Trusted by</h2>
+    //   <div className="flex items-center gap-20 justify-center flex-wrap overflow-hidden lg:flex-nowrap">
+    //     {logos.map((logo, index) => (
+    //       <Image
+    //         key={index}
+    //         src={logo.url}
+    //         alt={logo.title}
+    //         width={100}
+    //         height={100}
+    //         className="rounded-none"
+    //       />
+    //     ))}
+    //   </div>
+    // </div>
+    <div className="marquee">
+      <ul className="list-unstyled">
         {logos.map((logo, index) => (
-          <Image
-            key={index}
-            src={logo.url}
-            alt={logo.title}
-            width={100}
-            height={100}
-            className="rounded-none"
-          />
+          <li key={index} className="item">
+            <a href="/about" className="marquee-item rounded">
+              <div className="marquee-content">
+                <Image
+                  key={index}
+                  src={logo.url}
+                  alt={logo.title}
+                  width={100}
+                  height={100}
+                  className="rounded-none"
+                />
+              </div>
+            </a>
+          </li>
         ))}
-      </div>
+        {/* Duplicate items for seamless marquee effect */}
+        {logos.map((logo, index) => (
+          <li key={`duplicate-${index}`} className="item">
+            <a href="/about" className="marquee-item rounded">
+              <div className="marquee-content">
+                <Image
+                  key={index}
+                  src={logo.url}
+                  alt={logo.title}
+                  width={100}
+                  height={100}
+                  className="rounded-none"
+                />
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
