@@ -11,6 +11,7 @@ import ServiceRow from "@/components/ServiceRow";
 import Head from "next/head";
 import PortfolioSection from "@/components/brilio/works/PortfolioSection";
 import { ItemType } from "../cosmic/blocks/navigation-menu/NavMenu";
+import BlogSection from "@/components/brilio/insights/BlogSections";
 
 export default async function HomePage() {
   const { object: page } = await cosmic.objects
@@ -85,6 +86,8 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+
+      <BlogSection />
     </>
   );
 }
