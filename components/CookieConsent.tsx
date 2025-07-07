@@ -67,10 +67,10 @@ const CookieConsent = () => {
 
   return (
     <button
-      className="fixed bottom-4 right-4 btn"
+      className="fixed bottom-4 right-4 rounded-full"
       onClick={() => setCookieConsentState(CookieConsentState.NotAnswered)}
     >
-      enable cookies
+      🍪
     </button>
   );
 };
