@@ -9,6 +9,7 @@ import {
   ContentInterface,
   NavLinkInterface,
 } from "@/interfaces";
+import { NewsletterForm } from "@/cosmic/blocks/newsletter-form/NewsletterForm";
 
 const Footer = async () => {
   const { object: settings } = await cosmic.objects
@@ -37,7 +38,7 @@ const Footer = async () => {
 
   return (
     <footer className="m-2 lg:m-12 mb-6 relative z-[999]">
-      <div className="bg-primary rounded-[3rem] px-4 py-12 md:p-24 shadow-2xl">
+      <div className="bg-primary rounded-[3rem] py-12 md:p-24 shadow-2xl">
         <div className="container mx-auto flex flex-col gap-24">
           <div className="text-center md:text-left flex flex-col gap-6 items-center md:items-start">
             <div>
@@ -148,9 +149,13 @@ const Footer = async () => {
               )}
             </div>
           </div>
+          <div className="w-full text-light-90 text-sm md:text-base">
+            <h4 className="lg:text-lg">Sign up for the newsletter</h4>
+            <NewsletterForm className="mt-4 p-4 border border-light-30 rounded-md shadow-md bg-light-10 lg:mt-0 lg:max-w-[400px] lg:w-full" />
+          </div>
         </div>
       </div>
-      <div className="container mx-auto flex flex-col items-center gap-6 px-8 pt-6 md:grid md:grid-cols-3 md:gap-4">
+      <div className="container mx-auto flex flex-col items-center gap-6 px-8 pt-6 md:flex-row md:justify-between md:gap-4">
         <div className="flex gap-4 justify-end order-last text-xs lg:text-sm">
           <a
             href="https://www.iubenda.com/privacy-policy/15316412"
@@ -167,11 +172,6 @@ const Footer = async () => {
             Cookie Policy
           </a>
         </div>
-        {/* <a href="https://www.withlukas.be" target="_blank" rel="nofollow" className="text-light-30 text-center">Designed by <span className='underline'>WithLukas</span></a> */}
-        <p className="text-light-30 text-center text-xs lg:text-sm mb-0">
-          © {new Date().getFullYear()}{" "}
-          <span className="uppercase">Jef .Fasseur</span> – All rights reserved.
-        </p>
         <div className="flex gap-4 justify-start order-first">
           {/** Social media */}
           {settings.metadata.links.map((link: LinkType) => {
@@ -192,6 +192,11 @@ const Footer = async () => {
             );
           })}
         </div>
+        {/* <a href="https://www.withlukas.be" target="_blank" rel="nofollow" className="text-light-30 text-center">Designed by <span className='underline'>WithLukas</span></a> */}
+        <p className="text-light-30 text-center text-xs lg:text-sm mb-0">
+          © {new Date().getFullYear()}{" "}
+          <span className="uppercase">Jef .Fasseur</span> – All rights reserved.
+        </p>
       </div>
       <div className="h-8"></div>
     </footer>
