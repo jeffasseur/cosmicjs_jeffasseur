@@ -16,7 +16,7 @@ export default async function Header() {
 
   return (
     <nav className="relative w-full h-32">
-      <div className="bg-white w-full rounded-none flex items-center justify-between pt-8 px-8 py-4 gap-16 lg:pt-4 lg:justify-center lg:w-auto lg:rounded-full lg:bg-light-90 fixed lg:top-4 left-1/2 -translate-x-1/2 lg:backdrop:shadow-lg z-[9999] dark:bg-light-50">
+      <div className="w-full rounded-none bg-[rgba(255,255,255,0.2)] shadow-md filter backdrop-blur-md flex items-center justify-between pt-8 px-8 py-4 gap-16 lg:grid lg:grid-cols-3 lgx:pt-4 lg:rounded-full fixed left-1/2 -translate-x-1/2 lg:backdrop:shadow-lg z-[9999] dark:bg-light-50">
         <Link href="/" className="flex-shrink-0 *:rounded-none">
           <img
             src={`${settings.metadata.logo.imgix_url}?w=500&auto=format,compression`}
@@ -56,6 +56,24 @@ export default async function Header() {
               Book a call
             </Link>
           </div>
+        </div>
+        <div className="hidden place-self-end items-center gap-2 lg:flex">
+          <div className="relative rounded-full aspect-square w-12 h-12">
+            <Image
+              src="https://res.cloudinary.com/dfi4sldbm/image/upload/v1744035563/JEF-F-avatar-small_fcltdi.webp"
+              alt="Jef Fasseur Avatar"
+              fill
+              className="object-cover rounded-full"
+            />
+            <div className="absolute right-1 bottom-0 h-3 w-3 bg-green-500 rounded-full animate-pulse"></div>
+          </div>
+          <Link
+            href="https://calendly.com/jef-fasseur/online-coffee"
+            target="_blank"
+            className="btn !rounded-full"
+          >
+            Book a call
+          </Link>
         </div>
       </div>
     </nav>
