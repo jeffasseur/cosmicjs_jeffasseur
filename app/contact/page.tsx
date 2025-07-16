@@ -80,13 +80,14 @@ export default async function ContactPage() {
           />
         </div>
       </section>
-      <div className="container">
-        <h2>Do you have a concrete idea?</h2>
-        <div className="p-2">
-          <TypeForm />
-          ``
+      <section id="project-inquiry" className="pt-12">
+        <div className="container">
+          <h2>Do you have a concrete idea?</h2>
+          <div className="p-2">
+            <TypeForm />
+          </div>
         </div>
-      </div>
+      </section>
     </main>
   );
 }

@@ -57,7 +57,24 @@ export default async function Header() {
             </Link>
           </div>
         </div>
-        <div className="place-self-end">Next up</div>
+        <div className="hidden place-self-end items-center gap-2 lg:flex">
+          <div className="relative rounded-full aspect-square w-12 h-12">
+            <Image
+              src="https://res.cloudinary.com/dfi4sldbm/image/upload/v1744035563/JEF-F-avatar-small_fcltdi.webp"
+              alt="Jef Fasseur Avatar"
+              fill
+              className="object-cover rounded-full"
+            />
+            <div className="absolute right-1 bottom-0 h-3 w-3 bg-green-500 rounded-full animate-pulse"></div>
+          </div>
+          <Link
+            href="https://calendly.com/jef-fasseur/online-coffee"
+            target="_blank"
+            className="btn !rounded-full"
+          >
+            Book a call
+          </Link>
+        </div>
       </div>
     </nav>
   );
