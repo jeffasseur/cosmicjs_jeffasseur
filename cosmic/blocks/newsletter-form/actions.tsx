@@ -16,6 +16,7 @@ export type AddSubmissionType = {
 
 export async function addSubmission(comment: AddSubmissionType) {
   const { metadata: metadata } = comment;
+  console.log("Adding submission:", comment);
   const hubspotResponse = await postNewsletterSubmission({
     email: metadata.email,
   });
@@ -83,12 +84,17 @@ async function sendEmail({
 async function postNewsletterSubmission({ email }: { email: string }) {
   const hubspotUrl = process.env.HUBSPOT_FORM_ACTION_URL;
   if (!hubspotUrl) {
-    throw new Error("HUBSPOT_FORM_ACTION_URL environment variable is not defined.");
+    throw new Error(
+      "HUBSPOT_FORM_ACTION_URL environment variable is not defined."
+    );
   }
   const response = await fetch(hubspotUrl, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "POST",
+      "Access-Control-Allow-Headers": "Content-Type",
     },
     body: JSON.stringify({
       fields: [
