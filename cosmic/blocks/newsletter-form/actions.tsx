@@ -8,7 +8,7 @@ const CONTACT_EMAIL =
 const resend = new Resend(RESEND_KEY);
 
 export type AddSubmissionType = {
-  type: "form-submissions";
+  type: "newsletter-submissions";
   title: string;
   metadata: {
     email: string;

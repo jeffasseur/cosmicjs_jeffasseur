@@ -22,12 +22,12 @@ export function NewsletterForm({ className }: { className?: string }) {
     setSubmitting(true)
 
     const newSubmission: AddSubmissionType = {
-      type: "form-submissions",
+      type: "newsletter-submissions",
       title: "Newsletter Subscription",
       metadata: {
         email,
       },
-    }
+    };
     try {
       const res = await addSubmission(newSubmission)
       if (!res.object) {
