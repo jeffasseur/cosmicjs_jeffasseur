@@ -23,7 +23,6 @@ export function NewsletterForm({ className }: { className?: string }) {
 
     const newSubmission: AddSubmissionType = {
       type: "newsletter-submissions",
-      title: "Newsletter Subscription",
       metadata: {
         email,
       },

@@ -9,14 +9,13 @@ const resend = new Resend(RESEND_KEY);
 
 export type AddSubmissionType = {
   type: "newsletter-submissions";
-  title: string;
   metadata: {
     email: string;
   };
 };
 
 export async function addSubmission(comment: AddSubmissionType) {
-  const { metadata: metadata, title } = comment;
+  const { metadata: metadata } = comment;
   const hubspotResponse = await postNewsletterSubmission({
     email: metadata.email,
   });
@@ -26,9 +25,8 @@ export async function addSubmission(comment: AddSubmissionType) {
   const data = await cosmic.objects.insertOne(comment);
   const submitterSubject = `Form submission received`;
   const submitterHTML = `
-    Hello ${title},<br/><br/>
+    Hello,<br/><br/>
     Thank you for signing up for the newsletter.<br/><br/>
-    Name: ${title}<br/>
     Email: ${metadata.email}<br/>
     <br/>
     We will keep you updated with the latest news and updates.<br/><br/>
@@ -46,7 +44,6 @@ export async function addSubmission(comment: AddSubmissionType) {
   const adminSubject = `New newsletter subscription`;
   const adminHTML = `
     You have a new subscriber to the newsletter.<br/><br/>
-    Name: ${title}<br/>
     Email: ${metadata.email}<br/>
   `;
   // Send email to admin
