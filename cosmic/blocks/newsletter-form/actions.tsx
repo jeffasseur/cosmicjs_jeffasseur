@@ -16,14 +16,13 @@ export type AddSubmissionType = {
 
 export async function addSubmission(comment: AddSubmissionType) {
   const { metadata: metadata } = comment;
-  console.log("Adding submission:", comment);
+  const data = await cosmic.objects.insertOne(comment);
   const hubspotResponse = await postNewsletterSubmission({
     email: metadata.email,
   });
   if (!hubspotResponse.ok) {
     throw new Error("Failed to submit to HubSpot");
   }
-  const data = await cosmic.objects.insertOne(comment);
   const submitterSubject = `Form submission received`;
   const submitterHTML = `
     Hello,<br/><br/>
