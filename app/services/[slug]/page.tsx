@@ -5,6 +5,10 @@ import { ProjectIdToCard } from "@/components/ProjectIdToCard";
 import CtaSection from "@/components/CtaSection";
 import { ServiceHighlightedProjectsInterface } from "@/interfaces";
 import PricingComponent from "@/components/Pricing/PricingComponent";
+import {
+  ProductCard,
+  ProductType,
+} from "@/cosmic/blocks/ecommerce/ProductCard";
 
 export const revalidate = 60;
 
@@ -76,6 +80,17 @@ export default async function SingleProductPage(props: {
       slug: params.slug,
     })
     .props("title,metadata")
+    .depth(1);
+
+  const { objects: otherServices } = await cosmic.objects
+    .find({
+      type: "services",
+      status: "published",
+      slug: {
+        $ne: params.slug, // Exclude the current service
+      },
+    })
+    .props("id,slug,title,metadata")
     .depth(1);
 
   return (
@@ -279,6 +294,19 @@ export default async function SingleProductPage(props: {
           </section>
         )
       }
+
+      <section>
+        <div className="container">
+          <h2 className="max-w-3xl mb-12 text-center mx-auto">
+            Other services we offer
+          </h2>
+          <div className="mt-6 w-full grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-3 xl:gap-x-8">
+            {otherServices.map((service: ProductType) => (
+              <ProductCard key={service.id} product={service} />
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 }
