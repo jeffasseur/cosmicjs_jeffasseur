@@ -1,11 +1,17 @@
 import { cosmic } from "@/cosmic/client";
 import { ProjectType } from "@/interfaces";
 import styles from "./styles.module.css"; // Assuming you have a CSS module for styles
+import { metadata } from "@/app/layout";
 
 const PortfolioOne = async () => {
   const { objects: projects } = await cosmic.objects
     .find({
       type: "projects",
+      $and: [
+        {
+          "metadata.service": "674f6fd98e61b052b6d43777",
+        },
+      ],
     })
     .props("id,slug,title,metadata")
     .depth(1)
@@ -38,9 +44,9 @@ const PortfolioOne = async () => {
                       <div className={`${styles.cardTerms}`}>
                         <a
                           className={`${styles.terms} ${styles.badge} ${styles.outlined}`}
-                          href="/portfolio"
+                          href={`/services/${item.metadata.service.slug}`}
                         >
-                          {item.metadata.category.title}
+                          {item.metadata.service.title}
                         </a>
                         <a
                           className={`${styles.terms} ${styles.badge} ${styles.outlined}`}
