@@ -44,7 +44,7 @@ const LogoSlider = () => {
         <ul className="!list-none flex items-center gap-[50px]">
           {logos.map((logo, index) => (
             <li key={index} className={styles.item}>
-              <a href="/about" className={`${styles.marqueeItem} rounded`}>
+              <div className={`${styles.marqueeItem} rounded`}>
                 <div className={styles.marqueeContent}>
                   <Image
                     key={index}
@@ -54,7 +54,7 @@ const LogoSlider = () => {
                     className="rounded-none max-w-[70%] mx-auto object-contain"
                   />
                 </div>
-              </a>
+              </div>
             </li>
           ))}
           {/* Duplicate items for seamless marquee effect */}

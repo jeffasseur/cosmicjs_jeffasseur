@@ -29,6 +29,7 @@ export type ProjectType = {
     };
     service: {
       title?: string;
+      slug?: string;
     };
   };
 };
