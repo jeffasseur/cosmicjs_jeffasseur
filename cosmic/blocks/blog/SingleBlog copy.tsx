@@ -7,7 +7,7 @@ import { notFound } from "next/navigation";
 import { Comments } from "@/cosmic/blocks/comments/Comments";
 import { getFormattedDate } from "@/cosmic/utils";
 
-export async function SingleBlog({
+export async function SingleBlogCopy({
   query,
   className,
   status,
@@ -27,8 +27,9 @@ export async function SingleBlog({
 
     return (
       <div className={className}>
-        <section className="m-auto grid items-center pb-8 md:container">
+        <section className="m-auto items-center pb-8 md:container">
           <div className="relative m-auto flex max-w-7xl flex-col items-start gap-2">
+            {/* Back to blog link for smaller screens */}
             <div className="lg:absolute lg:-left-[170px] lg:top-2">
               <Link
                 href="/blog"
@@ -37,9 +38,37 @@ export async function SingleBlog({
                 <ArrowLeftIcon className="mr-2 mt-1 h-4 w-4" /> Back to blog
               </Link>
             </div>
-            <h1 className="mb-4 text-3xl font-bold leading-tight tracking-tighter text-primary dark:text-white md:text-4xl">
-              {blog.title}
-            </h1>
+
+            {/* Top section with title and short description */}
+            <div className="py-4 flex flex-col lg:flex-row lg:items-end lg:justify-between lg:gap-12 lg:mb-6 lg:py-10 w-full">
+              <div className="flex flex-col gap-2 lg:gap-6 lg:w-3/5">
+                {/* Left section: date, title, buttons */}
+                <span className="font-extrabold text-light-50 text-sm">
+                  {date}
+                </span>
+                <h1 className="text-3xl font-bold leading-snug tracking-tighter text-primary w-full dark:text-white sm:text-4xl md:text-5xl dark:font-semibold dark:tracking-tight">
+                  {blog.title}
+                </h1>
+                <div className="flex flex-wrap gap-2">
+                  {blog.metadata.categories.map((category: any) => {
+                    return (
+                      <span
+                        className="py-2 px-4 border border-light-50 rounded-full mr-2 text-xs font-semibold uppercase tracking-wide text-light-50 dark:text-light-70 dark:border-light-70"
+                        key={category.slug}
+                      >
+                        {category.title}
+                      </span>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div className="lg:w-2/5">
+                <p className="line-clamp-4 w-full pt-3 lg:text-lg text-dark-80 dark:text-light-70">
+                  {blog.metadata.content.slice(0, 250)}...
+                </p>
+              </div>
+            </div>
             <div className="mb-10 w-full overflow-hidden rounded-xl">
               <img
                 src={`${blog.metadata.image?.imgix_url}?w=2000&auto=format,compression`}
@@ -47,43 +76,23 @@ export async function SingleBlog({
                 className="aspect-video w-full object-cover"
               />
             </div>
+            <Markdown className="mx-auto space-y-4 text-black dark:text-light-80 max-w-3xl mb-12">
+              {blog.metadata.content}
+            </Markdown>
             <div className="mb-8 md:flex mx-auto max-w-3xl w-full items-center justify-between">
-              {/* <div className="md:flex">
+              <div className="flex items-center">
                 <img
-                  className="mr-2 h-[60px] w-[60px] rounded-full object-cover"
+                  className="mr-3 h-[48px] w-[48px] rounded-full object-cover"
                   src={`${blog.metadata.author.metadata?.image?.imgix_url}?w=120&auto=format,compression`}
                   alt={blog.metadata.author.title}
                 />
-                <div className="mb-4 flex flex-col">
-                  <span className="font-semibold text-zinc-800 dark:text-zinc-200">
+                <div className="">
+                  <span className="font-semibold text-dark-80 dark:text-light-80">
                     {blog.metadata.author.title}
-                  </span>
-                  <span className="text-zinc-500 dark:text-zinc-400">
-                    {date}
                   </span>
                 </div>
               </div>
-              <div className="">
-                {blog.metadata.categories.map((category: any) => {
-                  const categoryBackgroundColor = `${category.metadata.color}22`;
-                  return (
-                    <span
-                      className="mb-1 mr-1 rounded-xl px-3 py-1 text-black/70 dark:text-white/70"
-                      style={{
-                        backgroundColor: categoryBackgroundColor,
-                        border: `1px solid ${category.metadata.color}`,
-                      }}
-                      key={category.slug}
-                    >
-                      {category.title}
-                    </span>
-                  );
-                })}
-              </div> */}
             </div>
-            <Markdown className="mx-auto space-y-4 text-black dark:text-light-80 max-w-3xl">
-              {blog.metadata.content}
-            </Markdown>
             <div className="my-10">
               <Link
                 href="/blog"
