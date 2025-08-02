@@ -1,5 +1,6 @@
 // app/blog/[slug]/page.tsx
 import { SingleBlog } from "@/cosmic/blocks/blog/SingleBlog";
+import { SingleBlogCopy } from "@/cosmic/blocks/blog/SingleBlog copy";
 import { cosmic } from "@/cosmic/client";
 
 export const revalidate = 60;
@@ -13,16 +14,10 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function BlogPost(
-  props: {
-    params: Promise<{ slug: string }>;
-    searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
-  }
-) {
+export default async function BlogPost(props: {
+  params: Promise<{ slug: string }>;
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
   const params = await props.params;
-  return (
-    <main className="p-4">
-      <SingleBlog query={{ slug: params.slug, type: "blog-posts" }} />
-    </main>
-  );
+  return <SingleBlogCopy query={{ slug: params.slug, type: "blog-posts" }} />;
 }
