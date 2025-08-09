@@ -29,7 +29,7 @@ export default async function Header() {
             className="h-10 w-auto hidden dark:block"
           />
         </Link>
-        <div className="flex items-center flex-wrap">
+        <div className="flex items-center flex-wrap lg:justify-center">
           <NavMenu
             query={{
               type: "navigation-menus",
