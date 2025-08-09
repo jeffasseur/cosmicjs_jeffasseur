@@ -32,11 +32,7 @@ const PortfolioOne = async () => {
                   className={`${styles.cardThumb}`}
                   href={`/work/${item.slug}`}
                 >
-                  <img
-                    src={item.metadata.image.imgix_url}
-                    alt={item.title}
-                    className={`min-h-[550px] object-cover transition-all duration-500`}
-                  />
+                  <img src={item.metadata.image.imgix_url} alt={item.title} />
                 </a>
                 <div className={`${styles.cardOverlay}`}>
                   <div className={`${styles.heading}`}>
