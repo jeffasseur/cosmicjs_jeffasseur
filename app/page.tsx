@@ -6,7 +6,7 @@ import { cosmic } from "@/cosmic/client";
 import { ProjectCard } from "@/components/project-card";
 import LogoSlider from "@/components/brilio/logoSlider/LogoSlider";
 import Link from "next/link";
-import { ContentInterface, ProjectType } from "@/interfaces";
+import { ContentInterface } from "@/interfaces";
 import ServiceRow from "@/components/ServiceRow";
 import Head from "next/head";
 import PortfolioSection from "@/components/brilio/works/PortfolioSection";
@@ -99,7 +99,7 @@ export default async function HomePage() {
       <PortfolioSection />
 
       <section id="services">
-        <div className="container mx-auto">
+        <div className="lg:container mx-auto">
           <h2 className="mb-12 text-center">Services</h2>
           <div className="flex flex-col gap-8 mb-12">
             {services.map((service: ContentInterface, index: number) => {
@@ -120,8 +120,8 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="mt-12 pb-8 m-auto px-4" id="faq">
-        <div className="container mx-auto">
+      <section className="mt-12 pb-8 m-auto" id="faq">
+        <div className="">
           <h2 className="mb-8 text-dark-90 dark:text-light-90 text-center">
             Frequently Asked Questions
           </h2>

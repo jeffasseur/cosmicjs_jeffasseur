@@ -8,13 +8,28 @@
   .marquee {
     padding: 90px 10px;
   }
+                                                                                                                                .marquee ul {
+                                                                                                                                  animation-duration: 45s !important;
+                                                                                                                                }
+                                                                
+                                                                                                                                .marquee ul .item {
+                                                                                                                                  flex: none;
+                                                                                                                                  width: 90px;
+                                                                                                                                  height: 90px;
+                                                                                                                                }
 }
 .marquee ul {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
   gap: 50px;
-  animation: marquee 20s infinite linear;
+  width: max-content;
+    animation: marquee;
+    animation-play-state: running;
+    animation-timing-function: linear;
+    animation-direction: normal;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
 }
 .marquee ul li {
   list-style-type: none;
@@ -48,7 +63,7 @@
       transform: translateX(0%);
   }
 to {
-  transform: translateX(-50%);
+  transform: translateX(-100%);
   }
 }
 @media (min-width: 768px) {

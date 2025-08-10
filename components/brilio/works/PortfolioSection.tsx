@@ -1,6 +1,7 @@
 import React from "react";
 import PortfolioOne from "./PortfolioOne";
 import styles from "./styles.module.css";
+import Link from "next/link";
 
 const PortfolioSection = ({
   title = "Selected Works",
@@ -15,18 +16,32 @@ const PortfolioSection = ({
             <div
               className={`${styles.intro} flex justify-between items-center relative mb-10`}
             >
-              <h3 className={`${styles.title}`}>{title}</h3>
-              <a
-                className={`${styles.btn} btn btn-outline content-btn`}
+              <h2 className={`${styles.title}`}>{title}</h2>
+              <Link
+                className={`${styles.btn} btn btn-outline content-btn hidden lg:block`}
                 href={viewAllLink}
               >
                 View all projects
-              </a>
+              </Link>
             </div>
           </div>
         </div>
         {/* PortfolioOne Component */}
-        <PortfolioOne />
+        <PortfolioOne
+          query={{
+            type: "projects",
+            $and: [{ "metadata.service": "674f6fd98e61b052b6d43777" }],
+          }}
+          limit={4}
+        />
+        <div className="flex justify-center mt-8 lg:hidden">
+          <Link
+            className={`${styles.btn} btn btn-outline content-btn`}
+            href={viewAllLink}
+          >
+            View all projects
+          </Link>
+        </div>
       </div>
     </section>
   );

@@ -96,7 +96,7 @@ export default async function SingleProductPage(props: {
   return (
     <>
       <section className="mt-12">
-        <div className="container mx-auto">
+        <div className="lg:container mx-auto">
           <nav aria-label="Breadcrumb" className="mb-6">
             <ol role="list" className="flex space-x-1">
               <li key={0}>
@@ -179,7 +179,7 @@ export default async function SingleProductPage(props: {
       {product.metadata?.sections.length > 0 && (
         <section>
           {product.metadata.sections.map((section: any, index: number) => (
-            <div key={index} className="container mb-12">
+            <div key={index} className="lg:container mb-12">
               <div className="">
                 <div className="w-full lg:relative lg:aspect-video overflow-hidden">
                   <div className="lg:absolute lg:left-0 lg:bottom-0 pb-8 pt-4 pl-2 lg:pl-8 pr-4 lg:pr-6 bg-white dark:bg-dark-80 rounded-xl">
@@ -209,7 +209,7 @@ export default async function SingleProductPage(props: {
       )}
       {product.metadata.highlighted_projects.length > 0 && (
         <section>
-          <div className="container mb-12">
+          <div className="lg:container mb-12">
             <div className="flex justify-between items-center mb-12">
               <h2 className="max-w-3xl">Some of the highlight projects</h2>
               <Link
@@ -234,7 +234,7 @@ export default async function SingleProductPage(props: {
       )}
 
       <section>
-        <div className="container mb-12">
+        <div className="lg:container mb-12">
           <h2 className="max-w-3xl mb-12 text-center mx-auto">How we work</h2>
           <div className="pt-20">
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-20">
@@ -279,7 +279,7 @@ export default async function SingleProductPage(props: {
       </section>
 
       <section>
-        <div className="container">
+        <div className="lg:container">
           <CtaSection />
         </div>
       </section>
@@ -288,7 +288,7 @@ export default async function SingleProductPage(props: {
         //only show on webflow-website
         params.slug === "webflow-website" && (
           <section id="webflow-pricing">
-            <div className="container">
+            <div className="lg:container">
               <PricingComponent />
             </div>
           </section>
@@ -296,7 +296,7 @@ export default async function SingleProductPage(props: {
       }
 
       <section>
-        <div className="container">
+        <div className="lg:container">
           <h2 className="max-w-3xl mb-12 text-center mx-auto">
             Other services we offer
           </h2>

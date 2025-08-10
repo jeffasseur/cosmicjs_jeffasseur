@@ -3,19 +3,17 @@ import { ProjectType } from "@/interfaces";
 import styles from "./styles.module.css"; // Assuming you have a CSS module for styles
 import { metadata } from "@/app/layout";
 
-const PortfolioOne = async () => {
+type QueryProps = {
+  query: any;
+  limit: number;
+};
+
+const PortfolioOne = async ({ query, limit }: QueryProps) => {
   const { objects: projects } = await cosmic.objects
-    .find({
-      type: "projects",
-      $and: [
-        {
-          "metadata.service": "674f6fd98e61b052b6d43777",
-        },
-      ],
-    })
+    .find(query)
     .props("id,slug,title,metadata")
     .depth(1)
-    .limit(4);
+    .limit(limit);
 
   return (
     <div className={`mx-0 flex flex-wrap mt-0`}>
