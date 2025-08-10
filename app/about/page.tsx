@@ -29,7 +29,7 @@ export default async function AboutPage() {
       <section className="m-auto items-center pb-8 lg:container">
         <div className="relative m-auto flex flex-col items-start gap-2">
           {/* Top section with title and short description */}
-          <div className="py-4 flex flex-col lg:flex-row lg:items-end lg:justify-between lg:gap-12 lg:mb-6 lg:py-10 w-full">
+          <div className="py-4 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-12 lg:mb-6 lg:py-10 w-full">
             <div className="flex flex-col gap-2 lg:gap-6">
               {/* Left section: date, title, buttons */}
               <span className="text-primary">About me</span>
