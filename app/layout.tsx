@@ -12,6 +12,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import CookieConsent from "@/components/CookieConsent";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { ReactLenis, useLenis } from "lenis/react";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   display: "swap",
@@ -53,6 +54,7 @@ export default function RootLayout({
               themes={["light", "dark"]}
             >
               {/* <CartProvider> */}
+              <ReactLenis root />
               <div>
                 <Header />
                 <main>{children}</main>

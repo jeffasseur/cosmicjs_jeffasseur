@@ -2,6 +2,7 @@
   padding: 100px 10px;
   mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%);
   overflow: hidden;
+  width: 100%;
 }
 @media (max-width: 575px) {
   .marquee {
@@ -10,9 +11,10 @@
 }
 .marquee ul {
   display: flex;
+  flex-wrap: nowrap;
   align-items: center;
   gap: 50px;
-  animation: marquee 50s infinite linear;
+  animation: marquee 20s infinite linear;
 }
 .marquee ul li {
   list-style-type: none;
@@ -42,11 +44,11 @@
 }
 
 @keyframes marquee {
-  0% {
-    transform: translateX(0px);
+  from {
+      transform: translateX(0%);
   }
-  100% {
-    transform: translateX(-4668px);
+to {
+  transform: translateX(-50%);
   }
 }
 @media (min-width: 768px) {

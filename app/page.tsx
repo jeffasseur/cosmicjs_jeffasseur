@@ -32,6 +32,50 @@ export default async function HomePage() {
   return (
     <>
       <Head>
+        <title>{page.title}</title>
+        <meta
+          name="description"
+          content={
+            page.metadata?.description || "Web(flow) Developer & Photographer"
+          }
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href="https://www.jeffasseur.be" />
+        <meta property="og:title" content={page.title} />
+        <meta
+          property="og:description"
+          content={
+            page.metadata?.description || "Web(flow) Developer & Photographer"
+          }
+        />
+        <meta property="og:url" content="https://www.jeffasseur.be" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://res.cloudinary.com/dfi4sldbm/image/upload/v1744035563/JEF-F-avatar-small_fcltdi.webp"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={page.title} />
+        <meta
+          name="twitter:description"
+          content={
+            page.metadata?.description || "Web(flow) Developer & Photographer"
+          }
+        />
+        <meta
+          name="twitter:image"
+          content="https://res.cloudinary.com/dfi4sldbm/image/upload/v1744035563/JEF-F-avatar-small_fcltdi.webp"
+        />
+        <meta name="theme-color" content="#ffffff" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
