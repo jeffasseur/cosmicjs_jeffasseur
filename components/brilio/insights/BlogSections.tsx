@@ -4,7 +4,7 @@ import "./blog.css";
 
 const BlogSection = ({ title = "Insights", viewAllLink = "/blog" }) => {
 return (
-  <section className="blog">
+  <section className="blog lg:container">
     <div className="">
       <div className="row">
         <div className="col-12">
