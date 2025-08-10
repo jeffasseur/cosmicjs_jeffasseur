@@ -9,7 +9,7 @@ const Hero_text_buttons_benefits = ({ page }: { page: any }) => {
           <p className="max-w-3xl">{page.metadata.subheadline}</p>
           <div className="flex flex-col gap-8 xl:flex-row">
             <Link
-              href="/services/webflow-website"
+              href="/services/website-webshop"
               className="bg-primary px-8 py-4 text-white font-medium text-lg rounded-full hover:bg-light-50 transition-all"
             >
               Professional Website
