@@ -12,20 +12,19 @@ const Hero_text_buttons_benefits = ({ page }: { page: any }) => {
               href="/services/webflow-website"
               className="bg-primary px-8 py-4 text-white font-medium text-lg rounded-full hover:bg-light-50 transition-all"
             >
-              New Website
+              Professional Website
             </Link>
             <Link
               href="/services/photo-video"
               className="border border-primary px-8 py-4 text-primary font-medium text-lg rounded-full hover:bg-primary hover:text-white transition-all"
             >
-              Photo & Video
+              Content Creation
             </Link>
           </div>
-          <div className="flex gap-8 *:text-xs *:uppercase">
-            <Link href="/services/webflow-website">Webflow</Link>
-            <Link href="/services/software-web-apps">Wordpress</Link>
-            <Link href="/services/software-web-apps">Javascript</Link>
-            <Link href="/services/software-web-apps">Custom build</Link>
+          <div className="flex flex-col gap-4 *:text-xs *:uppercase *:p-1 *:tracking-widest lg:flex-row lg:gap-8">
+            <Link href="/services/seo-sea">More visitors</Link>
+            <Link href="/services/seo-sea">More conversions</Link>
+            <Link href="/services/seo-sea">Better ranking on Google</Link>
           </div>
         </div>
       </div>

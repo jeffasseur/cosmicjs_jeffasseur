@@ -2,6 +2,7 @@
 import { ProjectCard } from "@/components/project-card";
 import { ProjectType } from "@/interfaces";
 import { cosmic } from "@/cosmic/client";
+import PortfolioOne from "@/components/brilio/works/PortfolioOne";
 
 export default async function WorkPage() {
   const { object: page } = await cosmic.objects
@@ -32,11 +33,12 @@ export default async function WorkPage() {
               className="text-xl text-zinc-700 dark:text-zinc-300"
             />
           </div>
-          <div className="mt-6 w-full grid grid-cols-1 gap-x-6 gap-y-10 md:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+          <PortfolioOne query={{ type: "projects" }} limit={1000} />
+          {/* <div className="mt-6 w-full grid grid-cols-1 gap-x-6 gap-y-10 md:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
             {projects.map((project: ProjectType) => {
               return <ProjectCard key={project.id} project={project} />;
             })}
-          </div>
+          </div> */}
         </div>
       </section>
     </main>

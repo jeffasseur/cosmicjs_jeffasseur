@@ -13,6 +13,7 @@ import CookieConsent from "@/components/CookieConsent";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ReactLenis, useLenis } from "lenis/react";
+import Head from "next/head";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   display: "swap",
@@ -41,6 +42,37 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <Head>
+        <title>{JSON.stringify(metadata?.title)}</title>
+        <meta
+          name="description"
+          content={JSON.stringify(metadata?.description)}
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href="https://jeffasseur.be" />
+        <meta property="og:title" content={JSON.stringify(metadata?.title)} />
+        <meta
+          property="og:description"
+          content={JSON.stringify(metadata?.description)}
+        />
+        <meta property="og:url" content="https://jeffasseur.be" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://res.cloudinary.com/dfi4sldbm/image/upload/v1744035563/JEF-F-avatar-small_fcltdi.webp"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={JSON.stringify(metadata?.title)} />
+        <meta
+          name="twitter:description"
+          content={JSON.stringify(metadata?.description)}
+        />
+        <meta
+          name="twitter:image"
+          content="https://res.cloudinary.com/dfi4sldbm/image/upload/v1744035563/JEF-F-avatar-small_fcltdi.webp"
+        />
+      </Head>
       <body
         className={`${plusJakartaSans.className} font-sans md:p-0 h-dvh w-full bg-white dark:bg-dark-90 text-dark-90 dark:text-light-90`}
       >
