@@ -28,7 +28,7 @@
     animation-play-state: running;
     animation-timing-function: linear;
     animation-direction: normal;
-    animation-duration: 20s;
+    animation-duration: 40s;
     animation-iteration-count: infinite;
 }
 .marquee ul li {
