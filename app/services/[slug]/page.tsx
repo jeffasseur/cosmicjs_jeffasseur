@@ -9,6 +9,7 @@ import {
   ProductCard,
   ProductType,
 } from "@/cosmic/blocks/ecommerce/ProductCard";
+import styles from "./../../../components/brilio/works/styles.module.css"
 
 export const revalidate = 60;
 
@@ -219,7 +220,9 @@ export default async function SingleProductPage(props: {
                 View all projects
               </Link>
             </div>
-            <div className="mt-6 w-full grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-3 xl:gap-x-8">
+            <div
+              className={`${styles.stackWrapper} flex-shrink-0 w-full max-w-full mt-0 lg:px-20`}
+            >
               {product.metadata.highlighted_projects.map(
                 (
                   object: ServiceHighlightedProjectsInterface,
