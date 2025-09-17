@@ -44,7 +44,7 @@ export default function WorkFilters(props0: {
             <label
               key={s.slug || "all"}
               className={
-                `cursor-pointer select-none inline-flex items-center rounded-full border px-4 py-2 text-sm transition-colors ` +
+                `cursor-pointer select-none inline-flex items-center rounded-full border px-4 py-2 text-sm font-medium transition-colors ` +
                 (isSelected
                   ? "border-primary bg-primary text-white dark:text-white"
                   : "border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 hover:border-zinc-400 dark:hover:border-zinc-600")
