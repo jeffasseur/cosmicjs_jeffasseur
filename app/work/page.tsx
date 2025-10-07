@@ -1,8 +1,15 @@
 // app/page.tsx
 import { cosmic } from "@/cosmic/client";
-import PortfolioOne from "@/components/brilio/works/PortfolioOne";
+import PortfolioOverview from "@/components/brilio/works/PortfolioOverview";
+import CtaSection from "@/components/CtaSection";
+import WorkFilters from "../../components/brilio/works/WorkFilters";
 
-export default async function WorkPage() {
+export default async function WorkPage(props0: {
+  searchParams: Promise<{ service?: string }>;
+}) {
+  const searchParams = await props0.searchParams;
+  const selectedService = searchParams?.service;
+
   const { object: page } = await cosmic.objects
     .findOne({
       type: "pages",
@@ -11,12 +18,27 @@ export default async function WorkPage() {
     .props("slug,title,metadata")
     .depth(1);
 
-  const { objects: projects } = await cosmic.objects
-    .find({
-      type: "projects",
-    })
-    .props("id,slug,title,metadata")
-    .depth(1);
+  const { objects: services } = await cosmic.objects
+    .find({ type: "services" })
+    .props("slug,title")
+    .depth(1)
+    .limit(100);
+
+  let query: any = { type: "projects", status: "published" };
+  if (selectedService) {
+    // get single service based on slug
+    const { object: service } = await cosmic.objects
+      .findOne({ type: "services", slug: selectedService })
+      .props("slug,title")
+      .depth(1);
+    // Filter op gerelateerde service slug
+    query = {
+      type: 'projects', "$and": [
+        { status: "published" },
+        { "metadata.service": service.id }
+      ]
+    }
+  }
 
   return (
     <main className="p-4">
@@ -31,7 +53,16 @@ export default async function WorkPage() {
               className="text-xl text-zinc-700 dark:text-zinc-300"
             />
           </div>
-          <PortfolioOne query={{ type: "projects" }} limit={1000} />
+
+          <WorkFilters services={services} selectedService={selectedService} />
+
+          <PortfolioOverview query={query} limit={1000} />
+        </div>
+      </section>
+
+      <section className="pb-8 m-auto">
+        <div className="container">
+          <CtaSection />
         </div>
       </section>
     </main>
