@@ -90,11 +90,24 @@ export default async function SingleProjectsPage(props0: {
           </div>
         </div>
         <div className="mt-8 container">
-          <img
-            src={`${project.metadata.image?.imgix_url}?w=2000&auto=format,compression`}
-            alt={project.title}
-            className="aspect-square lg:aspect-video w-full mx-auto object-cover border border-zinc-100 dark:border-zinc-800 rounded-lg"
-          />
+          {project.metadata.image && !project.metadata.hero_video && (
+            <img
+              src={`${project.metadata.image?.imgix_url}?w=2000&auto=format,compression`}
+              alt={project.title}
+              className="aspect-square lg:aspect-video w-full mx-auto object-cover border border-zinc-100 dark:border-zinc-800 rounded-lg"
+            />
+          )}
+          {project.metadata.hero_video && (
+            <div className="w-full aspect-video mt-8">
+              <video
+                className="w-full h-full object-cover rounded-lg overflow-hidden"
+                src={project.metadata.hero_video.imgix_url}
+                autoPlay
+                loop
+                muted
+              />
+            </div>
+          )}
         </div>
       </section>
 

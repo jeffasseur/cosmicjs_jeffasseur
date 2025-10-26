@@ -16,7 +16,7 @@ export default async function Header() {
 
   return (
     <nav className="relative w-full h-32">
-      <div className="w-full rounded-none bg-[rgba(255,255,255,0.2)] filter backdrop-blur-md flex items-center justify-between pt-8 px-8 py-4 gap-16 lg:grid lg:grid-cols-3 lg:pt-4 fixed left-1/2 -translate-x-1/2 z-[9999] dark:bg-light-50">
+      <div className="w-full rounded-none bg-[rgba(255,255,255,0.2)] filter backdrop-blur-md flex items-center justify-between pt-8 px-8 py-4 gap-16 lg:grid lg:grid-cols-3 lg:pt-4 fixed left-1/2 -translate-x-1/2 z-[9999] dark:bg-[rgba(0,0,0,0.1)">
         <Link href="/" className="flex-shrink-0 *:rounded-none">
           <img
             src={`${settings.metadata.logo.imgix_url}?w=500&auto=format,compression`}
