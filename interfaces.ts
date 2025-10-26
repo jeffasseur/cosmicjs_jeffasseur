@@ -31,6 +31,10 @@ export type ProjectType = {
       title?: string;
       slug?: string;
     };
+    hero_video?: {
+      url: string;
+      imgix_url: string;
+    };
   };
 };
 

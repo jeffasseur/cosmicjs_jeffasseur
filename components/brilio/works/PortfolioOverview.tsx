@@ -30,7 +30,18 @@ const PortfolioOverview = async ({ query, limit }: QueryProps) => {
                   className={`${styles.cardThumb}`}
                   href={`/work/${item.slug}`}
                 >
-                  <img src={item.metadata.image.imgix_url} alt={item.title} />
+                  {item.metadata.image && !item.metadata.hero_video && (
+                    <img src={item.metadata.image.imgix_url} alt={item.title} />
+                  )}
+                  {item.metadata.hero_video && (
+                    <video
+                      className="w-full h-full aspect-auto object-cover"
+                      src={item.metadata.hero_video.imgix_url}
+                      autoPlay
+                      loop
+                      muted
+                    />
+                  )}
                 </a>
                 <div className={`${styles.cardOverlay}`}>
                   <div className={`${styles.heading}`}>
@@ -45,7 +56,9 @@ const PortfolioOverview = async ({ query, limit }: QueryProps) => {
                         >
                           {item.metadata.service.title}
                         </a>
-                        <span className={`${styles.terms} ${styles.badge} ${styles.outlined}`}>
+                        <span
+                          className={`${styles.terms} ${styles.badge} ${styles.outlined}`}
+                        >
                           {item.metadata.client.title}
                         </span>
                       </div>

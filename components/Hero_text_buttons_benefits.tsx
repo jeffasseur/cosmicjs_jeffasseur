@@ -10,13 +10,13 @@ const Hero_text_buttons_benefits = ({ page }: { page: any }) => {
           <div className="flex flex-col gap-8 xl:flex-row">
             <Link
               href="/services/website-webshop"
-              className="bg-primary px-8 py-4 text-white font-medium text-lg rounded-full hover:bg-light-50 transition-all"
+              className="btn !bg-primary px-8 py-4 text-white font-medium text-lg !rounded-full !hover:bg-light-50 transition-all"
             >
               Professional Website
             </Link>
             <Link
               href="/services/photo-video"
-              className="border border-primary px-8 py-4 text-primary font-medium text-lg rounded-full hover:bg-primary hover:text-white transition-all"
+              className="btn border !border-primary px-8 py-4 !text-primary font-medium text-lg !rounded-full !hover:bg-primary !hover:text-white transition-all !dark:hover:border-primary !dark:border-white !dark:text-white"
             >
               Content Creation
             </Link>
