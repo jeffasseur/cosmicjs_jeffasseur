@@ -27,15 +27,19 @@ const PortfolioOverview = async ({ query, limit }: QueryProps) => {
             >
               <div className={`${styles.imageHolder}`}>
                 <a
-                  className={`${styles.cardThumb}`}
+                  className={`${styles.cardThumb} bg-light-90 dark:bg-dark-80`}
                   href={`/work/${item.slug}`}
                 >
                   {item.metadata.image && !item.metadata.hero_video && (
-                    <img src={item.metadata.image.imgix_url} alt={item.title} />
+                    <img
+                      src={item.metadata.image.imgix_url}
+                      alt={item.title}
+                      className="aspect-square"
+                    />
                   )}
                   {item.metadata.hero_video && (
                     <video
-                      className="w-full h-full aspect-auto object-cover"
+                      className="object-contain aspect-square"
                       src={item.metadata.hero_video.imgix_url}
                       autoPlay
                       loop

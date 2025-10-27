@@ -107,16 +107,13 @@
   transform: none;
   opacity: 1;
 }
-
 .portfolioItem .cardThumb {
   display: block;
   overflow: hidden;
 }
 .portfolioItem .cardThumb img {
-  min-height: 550px;
   height: 100%;
     width: 100%;
-    aspect-ratio: 16 / 12 !important;
   object-fit: cover;
   transition: all cubic-bezier(.645, .045, .355, 1) 0.35s;
 }
