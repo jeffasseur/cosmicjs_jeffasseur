@@ -12,6 +12,7 @@ import Head from "next/head";
 import PortfolioSection from "@/components/brilio/works/PortfolioSection";
 import { ItemType } from "../cosmic/blocks/navigation-menu/NavMenu";
 import BlogSection from "@/components/brilio/insights/BlogSections";
+import PortfolioOverview from "@/components/brilio/works/PortfolioOverview";
 
 export default async function HomePage() {
   const { object: page } = await cosmic.objects
@@ -28,6 +29,12 @@ export default async function HomePage() {
     })
     .props("id,slug,title,metadata")
     .depth(1);
+
+  let projectsQuery: any = { type: "projects", status: "published" };
+  projectsQuery = {
+    type: "projects",
+    $and: [{ status: "published", "metadata.featured": true }],
+  };
 
   return (
     <>
@@ -96,7 +103,24 @@ export default async function HomePage() {
 
       <LogoSlider />
 
-      <PortfolioSection />
+      {/* <PortfolioSection /> */}
+      <section className="pb-8 m-auto">
+        <div className="m-auto">
+          {/* Intro */}
+          <div
+            className={`flex justify-between items-center relative mb-10 w-full`}
+          >
+            <h2>Featured projects</h2>
+            <Link
+              className={`btn btn-outline content-btn hidden lg:block`}
+              href="/work"
+            >
+              View all projects
+            </Link>
+          </div>
+          <PortfolioOverview query={projectsQuery} limit={4} />
+        </div>
+      </section>
 
       <section id="services">
         <div className="lg:container mx-auto">
