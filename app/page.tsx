@@ -118,7 +118,9 @@ export default async function HomePage() {
               View all projects
             </Link>
           </div>
-          <PortfolioOverview query={projectsQuery} limit={4} />
+          <div className="max-w-6xl mx-auto">
+            <PortfolioOverview query={projectsQuery} limit={4} />
+          </div>
         </div>
       </section>
 

@@ -7,10 +7,6 @@ const logos = [
     url: "https://res.cloudinary.com/dfi4sldbm/image/upload/v1727511801/logo%27s/thumbnail_occo_nglhwf.png",
   },
   {
-    title: "Jef Fasseur - GoForGrowth",
-    url: "https://res.cloudinary.com/dfi4sldbm/image/upload/v1727511680/logo%27s/GFG-logo_viuwnf.svg",
-  },
-  {
     title: "Jef Fasseur - Emdyn",
     url: "https://res.cloudinary.com/dfi4sldbm/image/upload/v1727511618/logo%27s/Logo_full_ql9flx.svg",
   },
@@ -33,7 +29,19 @@ const logos = [
   {
     title: "Thomas More University of Applied Sciences",
     url: "https://res.cloudinary.com/dfi4sldbm/image/upload/v1751397004/thomasmore_logo_oranje_ad0alj.svg",
-  }
+  },
+  {
+    title: "TCR Group",
+    url: "https://res.cloudinary.com/dfi4sldbm/image/upload/v1761646462/TCR-logo-colored_vckxbs.svg",
+  },
+  {
+    title: "WhyNot Gent",
+    url: "https://res.cloudinary.com/dfi4sldbm/image/upload/v1761646594/whynot-gent-logo_drwtay.png",
+  },
+  {
+    title: "iKAG - I know a guy",
+    url: "https://res.cloudinary.com/dfi4sldbm/image/upload/v1761646729/ikag-logo_vvbelw.svg",
+  },
 ];
 
 const LogoSlider = () => {

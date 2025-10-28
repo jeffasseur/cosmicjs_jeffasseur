@@ -36,8 +36,8 @@
 }
 .marquee ul .item {
   flex: none;
-  width: 230px;
-  height: 230px;
+  width: 10rem;
+    height: 10rem;
 }
 .marquee ul .item .marqueeItem {
   display: flex;
