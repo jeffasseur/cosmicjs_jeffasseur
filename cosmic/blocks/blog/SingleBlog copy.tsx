@@ -64,9 +64,9 @@ export async function SingleBlogCopy({
               </div>
 
               <div className="lg:w-2/5">
-                <p className="line-clamp-4 w-full pt-3 lg:text-lg text-dark-80 dark:text-light-70">
-                  {blog.metadata.content.slice(0, 250)}...
-                </p>
+                <Markdown className="line-clamp-4 w-full pt-3 lg:text-lg text-dark-80 dark:text-light-70">
+                  {blog.metadata.content.slice(0, 250)}
+                </Markdown>
               </div>
             </div>
             <div className="mb-10 w-full overflow-hidden rounded-xl">
