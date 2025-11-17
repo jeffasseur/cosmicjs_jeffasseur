@@ -177,6 +177,17 @@ label {
   width: calc((var(--main-grid-column-width) * var(--col-width)) + (var(--main-grid-gap) * (var(--col-width) - 1)));
 }
 
+.work-rich-text h2 {
+  @apply text-2xl lg:text-4xl mb-8 font-medium;
+}
+
+.work-rich-text h3 {
+  @apply text-xl lg:text-3xl mb-6 font-medium;
+}
+
+.work-rich-text code {
+  @apply bg-light-90 dark:bg-dark-20 px-1.5 py-0.5 rounded text-sm font-mono;
+}
 .of {
   @apply w-1 h-1;
 }

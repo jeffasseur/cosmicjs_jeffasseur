@@ -111,9 +111,11 @@ export default async function SingleProjectsPage(props0: {
       <section className="mt-0 md:container lg:my-8 grid items-center pb-8 mx-auto">
         {project.metadata.content && (
           <div className="relative m-auto flex max-w-3xl flex-col items-start gap-2 p-4 md:p-8 lg:p-10 bg-light-90 bg-opacity-50 rounded-xl dark:bg-dark-80 shadow-lg">
-            <h2 className="mb-6">About the project</h2>
+            <h2 className="mb-6 text-2xl lg:text-4xl font-medium">
+              About the project
+            </h2>
             <div
-              className="dark:text-light-70 space-y-4"
+              className="dark:text-light-70 space-y-4 work-rich-text"
               dangerouslySetInnerHTML={{ __html: project.metadata.content }}
             />
           </div>
