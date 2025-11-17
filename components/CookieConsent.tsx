@@ -33,18 +33,24 @@ const CookieConsent = () => {
 
   if (cookieConsentState === CookieConsentState.NotAnswered) {
     return (
-      <div className="fixed max-w-[30rem] bottom-2 right-2 p-4 bg-light-90 rounded-lg flex flex-col gap-4 z-[99999999] dark:bg-light-40">
-        <p>We use cookies to improve your experience. Do you accept?</p>
+      <div className="fixed max-w-[30rem] bottom-2 right-2 p-4 bg-light-90 rounded-lg flex flex-col gap-4 z-[99999999] dark:bg-light-50">
+        <h3 className="font-normal lg:text-3xl">We value your privacy</h3>
+        <p>
+          We use cookies to enhance your browsing experience, serve personalized
+          ads or content, and analyze our traffic. By clicking "Accept", you
+          consent to our use of cookies. You can manage your preferences or
+          learn more by visiting our Cookie Consent page.
+        </p>
         <div className="flex gap-4 items-center flex-wrap">
           <button
             onClick={() => handleConsent(CookieConsentState.Accepted)}
-            className="btn"
+            className="btn dark:!bg-primary dark:hover:!bg-dark-30"
           >
             Accept
           </button>
           <button
             onClick={() => handleConsent(CookieConsentState.Declined)}
-            className="btn-outline"
+            className="btn !bg-dark-10 hover:!bg-dark-20 dark:!bg-light-30 dark:hover:!bg-light-10"
           >
             Decline
           </button>
@@ -54,7 +60,7 @@ const CookieConsent = () => {
             className="flex gap-2 shrink-0"
           >
             🍪
-            <span className="underline text-light-50">Cookie Consent</span>
+            <span className="underline text-light-90">Cookie Consent</span>
           </Link>
         </div>
       </div>

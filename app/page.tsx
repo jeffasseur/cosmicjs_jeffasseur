@@ -146,12 +146,12 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="mt-12 pb-8 m-auto" id="faq">
-        <div className="">
-          <h2 className="mb-8 text-dark-90 dark:text-light-90 text-center">
+      <section className="mt-12 pb-8 m-auto lg:container lg:mx-auto" id="faq">
+        <div className="lg:flex lg:gap-8">
+          <h2 className="mb-8 text-dark-90 dark:text-light-90 text-center lg:text-left lg:max-w-md">
             Frequently Asked Questions
           </h2>
-          <div className="max-w-4xl mx-auto">
+          <div className="w-full">
             <FAQs query={{ slug: "home", type: "pages" }} />
           </div>
         </div>

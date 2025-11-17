@@ -1,5 +1,6 @@
 // app/blog/page.tsx
-import { BlogList } from "@/cosmic/blocks/blog/BlogList";
+import BlogOne from "@/components/brilio/insights/BlogOne";
+import "./../../components/brilio/insights/blog.css";
 
 export default async function BlogPage() {
   return (
@@ -10,13 +11,16 @@ export default async function BlogPage() {
             Blog
           </h1>
         </div>
-        <BlogList
+        {/* <BlogList
           query={{ type: "blog-posts" }}
           sort="-created_at"
           limit={10}
           skip={0}
           className="mx-auto grid w-full grid-cols-1 flex-col gap-5 pb-24 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10"
-        />
+        /> */}
+        <div className="blog">
+          <BlogOne limit={1000} />
+        </div>
       </div>
     </main>
   );

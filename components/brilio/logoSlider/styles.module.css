@@ -37,19 +37,19 @@
 .marquee ul .item {
   flex: none;
   width: 10rem;
-    height: 10rem;
+    height: 8rem;
 }
 .marquee ul .item .marqueeItem {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
-  background-color: #E7E8FF;
+  @apply bg-light-70;
 }
 .marquee ul .item .marqueeItem .marqueeContent {
   display: block;
   width: 140px;
-  height: 140px;
+  height: 100px;
 }
 .marquee ul .item:nth-child(even) .marqueeItem {
   transform: rotate(5deg);

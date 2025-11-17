@@ -221,7 +221,7 @@ export default async function SingleProductPage(props: {
               </Link>
             </div>
             <div
-              className={`${styles.stackWrapper} flex-shrink-0 w-full max-w-full mt-0 lg:px-20`}
+              className={`flex-shrink-0 w-full mt-0 lg:grid lg:grid-cols-3 lg:gap-6`}
             >
               {product.metadata.highlighted_projects.map(
                 (

@@ -9,8 +9,10 @@ export async function ProjectIdToCard({ id }: { id: string }) {
       type: "projects",
       id: id,
     })
-    .props("title,slug,metadata")
+    .props("id,title,slug,metadata")
     .depth(1);
+
+  console.log("Fetched project item:", item);
 
   return (
     <div className={`${styles.stackItem} cursor-pointer`} key={item.id}>
@@ -19,10 +21,25 @@ export async function ProjectIdToCard({ id }: { id: string }) {
       >
         <div className={`${styles.imageHolder}`}>
           <a
-            className={`${styles.cardThumb}`}
-            href={`/work/${item.slug}`}
+            className={`${styles.cardThumb} bg-light-90 dark:bg-dark-80`}
+            href={`/work/${item?.slug}`}
           >
-            <img src={item.metadata.image.imgix_url} alt={item.title} />
+            {item.metadata.image && !item.metadata.hero_video && (
+              <img
+                src={item.metadata.image.imgix_url}
+                alt={item.title}
+                className="aspect-square"
+              />
+            )}
+            {item.metadata.hero_video && (
+              <video
+                className="object-contain aspect-square"
+                src={item.metadata.hero_video.imgix_url}
+                autoPlay
+                loop
+                muted
+              />
+            )}
           </a>
           <div className={`${styles.cardOverlay}`}>
             <div className={`${styles.heading}`}>
@@ -37,12 +54,11 @@ export async function ProjectIdToCard({ id }: { id: string }) {
                   >
                     {item.metadata.service.title}
                   </a>
-                  <a
+                  <span
                     className={`${styles.terms} ${styles.badge} ${styles.outlined}`}
-                    href="/portfolio"
                   >
                     {item.metadata.client.title}
-                  </a>
+                  </span>
                 </div>
                 <div className={`${styles.projectLink}`}>
                   <a href={`/work/${item.slug}`}>Show Project</a>

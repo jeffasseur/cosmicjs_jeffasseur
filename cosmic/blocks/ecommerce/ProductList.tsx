@@ -18,9 +18,31 @@ export async function ProductList({
 
   return (
     <div className={className}>
-      {products.map((product: ProductType) => {
-        return <ProductCard key={product.id} product={product} />;
-      })}
+      <ul>
+        {products.map((service: ProductType) => {
+          return (
+            <li className="m-0 p-0 list-none border-t border-t-light-70 service-row lg:flex">
+              <div className="col col-title">
+                <p>{service.title}</p>
+              </div>
+              <div
+                className="col col-text"
+                dangerouslySetInnerHTML={{
+                  __html: service.metadata.description,
+                }}
+              />
+              {/* TODO: add tags
+               <div>
+                <ul className="*:list-none *:pl-0 *:ml-0 *:font-semibold">
+                  <li>Webflow</li>
+                  <li>Wordpress</li>
+                  <li>Shopify</li>
+                </ul>
+              </div> */}
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }

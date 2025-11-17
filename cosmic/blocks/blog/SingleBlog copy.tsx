@@ -7,6 +7,8 @@ import { notFound } from "next/navigation";
 import { Comments } from "@/cosmic/blocks/comments/Comments";
 import { getFormattedDate } from "@/cosmic/utils";
 
+import "./blog-rich-text.css";
+
 export async function SingleBlogCopy({
   query,
   className,
@@ -30,7 +32,7 @@ export async function SingleBlogCopy({
         <section className="m-auto items-center pb-8 md:container">
           <div className="relative m-auto flex max-w-7xl flex-col items-start gap-2">
             {/* Back to blog link for smaller screens */}
-            <div className="lg:absolute lg:-left-[170px] lg:top-2">
+            <div className="lg:top-2">
               <Link
                 href="/blog"
                 className="flex text-primary dark:text-light-50"
@@ -46,7 +48,7 @@ export async function SingleBlogCopy({
                 <span className="font-extrabold text-light-50 text-sm">
                   {date}
                 </span>
-                <h1 className="text-3xl font-bold leading-snug tracking-tighter text-primary w-full dark:text-white sm:text-4xl md:text-5xl dark:font-semibold dark:tracking-tight">
+                <h1 className="text-3xl font-semibold leading-snug tracking-tighter text-primary w-full dark:text-white sm:text-4xl md:text-5xl dark:font-semibold dark:tracking-tight">
                   {blog.title}
                 </h1>
                 <div className="flex flex-wrap gap-2">
@@ -76,7 +78,7 @@ export async function SingleBlogCopy({
                 className="aspect-video w-full object-cover"
               />
             </div>
-            <Markdown className="mx-auto space-y-4 text-black dark:text-light-80 max-w-3xl mb-12">
+            <Markdown className="mx-auto space-y-4 text-black dark:text-light-80 max-w-3xl mb-12 blog-rich-text">
               {blog.metadata.content}
             </Markdown>
             <div className="mb-8 md:flex mx-auto max-w-3xl w-full items-center justify-between">

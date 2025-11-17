@@ -48,7 +48,7 @@ export default async function SingleProjectsPage(props0: {
               target="_blank"
               className="flex gap-5"
             >
-              <h1 className="mb-6 text-4xl font-thin md:text-7xl lg:mb-10 *:opacity-0">
+              <h1 className="mb-6 text-4xl font-thin md:text-7xl lg:mb-10 *:opacity-0 max-w-5xl">
                 {project.title}
               </h1>
               <ArrowRightIcon className="w-6 h-6 mt-2 self-start -rotate-45" />

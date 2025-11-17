@@ -89,9 +89,9 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      <section className="lg:container">
+      {/* <section className="lg:container">
         <div dangerouslySetInnerHTML={{ __html: page.metadata.content }} />
-      </section>
+      </section>  */}
 
       <section className="mx-2 lg:mx-12 py-20 bg-light-90 dark:bg-light-40 rounded-[3rem] px-4 md:p-24 shadow-lg">
         <div className="container">
