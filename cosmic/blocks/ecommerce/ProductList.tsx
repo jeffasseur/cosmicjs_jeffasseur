@@ -18,29 +18,9 @@ export async function ProductList({
 
   return (
     <div className={className}>
-      <ul>
+      <ul className="flex flex-col md:grid md:grid-cols-2 gap-8">
         {products.map((service: ProductType) => {
-          return (
-            <li className="m-0 p-0 list-none border-t border-t-light-70 service-row lg:flex">
-              <div className="col col-title">
-                <p>{service.title}</p>
-              </div>
-              <div
-                className="col col-text"
-                dangerouslySetInnerHTML={{
-                  __html: service.metadata.description,
-                }}
-              />
-              {/* TODO: add tags
-               <div>
-                <ul className="*:list-none *:pl-0 *:ml-0 *:font-semibold">
-                  <li>Webflow</li>
-                  <li>Wordpress</li>
-                  <li>Shopify</li>
-                </ul>
-              </div> */}
-            </li>
-          );
+          return <ProductCard key={service.id} product={service} />;
         })}
       </ul>
     </div>

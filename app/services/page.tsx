@@ -20,9 +20,14 @@ export default async function ShopPage() {
         <section className="mt-12 pb-8">
           <div className="container mb-20">
             <div className="flex flex-col lg:flex-row lg:justify-between lg:pb-12">
-              <h1 className="m-0 font-display text-zinc-900 dark:text-zinc-100 max-w-3xl">
-                {page.metadata.h1}
-              </h1>
+              <div className="flex flex-col gap-2">
+                <span className="text-sm font-semibold leading-5">
+                  Services
+                </span>
+                <h1 className="m-0 dark:text-light-90 max-w-3xl leading-none">
+                  {page.metadata.h1}
+                </h1>
+              </div>
             </div>
           </div>
           <div className="container">
