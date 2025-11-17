@@ -3,14 +3,11 @@ import { FAQs } from "@/cosmic/blocks/faqs/FAQs";
 import { Testimonials } from "@/cosmic/blocks/testimonials/Testimonials";
 import Hero_text_buttons_benefits from "@/components/Hero_text_buttons_benefits";
 import { cosmic } from "@/cosmic/client";
-import { ProjectCard } from "@/components/project-card";
 import LogoSlider from "@/components/brilio/logoSlider/LogoSlider";
 import Link from "next/link";
 import { ContentInterface } from "@/interfaces";
 import ServiceRow from "@/components/ServiceRow";
 import Head from "next/head";
-import PortfolioSection from "@/components/brilio/works/PortfolioSection";
-import { ItemType } from "../cosmic/blocks/navigation-menu/NavMenu";
 import BlogSection from "@/components/brilio/insights/BlogSections";
 import PortfolioOverview from "@/components/brilio/works/PortfolioOverview";
 
@@ -99,6 +96,7 @@ export default async function HomePage() {
           }}
         />
       </Head>
+
       <Hero_text_buttons_benefits page={page} />
 
       <LogoSlider />
@@ -146,12 +144,12 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="mt-12 pb-8 m-auto" id="faq">
-        <div className="">
-          <h2 className="mb-8 text-dark-90 dark:text-light-90 text-center">
+      <section className="mt-12 pb-8 m-auto lg:container lg:mx-auto" id="faq">
+        <div className="lg:flex lg:gap-8">
+          <h2 className="mb-8 text-dark-90 dark:text-light-90 text-center lg:text-left lg:max-w-md">
             Frequently Asked Questions
           </h2>
-          <div className="max-w-4xl mx-auto">
+          <div className="w-full">
             <FAQs query={{ slug: "home", type: "pages" }} />
           </div>
         </div>

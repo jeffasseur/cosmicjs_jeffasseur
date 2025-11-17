@@ -48,7 +48,7 @@ export default async function SingleProjectsPage(props0: {
               target="_blank"
               className="flex gap-5"
             >
-              <h1 className="mb-6 text-4xl font-thin md:text-7xl lg:mb-10 *:opacity-0">
+              <h1 className="mb-6 text-4xl font-thin md:text-7xl lg:mb-10 *:opacity-0 max-w-5xl">
                 {project.title}
               </h1>
               <ArrowRightIcon className="w-6 h-6 mt-2 self-start -rotate-45" />
@@ -68,12 +68,9 @@ export default async function SingleProjectsPage(props0: {
               </div>
               <div className="flex flex-col gap-2">
                 <p className="tag">Services</p>
-                <Link
-                  href={`/services/${project.metadata.category.slug}`}
-                  className="flex flex-wrap gap-4 text-sm md:text-base"
-                >
+                <div className="flex flex-wrap gap-4 text-sm md:text-base">
                   <span>{project.metadata.category.title}</span>
-                </Link>
+                </div>
               </div>
               {
                 // only show if there is a collab
@@ -90,14 +87,14 @@ export default async function SingleProjectsPage(props0: {
           </div>
         </div>
         <div className="mt-8 container">
-          {project.metadata.image && !project.metadata.hero_video && (
+          {project.metadata.image && (
             <img
               src={`${project.metadata.image?.imgix_url}?w=2000&auto=format,compression`}
               alt={project.title}
               className="aspect-square lg:aspect-video w-full mx-auto object-cover border border-zinc-100 dark:border-zinc-800 rounded-lg"
             />
           )}
-          {project.metadata.hero_video && (
+          {project.metadata.hero_video && !project.metadata.image && (
             <div className="w-full aspect-video mt-8">
               <video
                 className="w-full h-full object-cover rounded-lg overflow-hidden"
@@ -112,16 +109,22 @@ export default async function SingleProjectsPage(props0: {
       </section>
 
       <section className="mt-0 md:container lg:my-8 grid items-center pb-8 mx-auto">
-        <div className="relative m-auto flex max-w-[750px] flex-col items-start gap-2 p-4 md:p-8 lg:p-10 bg-light-90 bg-opacity-50 rounded-xl dark:bg-dark-80 shadow-lg">
-          <h2 className="mb-6">About the project</h2>
-          <div
-            className="text-zinc-700 dark:text-zinc-300 space-y-4"
-            dangerouslySetInnerHTML={{ __html: project.metadata.content }}
-          />
+        {project.metadata.content && (
+          <div className="relative m-auto flex max-w-3xl flex-col items-start gap-2 p-4 md:p-8 lg:p-10 bg-light-90 bg-opacity-50 rounded-xl dark:bg-dark-80 shadow-lg">
+            <h2 className="mb-6 text-2xl lg:text-4xl font-medium">
+              About the project
+            </h2>
+            <div
+              className="dark:text-light-70 space-y-4 work-rich-text"
+              dangerouslySetInnerHTML={{ __html: project.metadata.content }}
+            />
+          </div>
+        )}
+        <div className="md:container">
           {/* Video */}
           {project.metadata.mockup_video && (
             <>
-              <h3 className="mt-12">Extra media</h3>
+              <h3 className="mt-12 text-center">Extra media</h3>
               {project.metadata.mockup_video?.imgix_url && (
                 <div className="w-full aspect-video mt-8">
                   <video
@@ -136,11 +139,6 @@ export default async function SingleProjectsPage(props0: {
               )}
             </>
           )}
-          <div className="my-10">
-            <Link href="/work" className="flex text-primary dark:text-light-50">
-              <ArrowLeftIcon className="w-4 h-4 mr-2 mt-1" /> Back to projects
-            </Link>
-          </div>
         </div>
       </section>
       <section>

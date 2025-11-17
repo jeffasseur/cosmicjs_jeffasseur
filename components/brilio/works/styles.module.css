@@ -44,7 +44,7 @@
   padding: 0.35rem 0.65rem;
 }
 .badge.outlined {
-  border: 2px solid currentColor;
+  border: 1px solid currentColor;
   color: currentColor;
 }
 .badge:not(.outlined) {
@@ -217,10 +217,10 @@
   font-weight: 600 !important;
 }
 .portfolioMeta .title {
-  font-weight: 600;
+  font-weight: 500;
 }
 .portfolioMeta .socials .navLink {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .portfolioContent {

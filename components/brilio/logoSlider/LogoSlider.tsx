@@ -42,6 +42,10 @@ const logos = [
     title: "iKAG - I know a guy",
     url: "https://res.cloudinary.com/dfi4sldbm/image/upload/v1761646729/ikag-logo_vvbelw.svg",
   },
+  {
+    title: "Remarkable EU",
+    url: "https://res.cloudinary.com/dfi4sldbm/image/upload/v1762530192/REMARKABLE_RGB_DESCRIPTOR_V_DIAP_kfy6n7.png",
+  },
 ];
 
 const LogoSlider = () => {
@@ -59,7 +63,7 @@ const LogoSlider = () => {
                     src={logo.url}
                     alt={logo.title}
                     fill
-                    className="rounded-none max-w-[70%] mx-auto object-contain"
+                    className="rounded-none max-w-[80%] mx-auto object-contain"
                   />
                 </div>
               </div>
@@ -74,7 +78,7 @@ const LogoSlider = () => {
                     src={logo.url}
                     alt={logo.title}
                     fill
-                    className="rounded-none max-w-[70%] mx-auto object-contain"
+                    className="rounded-none max-w-[80%] mx-auto object-contain"
                   />
                 </div>
               </div>

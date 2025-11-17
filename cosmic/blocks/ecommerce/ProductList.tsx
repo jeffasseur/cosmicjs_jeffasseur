@@ -18,9 +18,11 @@ export async function ProductList({
 
   return (
     <div className={className}>
-      {products.map((product: ProductType) => {
-        return <ProductCard key={product.id} product={product} />;
-      })}
+      <ul className="flex flex-col md:grid md:grid-cols-2 gap-8">
+        {products.map((service: ProductType) => {
+          return <ProductCard key={service.id} product={service} />;
+        })}
+      </ul>
     </div>
   );
 }

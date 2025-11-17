@@ -49,7 +49,9 @@ const PortfolioOverview = async ({ query, limit }: QueryProps) => {
                 </a>
                 <div className={`${styles.cardOverlay}`}>
                   <div className={`${styles.heading}`}>
-                    <h4 className={`${styles.title} mt-2 md:mt-3 mb-3`}>
+                    <h4
+                      className={`${styles.title} text-2xl mt-2 md:mt-3 mb-4 md:text-5xl lg:mb-6 lg:text-4xl`}
+                    >
                       {item.title}
                     </h4>
                     <div className={`${styles.showProject}`}>

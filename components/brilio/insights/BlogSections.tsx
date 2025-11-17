@@ -21,7 +21,7 @@ return (
         </div>
       </div>
       {/* BlogOne Component */}
-      <BlogOne />
+      <BlogOne limit={3} />
     </div>
   </section>
 );

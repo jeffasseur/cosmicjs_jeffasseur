@@ -33,6 +33,15 @@
     --ring: 240 10% 3.9%;
 
     --radius: 0.5rem;
+    --title-size: clamp(5rem, 7.5vw, 10rem);
+    
+      --gap: calc(var(--title-size) * 0.2);
+      --gap-l: calc(var(--title-size) * 1.25);
+      --main-grid-gap: var(--gap);
+      --section-padding: calc(var(--title-size) * 1.25);
+      --main-grid-gap: var(--gap);
+      --main-grid-columns: 12;
+      --main-grid-column-width: calc(((99.99vw - (var(--container-padding) * 2)) / var(--main-grid-columns)) - (var(--main-grid-gap) * ((var(--main-grid-columns) - 1) / var(--main-grid-columns))));
   }
 
   .dark {
@@ -75,6 +84,8 @@
   }
 
   h1,h2,h3,h4 {
+    font-size: calc(var(--title-size) * 0.45);
+      line-height: 1.2;
     @apply mb-6 mt-2;
   }
 
@@ -116,15 +127,6 @@ section {
 h1 {
   @apply text-4xl leading-tight font-medium md:text-6xl;
 }
-h2 {
-  @apply text-2xl font-medium md:text-5xl leading-normal;
-}
-h3 {
-  @apply text-xl font-medium md:text-4xl leading-normal;
-}
-h4 {
-  @apply text-lg font-medium md:text-3xl leading-normal;
-}
 p {
   @apply text-base;
 }
@@ -158,7 +160,34 @@ label {
   @apply text-light-50;
   font-weight: 700;
 }
+.service-row {
+  padding-top: var(--gap-l);
+  padding-bottom: var(--section-padding);
+}
 
+.service-row .col-title {
+  --col-width: 2;
+}
+
+.service-row .col-text {
+  --col-width: 4;
+}
+
+.service-row .col {
+  width: calc((var(--main-grid-column-width) * var(--col-width)) + (var(--main-grid-gap) * (var(--col-width) - 1)));
+}
+
+.work-rich-text h2 {
+  @apply text-2xl lg:text-4xl mb-8 font-medium;
+}
+
+.work-rich-text h3 {
+  @apply text-xl lg:text-3xl mb-6 font-medium;
+}
+
+.work-rich-text code {
+  @apply bg-light-90 dark:bg-dark-20 px-1.5 py-0.5 rounded text-sm font-mono;
+}
 .of {
   @apply w-1 h-1;
 }
