@@ -37,7 +37,7 @@ export function ProductCard({
       </div>
       <div className="mt-2 flex flex-col gap-2 justify-between">
         <div className="flex items-center justify-between">
-          <h4 className="text-xl text-dark-70 dark:text-light-30 md:text-3xl">
+          <h4 className="text-xl text-dark-70 dark:text-light-90 md:text-3xl">
             <span aria-hidden="true" className="absolute inset-0"></span>
             {product.title}
           </h4>
