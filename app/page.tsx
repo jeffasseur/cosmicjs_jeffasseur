@@ -101,7 +101,6 @@ export default async function HomePage() {
 
       <LogoSlider />
 
-      {/* <PortfolioSection /> */}
       <section className="pb-8 m-auto">
         <div className="m-auto">
           {/* Intro */}
