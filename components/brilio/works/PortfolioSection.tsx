@@ -27,13 +27,13 @@ const PortfolioSection = ({
           </div>
         </div>
         {/* PortfolioOne Component */}
-        <PortfolioOne
+        {/* <PortfolioOne
           query={{
             type: "projects",
             $and: [{ "metadata.service": "674f6fd98e61b052b6d43777" }],
           }}
           limit={4}
-        />
+        /> */}
         <div className="flex justify-center mt-8 lg:hidden">
           <Link
             className={`${styles.btn} btn btn-outline content-btn`}

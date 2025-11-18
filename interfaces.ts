@@ -35,6 +35,7 @@ export type ProjectType = {
       url: string;
       imgix_url: string;
     };
+    coming_soon?: boolean;
   };
 };
 
