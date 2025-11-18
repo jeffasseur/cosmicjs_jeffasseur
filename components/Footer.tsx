@@ -149,10 +149,6 @@ const Footer = async () => {
               )}
             </div>
           </div>
-          <div className="w-full text-light-90 text-sm md:text-base">
-            <h4 className="lg:text-lg">Sign up for the newsletter</h4>
-            <NewsletterForm className="mt-4 p-4 border border-light-30 rounded-md shadow-md bg-light-10 lg:mt-0 lg:max-w-[400px] lg:w-full" />
-          </div>
         </div>
       </div>
       <div className="container mx-auto flex flex-col items-center gap-6 px-8 pt-6 md:flex-row md:justify-between md:gap-4">
