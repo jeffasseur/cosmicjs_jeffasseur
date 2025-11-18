@@ -181,22 +181,22 @@ export default async function SingleProductPage(props: {
         <section>
           {product.metadata.sections.map((section: any, index: number) => (
             <div key={index} className="lg:container mb-12">
-              <div className="">
-                <div className="w-full lg:relative lg:aspect-video overflow-hidden">
-                  <div className="lg:absolute lg:left-0 lg:bottom-0 pb-8 pt-4 pl-2 lg:pl-8 pr-4 lg:pr-6 bg-white dark:bg-dark-80 rounded-xl">
-                    <h2 className="mb-4 text-center font-bold">
-                      {section.section_title}
-                    </h2>
-                  </div>
+              <div className="pb-8 pt-4 pl-2 pr-4 bg-white dark:bg-dark-80 rounded-xl lg:p-0 xl:mb-12">
+                <h2 className="mb-4 text-center font-bold">
+                  {section.section_title}
+                </h2>
+              </div>
+              <div className="xl:flex xl:gap-8 xl:items-center">
+                <div className="w-full lg:relative overflow-hidden xl:w-1/2">
                   <img
                     alt={section.section_title}
-                    className="rounded-xl h-full w-full object-cover"
+                    className="rounded-xl h-full w-full lg:aspect-video object-cover mb-6 xl:max-w-full xl:w-full xl:h-auto xl:aspect-square"
                     src={`${section.section_image.imgix_url}?w=1600&auto=format,compression`}
                   />
                 </div>
-                <div>
+                <div className="xl:w-1/2">
                   <div
-                    className="mb-6 *:mb-12"
+                    className="mb-6 *:mb-4 work-rich-text"
                     dangerouslySetInnerHTML={{
                       __html: section.section_content,
                     }}
