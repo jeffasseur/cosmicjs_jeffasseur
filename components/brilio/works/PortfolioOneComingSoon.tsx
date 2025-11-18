@@ -7,6 +7,7 @@ const PortfolioOneComingSoon = ( {item}: {item: ProjectType} ) => {
       <div
         className={`${styles.portfolioItem} ${styles.card} ${styles.layout2} ${styles.hasShadow} relative`}
       >
+        <div className="w-full h-full absolute top-0 bottom-0 left-0 right-0 bg-[rgba(19,23,154,0.30)] mix-blend-lighten z-10"></div>
         <div className={`${styles.imageHolder}`}>
           <div className={`${styles.cardThumb} bg-light-90 dark:bg-dark-80`}>
             {item.metadata.image && !item.metadata.hero_video && (
@@ -26,7 +27,7 @@ const PortfolioOneComingSoon = ( {item}: {item: ProjectType} ) => {
               />
             )}
           </div>
-          <div className={`${styles.cardOverlay}`}>
+          <div className={`${styles.cardOverlay} !z-20`}>
             <div className={`${styles.heading}`}>
               <h4
                 className={`${styles.title} text-2xl mt-2 md:mt-3 mb-4 md:text-5xl lg:mb-6 lg:text-4xl`}
