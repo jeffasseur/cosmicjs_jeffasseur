@@ -177,19 +177,28 @@ label {
   width: calc((var(--main-grid-column-width) * var(--col-width)) + (var(--main-grid-gap) * (var(--col-width) - 1)));
 }
 
-.work-rich-text h2 {
-  @apply text-2xl lg:text-4xl mb-8 font-medium;
+.work-rich-text h2,
+.blog-rich-text h2 {
+  @apply text-2xl lg:text-5xl mb-8 mt-2 font-medium;
 }
 
-.work-rich-text h3 {
-  @apply text-xl lg:text-3xl mb-6 font-medium;
+.work-rich-text h3,
+.blog-rich-text h3 {
+  @apply text-xl lg:text-3xl mb-6 mt-2 font-medium;
 }
-.work-rich-text a {
+.work-rich-text h4,
+.blog-rich-text h4 {
+  @apply text-lg lg:text-2xl mb-6 mt-2 font-medium;
+}
+
+.work-rich-text a,
+.blog-rich-text a {
   @apply text-primary dark:text-light-50 underline;
 }
 
-.work-rich-text code {
-  @apply bg-light-90 dark:bg-dark-20 px-1.5 py-0.5 rounded text-sm font-mono;
+.work-rich-text code,
+.blog-rich-text code {
+  @apply bg-light-80 dark:bg-light-50 px-1.5 py-0.5 rounded text-sm font-mono;
 }
 .of {
   @apply w-1 h-1;

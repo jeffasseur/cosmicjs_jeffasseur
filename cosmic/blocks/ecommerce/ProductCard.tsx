@@ -13,6 +13,10 @@ export type ProductType = {
     };
     description: string;
     price: number;
+    cta_button_text: string;
+    seo: {
+      description: string;
+    };
   };
 };
 

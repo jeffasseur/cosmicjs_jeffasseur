@@ -8,7 +8,6 @@ import { Comments } from "@/cosmic/blocks/comments/Comments";
 import { getFormattedDate } from "@/cosmic/utils";
 import CtaSection from "@/components/CtaSection";
 
-import "./blog-rich-text.css";
 
 export async function SingleBlogCopy({
   query,
