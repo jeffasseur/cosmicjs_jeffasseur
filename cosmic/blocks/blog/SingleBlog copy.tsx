@@ -6,6 +6,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Comments } from "@/cosmic/blocks/comments/Comments";
 import { getFormattedDate } from "@/cosmic/utils";
+import CtaSection from "@/components/CtaSection";
 
 import "./blog-rich-text.css";
 
@@ -103,6 +104,11 @@ export async function SingleBlogCopy({
                 <ArrowLeftIcon className="mr-2 mt-1 h-4 w-4" /> Back to blog
               </Link>
             </div>
+          </div>
+        </section>
+        <section className="my-0 lg:my-8">
+          <div className="container">
+            <CtaSection />
           </div>
         </section>
       </div>
