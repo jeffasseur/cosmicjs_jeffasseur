@@ -97,7 +97,7 @@ export default async function HomePage() {
         />
       </Head>
 
-      <Hero_text_buttons_benefits page={page} />
+      <Hero_text_buttons_benefits page={page} services={services} />
 
       <LogoSlider />
 
