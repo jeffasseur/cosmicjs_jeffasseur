@@ -23,9 +23,9 @@ const PortfolioOverview = async ({ query, limit }: QueryProps) => {
       >
         {projects.map((item: ProjectType) =>
           item.metadata.coming_soon ? (
-            <PortfolioOneComingSoon item={item} />
+            <PortfolioOneComingSoon item={item} key={item.id} />
           ) : (
-            <PortfolioOne item={item} />
+            <PortfolioOne item={item} key={item.id} />
           )
         )}
       </div>

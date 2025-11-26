@@ -105,7 +105,7 @@ export default async function HomePage() {
         <div className="m-auto">
           {/* Intro */}
           <div
-            className={`flex justify-between items-center relative mb-10 w-full`}
+            className={`container flex justify-between items-center relative mb-10 w-full`}
           >
             <h2>Featured projects</h2>
             <Link
