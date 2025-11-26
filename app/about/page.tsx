@@ -51,7 +51,7 @@ export default async function AboutPage() {
                       href={link.url}
                       key={link.url}
                       target="_blank"
-                      className="py-2 px-4 border border-light-50 rounded-full mr-2 text-xs font-semibold uppercase tracking-wide text-light-50 dark:text-light-70 dark:border-light-70 hover:bg-light-50 hover:text-white transition-all hover:shadow-inner hover:translate-y-1"
+                      className="py-2 px-4 border border-light-50 rounded-full mr-2 text-xs font-semibold uppercase tracking-wide text-light-50 dark:text-light-70 dark:border-light-70 hover:bg-light-50 hover:text-white transition-all hover:shadow-inner hover:translate-y-1 dark:bg-light-50"
                     >
                       <img
                         className="h-[26px]"
