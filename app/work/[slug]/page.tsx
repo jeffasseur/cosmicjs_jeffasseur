@@ -6,6 +6,7 @@ import CtaSection from "@/components/CtaSection";
 import { ArrowRightIcon } from "lucide-react";
 import { metadata } from "../../layout";
 import { Testimonial } from "@/cosmic/blocks/testimonials/Testimonial";
+import WorkMasonry from "@/components/masonry/index";
 
 export const revalidate = 60;
 
@@ -141,6 +142,15 @@ export default async function SingleProjectsPage(props0: {
           )}
         </div>
       </section>
+
+      {project.metadata?.is_photography_project && (
+        <section>
+          <div className="mt-0 md:container lg:my-8 pb-8 mx-auto">
+            <WorkMasonry gallery={project.metadata.photography_media} />
+          </div>
+        </section>
+      )}
+
       <section>
         <div className="px-0 container md:px-8 pb-8">
           <div className="md:mx-2 lg:mx-12 py-10 md:py-20 bg-light-90 dark:bg-light-40 rounded-2xl md:rounded-[3rem] px-4 md:p-24 shadow-lg">
