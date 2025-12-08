@@ -51,7 +51,7 @@ const Footer = async () => {
                 over here
               </h5>
               <ArrowRightIcon className="hidden md:block text-light-50 h-12 w-12 mt-2" />
-              <Link className="footer-btn" href="mailto:jef@jeffasseur.be">
+              <Link className="footer-btn" href="/contact">
                 <MailIcon className="mr-2 w-6" />
                 <span className="flex-shrink-0">Send me an e-mail</span>
               </Link>
