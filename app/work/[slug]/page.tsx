@@ -61,17 +61,25 @@ export default async function SingleProjectsPage(props0: {
                   {project.metadata.client.title}
                 </p>
               </div>
-              <div className="flex flex-col gap-2">
-                <p className="tag">Industry</p>
-                <p className="text-sm md:text-base">
-                  {project.metadata.client.metadata?.industry}
-                </p>
-              </div>
+              {project.metadata.client.metadata.industry && (
+                <div className="flex flex-col gap-2">
+                  <p className="tag">Industry</p>
+                  <p className="text-sm md:text-base">
+                    {project.metadata.client.metadata?.industry}
+                  </p>
+                </div>
+              )}
               <div className="flex flex-col gap-2">
                 <p className="tag">Services</p>
                 <div className="flex flex-wrap gap-4 text-sm md:text-base">
-                  <span>{project.metadata.category.title}</span>
+                  <span>{project.metadata.service.title}</span>
                 </div>
+              </div>
+              <div className="flex flex-col gap-2">
+                <p className="tag">Category</p>
+                <p className="text-sm md:text-base">
+                  {project.metadata.category.title}
+                </p>
               </div>
               {
                 // only show if there is a collab
@@ -143,13 +151,14 @@ export default async function SingleProjectsPage(props0: {
         </div>
       </section>
 
-      {project.metadata?.is_photography_project && (
-        <section>
-          <div className="mt-0 md:container lg:my-8 pb-8 mx-auto">
-            <WorkMasonry gallery={project.metadata.photography_media} />
-          </div>
-        </section>
-      )}
+      {project.metadata?.is_photography_project &&
+        project.metadata.photography_media && (
+          <section>
+            <div className="mt-0 md:container lg:my-8 pb-8 mx-auto">
+              <WorkMasonry gallery={project.metadata.photography_media} />
+            </div>
+          </section>
+        )}
 
       <section>
         <div className="px-0 container md:px-8 pb-8">

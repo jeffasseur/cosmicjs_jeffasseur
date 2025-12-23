@@ -77,10 +77,10 @@ const Footer = async () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-24 mt-12">
             <div className="flex flex-col gap-6 order-last md:order-first">
               <Link className="text-white font-bold text-2xl" href="/">
-                JEF .FASSEUR
+                JEF .FASSEUR (NORTH LAB BV)
               </Link>
               <div className="flex flex-col gap-2 text-light-80 text-sm">
-                <p>BE0739922235</p>
+                <p>BE1029560869</p>
                 <Link href="mailto:sayhi@jeffasseur.be" className="underline">
                   sayhi@jeffasseur.be
                 </Link>
