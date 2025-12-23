@@ -10,7 +10,7 @@ const Hero_text_buttons_benefits = ({
   services: any;
 }) => {
   return (
-    <section className="p-6 pt-16 lg:pt-22 2xl:pt-20">
+    <header className="px-6 py-16 bg-light-90 dark:bg-dark-70 mx-6 rounded-[3rem] mb-8 lg:py-24">
       <div className="w-full mx-auto">
         <div className="flex flex-col gap-8 text-center items-center">
           <h1 className="max-w-6xl leading-[1.2] font-semibold">
@@ -39,7 +39,7 @@ const Hero_text_buttons_benefits = ({
           </div>
         </div>
       </div>
-    </section>
+    </header>
   );
 };
 
