@@ -180,29 +180,37 @@ export default async function SingleProductPage(props: {
       {product.metadata?.sections.length > 0 && (
         <section>
           {product.metadata.sections.map((section: any, index: number) => (
-            <div key={index} className="lg:container mb-12">
-              <div className="pb-8 pt-4 pl-2 pr-4 bg-white dark:bg-dark-80 rounded-xl lg:p-0 xl:mb-12">
-                <h2 className="mb-4 text-center font-bold">
-                  {section.section_title}
-                </h2>
+            <div key={index} className="lg:container mb-24">
+              <div>
+                <div className="pb-8 pt-4 pl-2 pr-4 bg-white dark:bg-dark-80 rounded-xl lg:p-0 xl:mb-12">
+                  <h2 className="mb-4 text-center font-bold">
+                    {section.section_title}
+                  </h2>
+                </div>
+                <div
+                  className={`xl:flex xl:gap-8 xl:items-center ${index % 2 === 1 ? "flex-row-reverse" : ""}`}
+                >
+                  <div className="w-full lg:relative overflow-hidden xl:w-1/2">
+                    <img
+                      alt={section.section_title}
+                      className="rounded-xl h-full w-full lg:aspect-video object-cover mb-6 xl:max-w-full xl:w-full xl:h-auto xl:aspect-square"
+                      src={`${section.section_image.imgix_url}?w=1600&auto=format,compression`}
+                    />
+                  </div>
+                  <div className="xl:w-1/2">
+                    <div
+                      className="mb-6 *:mb-4 work-rich-text"
+                      dangerouslySetInnerHTML={{
+                        __html: section.section_content,
+                      }}
+                    />
+                  </div>
+                </div>
               </div>
-              <div className="xl:flex xl:gap-8 xl:items-center">
-                <div className="w-full lg:relative overflow-hidden xl:w-1/2">
-                  <img
-                    alt={section.section_title}
-                    className="rounded-xl h-full w-full lg:aspect-video object-cover mb-6 xl:max-w-full xl:w-full xl:h-auto xl:aspect-square"
-                    src={`${section.section_image.imgix_url}?w=1600&auto=format,compression`}
-                  />
-                </div>
-                <div className="xl:w-1/2">
-                  <div
-                    className="mb-6 *:mb-4 work-rich-text"
-                    dangerouslySetInnerHTML={{
-                      __html: section.section_content,
-                    }}
-                  />
-                  <div></div>
-                </div>
+              <div className="flex justify-center items-center mt-6">
+                <Link href="/contact" className={`btn`}>
+                  Get in touch about {product.title}
+                </Link>
               </div>
             </div>
           ))}
@@ -273,8 +281,11 @@ export default async function SingleProductPage(props: {
                 ))}
             </div>
             <div className="flex justify-center">
-              <Link href="/contact" className="btn">
-                Start your project here
+              <Link
+                href="https://calendly.com/jef-fasseur/online-coffee"
+                className="btn"
+              >
+                Book here a delicious (online) coffee
               </Link>
             </div>
           </div>
