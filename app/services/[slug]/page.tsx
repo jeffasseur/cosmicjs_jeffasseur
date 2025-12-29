@@ -208,7 +208,7 @@ export default async function SingleProductPage(props: {
                 </div>
               </div>
               <div className="flex justify-center items-center mt-6">
-                <Link href="/contact" className={`btn`}>
+                <Link href="/contact#project-inquiry" className={`btn`}>
                   Get in touch about {product.title}
                 </Link>
               </div>

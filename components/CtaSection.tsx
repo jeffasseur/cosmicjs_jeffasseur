@@ -23,7 +23,7 @@ const CtaSection = () => {
             redesign or new features. Start a partnership with us and we will
             further take care of your digital presence.
           </p>
-          <Link className="btn" href="/contact">
+          <Link className="btn" href="/contact#project-inquiry">
             Reach out
           </Link>
         </div>
