@@ -93,11 +93,13 @@ export default function RootLayout({
                 <main>{children}</main>
               </div>
               <Footer />
-              <SnowflakeEffect
-                strength={3}
-                infinite={true}
-                className="absolute top-0 left-0 right-0"
-              />
+              {process.env.SNOWFLAKE_EFFECT_ENABLED === "true" && (
+                <SnowflakeEffect
+                  strength={3}
+                  infinite={true}
+                  className="absolute top-0 left-0 right-0"
+                />
+              )}
               {process.env.NODE_ENV === "production" && (
                 <>
                   <CookieConsent />
