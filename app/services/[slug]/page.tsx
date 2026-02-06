@@ -9,7 +9,7 @@ import {
   ProductCard,
   ProductType,
 } from "@/cosmic/blocks/ecommerce/ProductCard";
-import styles from "./../../../components/brilio/works/styles.module.css"
+import { SingleVideo } from "@/cosmic/blocks/videos/SingleVideo";
 
 export const revalidate = 60;
 
@@ -137,22 +137,46 @@ export default async function SingleProductPage(props: {
             <p className="max-w-lg text-lg">
               {product.metadata.hero_section.description}
             </p>
-            <Link href="/contact" className="footer-btn flex items-center">
-              <span>Talk to an expert</span>
-              {/** Arrow left down */}
-              <svg
-                className="w-6 h-6 -rotate-[135deg] ml-2"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M10 0a1 1 0 0 1 .707 1.707L6.414 6H18a1 1 0 1 1 0 2H6.414l4.293 4.293a1 1 0 1 1-1.414 1.414l-6-6a1 1 0 0 1 0-1.414l6-6A1 1 0 0 1 10 0z"
-                />
-              </svg>
-            </Link>
+            <div className="flex flex-wrap gap-6">
+              <Link href="/contact" className="footer-btn flex items-center">
+                <span>Talk to an expert</span>
+                {/** Arrow left down */}
+                <svg
+                  className="w-6 h-6 -rotate-[135deg] ml-2"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M10 0a1 1 0 0 1 .707 1.707L6.414 6H18a1 1 0 1 1 0 2H6.414l4.293 4.293a1 1 0 1 1-1.414 1.414l-6-6a1 1 0 0 1 0-1.414l6-6A1 1 0 0 1 10 0z"
+                  />
+                </svg>
+              </Link>
+              {product.title === "Photo & Video" && (
+                <Link
+                  href="https://visuals.jeffasseur.be"
+                  target="_blank"
+                  className="footer-btn bg-primary !border-none !text-white flex items-center"
+                >
+                  <span>Portfolio</span>
+                  {/** Arrow left down */}
+                  <svg
+                    className="w-6 h-6 -rotate-[135deg] ml-2"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M10 0a1 1 0 0 1 .707 1.707L6.414 6H18a1 1 0 1 1 0 2H6.414l4.293 4.293a1 1 0 1 1-1.414 1.414l-6-6a1 1 0 0 1 0-1.414l6-6A1 1 0 0 1 10 0z"
+                    />
+                  </svg>
+                </Link>
+              )}
+            </div>
             {product.metadata.hero_section.highlights.length > 0 && (
               <div
                 className={`flex flex-col lg:grid lg:grid-cols-${product.metadata.hero_section.highlights.length} gap-8 w-full mt-12`}
@@ -243,6 +267,24 @@ export default async function SingleProductPage(props: {
           </div>
         </section>
       )}
+
+      <section>
+        <div className="lg:container mb-12">
+          <div className="flex flex-col">
+            <h2 className="max-w-3xl mb-12">Video</h2>
+            <p>
+              Check out this video where we explain more about our process and
+              how we can help you with your project.
+            </p>
+          </div>
+          <div className="flex flex-col gap-8 mt-8 xl:grid xl:grid-cols-2">
+            {product.metadata.videos &&
+              product.metadata.videos.map((video: any, index: number) => (
+                <SingleVideo key={index} video={video} />
+              ))}
+          </div>
+        </div>
+      </section>
 
       <section>
         <div className="lg:container mb-12">

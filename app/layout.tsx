@@ -74,6 +74,7 @@ export default function RootLayout({
           content="https://res.cloudinary.com/dfi4sldbm/image/upload/v1744035563/JEF-F-avatar-small_fcltdi.webp"
         />
       </Head>
+      <ReactLenis root />
       <body
         className={`${plusJakartaSans.className} font-sans md:p-0 h-dvh w-full bg-white dark:bg-dark-90 text-dark-90 dark:text-light-90`}
       >
@@ -87,7 +88,6 @@ export default function RootLayout({
               themes={["light", "dark"]}
             >
               {/* <CartProvider> */}
-              <ReactLenis root />
               <div>
                 <Header />
                 <main>{children}</main>
