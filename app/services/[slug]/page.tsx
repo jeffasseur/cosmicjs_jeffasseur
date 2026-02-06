@@ -10,6 +10,8 @@ import {
   ProductType,
 } from "@/cosmic/blocks/ecommerce/ProductCard";
 import styles from "./../../../components/brilio/works/styles.module.css"
+import { VideoList } from "@/cosmic/blocks/videos/VideoList";
+import { SingleVideo } from "@/cosmic/blocks/videos/SingleVideo";
 
 export const revalidate = 60;
 
@@ -243,6 +245,24 @@ export default async function SingleProductPage(props: {
           </div>
         </section>
       )}
+
+      <section>
+        <div className="lg:container mb-12">
+          <div className="flex flex-col">
+            <h2 className="max-w-3xl mb-12">Video</h2>
+            <p>
+              Check out this video where we explain more about our process and
+              how we can help you with your project.
+            </p>
+          </div>
+          <div className="flex flex-col gap-8 mt-8 xl:grid xl:grid-cols-2">
+            {product.metadata.videos &&
+              product.metadata.videos.map((video: any, index: number) => (
+                <SingleVideo key={index} video={video} />
+              ))}
+          </div>
+        </div>
+      </section>
 
       <section>
         <div className="lg:container mb-12">
