@@ -15,6 +15,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ReactLenis, useLenis } from "lenis/react";
 import Head from "next/head";
 import SnowflakeEffect from "@/components/osmo/snowflake";
+import Script from "next/script";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   display: "swap",
@@ -119,6 +120,7 @@ export default function RootLayout({
             </ThemeProvider>
           </AuthProvider>
         </Suspense>
+        <Script src="https://static.claydar.com/init.v1.js?id=c6WrXSIOBc" />
       </body>
     </html>
   );
