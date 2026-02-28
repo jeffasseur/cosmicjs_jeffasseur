@@ -21,6 +21,10 @@ module.exports = {
         sans: ["var(--font-sans)", "sans-serif"],
         display: ["var(--font-display)", "sans-serif"],
       },
+      fontSize: {
+        h1: "clamp(2.5rem, 15.7vw, 8.75rem)",
+        h2: "clamp(2.5rem, 10vw, 6.375rem)",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
