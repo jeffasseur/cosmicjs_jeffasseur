@@ -62,10 +62,27 @@ const logos = [
 
 const LogoSlider = () => {
   return (
-    <div className="flex flex-col gap-0 items-center overflow-hidden">
+    <div className="flex flex-col gap-0 items-center overflow-hidden pt-10">
       <h2 className="text-xl dark:text-dark-90 mb-0">Trusted by</h2>
       <div className={styles.marquee}>
         <ul className="!list-none flex flex-wrap gap-[50px]">
+          {logos.map((logo, index) => (
+            <li key={index} className={styles.item}>
+              <Link href={logo.link} target="_blank">
+                <div className={`${styles.marqueeItem} rounded`}>
+                  <div className={styles.marqueeContent}>
+                    <Image
+                      key={index}
+                      src={logo.url}
+                      alt={logo.title}
+                      fill
+                      className="rounded-none max-w-[80%] mx-auto object-contain"
+                    />
+                  </div>
+                </div>
+              </Link>
+            </li>
+          ))}
           {logos.map((logo, index) => (
             <li key={index} className={styles.item}>
               <Link href={logo.link} target="_blank">
