@@ -26,6 +26,7 @@ export async function NavMenu({
     .props("metadata")
     .depth(1)
     .status(status ? status : "published");
+
   return (
     <div className={className}>
       {/* Desktop */}

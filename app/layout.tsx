@@ -1,7 +1,6 @@
 // app/layout.tsx
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/components/Header";
 import { ThemeProvider } from "@/components/theme-provider";
 // import { CartProvider } from "@/cosmic/blocks/ecommerce/CartProvider";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
@@ -12,9 +11,11 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import CookieConsent from "@/components/CookieConsent";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { ReactLenis, useLenis } from "lenis/react";
 import Head from "next/head";
 import SnowflakeEffect from "@/components/osmo/snowflake";
+import TwoStepScalingNavigation from "@/components/osmo/twostepScalingNavigation";
+import { cosmic } from "@/cosmic/client";
+import { SettingsType } from "@/interfaces";
 import Script from "next/script";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -37,11 +38,24 @@ export const metadata: Metadata = {
     "Antwerp based Web(Flow) Developer & Photographer. I make cool websites and professional photos. We value personal contact and a good relationship with our customers. We are happy to help you with your project.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  // Header data
+  const {
+    object: settings,
+  }: {
+    object: SettingsType;
+  } = await cosmic.objects
+    .findOne({
+      type: "global-settings",
+      slug: "settings",
+    })
+    .props("metadata")
+    .depth(1);
+
   return (
     <html lang="en" suppressHydrationWarning>
       <Head>
@@ -75,7 +89,6 @@ export default function RootLayout({
           content="https://res.cloudinary.com/dfi4sldbm/image/upload/v1744035563/JEF-F-avatar-small_fcltdi.webp"
         />
       </Head>
-      <ReactLenis root />
       <body
         className={`${plusJakartaSans.className} font-sans md:p-0 h-dvh w-full bg-white dark:bg-dark-90 text-dark-90 dark:text-light-90`}
       >
@@ -90,8 +103,8 @@ export default function RootLayout({
             >
               {/* <CartProvider> */}
               <div>
-                <Header />
-                <main>{children}</main>
+                <TwoStepScalingNavigation settings={settings} />
+                <main className="pt-12">{children}</main>
               </div>
               <Footer />
               {process.env.SNOWFLAKE_EFFECT_ENABLED === "true" && (
