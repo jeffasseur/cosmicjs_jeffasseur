@@ -103,7 +103,7 @@ export default async function RootLayout({
               {/* <CartProvider> */}
               <div>
                 <TwoStepScalingNavigation settings={settings} />
-                <main>{children}</main>
+                <main className="pt-12">{children}</main>
               </div>
               <Footer />
               {process.env.SNOWFLAKE_EFFECT_ENABLED === "true" && (
