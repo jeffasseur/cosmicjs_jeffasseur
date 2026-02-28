@@ -16,6 +16,7 @@ import SnowflakeEffect from "@/components/osmo/snowflake";
 import TwoStepScalingNavigation from "@/components/osmo/twostepScalingNavigation";
 import { cosmic } from "@/cosmic/client";
 import { SettingsType } from "@/interfaces";
+import Script from "next/script";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   display: "swap",
@@ -132,6 +133,7 @@ export default async function RootLayout({
             </ThemeProvider>
           </AuthProvider>
         </Suspense>
+        <Script src="https://static.claydar.com/init.v1.js?id=c6WrXSIOBc" />
       </body>
     </html>
   );
