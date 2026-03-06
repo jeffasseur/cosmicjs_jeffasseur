@@ -99,7 +99,7 @@ export default async function HomePage() {
 
       <Header services={services} />
 
-      <div className="bg-white relative">
+      <div className="bg-white relative dark:bg-dark-90">
         <LogoSlider />
 
         <section className="pb-8 m-auto">
