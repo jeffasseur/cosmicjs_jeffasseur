@@ -70,3 +70,24 @@ export type TestimonialType = {
     };
   };
 };
+
+export type SettingsType = {
+  metadata: {
+    logo: {
+      url: string;
+      imgix_url: string;
+    };
+    company: string;
+    description: string;
+    title: string;
+    links: [
+      {
+        company: string;
+        url: string;
+        icon: {
+          imgix_url: string;
+        };
+      },
+    ];
+  };
+};

@@ -1,7 +1,6 @@
 // app/page.tsx
 import { FAQs } from "@/cosmic/blocks/faqs/FAQs";
 import { Testimonials } from "@/cosmic/blocks/testimonials/Testimonials";
-import Hero_text_buttons_benefits from "@/components/Hero_text_buttons_benefits";
 import { cosmic } from "@/cosmic/client";
 import LogoSlider from "@/components/brilio/logoSlider/LogoSlider";
 import Link from "next/link";
@@ -10,6 +9,7 @@ import ServiceRow from "@/components/ServiceRow";
 import Head from "next/head";
 import BlogSection from "@/components/brilio/insights/BlogSections";
 import PortfolioOverview from "@/components/brilio/works/PortfolioOverview";
+import Header from "@/components/redesign/Header";
 
 export default async function HomePage() {
   const { object: page } = await cosmic.objects
@@ -97,64 +97,66 @@ export default async function HomePage() {
         />
       </Head>
 
-      <Hero_text_buttons_benefits page={page} services={services} />
+      <Header services={services} />
 
-      <LogoSlider />
+      <div className="bg-white relative">
+        <LogoSlider />
 
-      <section className="pb-8 m-auto">
-        <div className="m-auto">
-          {/* Intro */}
-          <div
-            className={`container flex justify-between items-center relative mb-10 w-full`}
-          >
-            <h2>Featured projects</h2>
-            <Link
-              className={`btn btn-outline content-btn hidden lg:block`}
-              href="/work"
+        <section className="pb-8 m-auto">
+          <div className="m-auto">
+            {/* Intro */}
+            <div
+              className={`container flex justify-between items-center relative mb-10 w-full`}
             >
-              View all projects
-            </Link>
+              <h2>Featured projects</h2>
+              <Link
+                className={`btn btn-outline content-btn hidden lg:block`}
+                href="/work"
+              >
+                View all projects
+              </Link>
+            </div>
+            <div className="max-w-6xl mx-auto">
+              <PortfolioOverview query={projectsQuery} limit={4} />
+            </div>
           </div>
-          <div className="max-w-6xl mx-auto">
-            <PortfolioOverview query={projectsQuery} limit={4} />
+        </section>
+
+        <section id="services">
+          <div className="lg:container mx-auto">
+            <h2 className="mb-12 text-center">Services</h2>
+            <div className="flex flex-col gap-8 mb-12">
+              {services.map((service: ContentInterface, index: number) => {
+                return <ServiceRow key={index} service={service} />;
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="services">
-        <div className="lg:container mx-auto">
-          <h2 className="mb-12 text-center">Services</h2>
-          <div className="flex flex-col gap-8 mb-12">
-            {services.map((service: ContentInterface, index: number) => {
-              return <ServiceRow key={index} service={service} />;
-            })}
+        <section className="mx-2 lg:mx-12 py-20 bg-light-90 dark:bg-light-40 rounded-[3rem] px-4 md:p-24 shadow-lg">
+          <div className="container">
+            <h2>Don't take our word for it</h2>
+            <Testimonials
+              query={{ type: "testimonials" }}
+              status="published"
+              className="mt-12 flex flex-col gap-6"
+            />
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="mx-2 lg:mx-12 py-20 bg-light-90 dark:bg-light-40 rounded-[3rem] px-4 md:p-24 shadow-lg">
-        <div className="container">
-          <h2>Don't take our word for it</h2>
-          <Testimonials
-            query={{ type: "testimonials" }}
-            status="published"
-            className="mt-12 flex flex-col gap-6"
-          />
-        </div>
-      </section>
-
-      <section className="mt-12 pb-8 m-auto lg:container lg:mx-auto" id="faq">
-        <div className="lg:flex lg:gap-8">
-          <h2 className="mb-8 text-dark-90 dark:text-light-90 text-center lg:text-left lg:max-w-md">
-            Frequently Asked Questions
-          </h2>
-          <div className="w-full">
-            <FAQs query={{ slug: "home", type: "pages" }} />
+        <section className="mt-12 pb-8 m-auto lg:container lg:mx-auto" id="faq">
+          <div className="lg:flex lg:gap-8">
+            <h2 className="mb-8 text-dark-90 dark:text-light-90 text-center lg:text-left lg:max-w-md">
+              Frequently Asked Questions
+            </h2>
+            <div className="w-full">
+              <FAQs query={{ slug: "home", type: "pages" }} />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <BlogSection />
+        <BlogSection />
+      </div>
     </>
   );
 }

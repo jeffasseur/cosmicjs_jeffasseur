@@ -15,7 +15,7 @@ export default async function Header() {
     .depth(1);
 
   return (
-    <nav className="relative w-full h-32">
+    <nav className="fixed top-0 left-0 right-0 w-full h-32 z-20">
       <div className="w-full rounded-none bg-[rgba(255,255,255,0.2)] filter backdrop-blur-md flex items-center justify-between pt-8 px-8 py-4 gap-16 lg:grid lg:grid-cols-3 lg:pt-4 fixed left-1/2 -translate-x-1/2 z-[9999] dark:bg-[rgba(0,0,0,0.1)">
         <Link href="/" className="flex-shrink-0 *:rounded-none">
           <img
