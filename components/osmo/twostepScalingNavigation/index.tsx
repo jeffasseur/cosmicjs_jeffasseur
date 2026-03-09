@@ -32,8 +32,6 @@ const TwoStepScalingNavigation = ({ settings }: settingsInterface) => {
     initTwostepScalingNavigation();
   }, []);
 
-  console.log("Settings in TwoStepScalingNavigation:", settings)
-
   return (
     <nav data-twostep-nav data-nav-status="not-active" className="twostep-nav">
       <div data-nav-toggle="close" className="twostep-nav__bg"></div>
