@@ -9,10 +9,9 @@ import { Suspense } from "react";
 import { AuthProvider } from "@/cosmic/blocks/user-management/AuthContext";
 import Footer from "@/components/Footer";
 import { Plus_Jakarta_Sans } from "next/font/google";
-import CookieConsent from "@/components/CookieConsent";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { ReactLenis, useLenis } from "lenis/react";
+import { ReactLenis } from "lenis/react";
 import Head from "next/head";
 import SnowflakeEffect from "@/components/osmo/snowflake";
 
@@ -100,9 +99,8 @@ export default function RootLayout({
                   className="absolute top-0 left-0 right-0"
                 />
               )}
-              {process.env.NODE_ENV === "production" && (
+              {process.env.NODE_ENV != "production" && (
                 <>
-                  <CookieConsent />
                   <Analytics />
                   <SpeedInsights />
                 </>
