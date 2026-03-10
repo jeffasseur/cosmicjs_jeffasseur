@@ -33,7 +33,7 @@ const CookieConsent = () => {
 
   if (cookieConsentState === CookieConsentState.NotAnswered) {
     return (
-      <div className="fixed max-w-[30rem] bottom-2 right-2 p-4 bg-light-90 rounded-lg flex flex-col gap-4 z-[99999999] dark:bg-light-50">
+      <div className="fixed max-w-[30rem] bottom-2 right-2 p-4 bg-light-90 rounded-lg flex flex-col gap-4 z-[99999999] dark:bg-light-70 dark:border dark:border-light-30 dark:text-dark-90">
         <h3 className="font-normal lg:text-3xl">We value your privacy</h3>
         <p>
           We use cookies to enhance your browsing experience, serve personalized
@@ -73,10 +73,10 @@ const CookieConsent = () => {
 
   return (
     <button
-      className="fixed bottom-4 right-4 btn !rounded-full"
+      className=""
       onClick={() => setCookieConsentState(CookieConsentState.NotAnswered)}
     >
-      <span>🍪</span>
+      <span>Cookie Settings</span>
     </button>
   );
 };
