@@ -63,7 +63,7 @@ const logos = [
 const LogoSlider = () => {
   return (
     <div className="flex flex-col gap-0 items-center overflow-hidden pt-10">
-      <h2 className="text-xl dark:text-dark-90 mb-0">Trusted by</h2>
+      <h2 className="text-xl dark:text-light-90 mb-0">Trusted by</h2>
       <div className={styles.marquee}>
         <ul className="!list-none flex flex-wrap gap-[50px]">
           {logos.map((logo, index) => (
