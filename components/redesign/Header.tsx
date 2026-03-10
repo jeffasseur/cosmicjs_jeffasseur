@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Header = ({ services }: { services: any[] }) => {
   return (
-    <header className="sticky top-0">
+    <header className="sticky top-0 -mt-12">
       {/* Add your header content here */}
       <div className="h-[100vh] pt-60 relative overflow-hidden text-white">
         <div className="h-[100vh] absolute inset-0">
@@ -26,8 +26,13 @@ const Header = ({ services }: { services: any[] }) => {
                   })}
                 </div>
                 <h1 className="flex flex-col items-start text-h1 font-normal w-full">
-                  <span className="block" style={{ letterSpacing: "-0.07em" }}>Performance</span>
-                  <span className="block text-h2 font-normal leading-[1.1] self-end" style={{ letterSpacing: "-0.02em" }}>
+                  <span className="block" style={{ letterSpacing: "-0.07em" }}>
+                    Performance
+                  </span>
+                  <span
+                    className="block text-h2 font-normal leading-[1.1] self-end"
+                    style={{ letterSpacing: "-0.02em" }}
+                  >
                     Development Expert
                   </span>
                 </h1>
