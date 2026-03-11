@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Header = ({ services }: { services: any[] }) => {
   return (
-    <header className="sticky top-0 -mt-12">
+    <header className="sticky top-0 mt-0">
       {/* Add your header content here */}
       <div className="h-[100vh] pt-60 relative overflow-hidden text-white">
         <div className="h-[100vh] absolute inset-0">
