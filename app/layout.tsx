@@ -8,7 +8,6 @@ import { Suspense } from "react";
 import { AuthProvider } from "@/cosmic/blocks/user-management/AuthContext";
 import Footer from "@/components/Footer";
 import { Plus_Jakarta_Sans } from "next/font/google";
-import CookieConsent from "@/components/CookieConsent";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Head from "next/head";
@@ -104,7 +103,7 @@ export default async function RootLayout({
               {/* <CartProvider> */}
               <div>
                 <TwoStepScalingNavigation settings={settings} />
-                <main className="pt-12">{children}</main>
+                <main>{children}</main>
               </div>
               <Footer />
               {process.env.SNOWFLAKE_EFFECT_ENABLED === "true" && (
@@ -114,9 +113,8 @@ export default async function RootLayout({
                   className="absolute top-0 left-0 right-0"
                 />
               )}
-              {process.env.NODE_ENV === "production" && (
+              {process.env.NODE_ENV != "production" && (
                 <>
-                  <CookieConsent />
                   <Analytics />
                   <SpeedInsights />
                 </>

@@ -1,0 +1,154 @@
+.sticky-steps {
+  min-height: 100dvh;
+  position: relative;
+  overflow: clip;
+}
+
+.sticky-steps__container {
+  max-width: 74em;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0em 1.5em;
+}
+
+.sticky-steps__collection {
+  min-height: 100dvh;
+  display: flex;
+  position: relative;
+}
+
+.sticky-steps__list {
+  gap: 30dvh;
+  flex-flow: column;
+  flex: 1;
+  padding: calc(50dvh - 7.5em) 0em;
+  display: flex;
+}
+
+.sticky-steps__text {
+  gap: 2em;
+  flex-flow: column;
+  width: 50%;
+  padding-right: 6em;
+  display: flex;
+}
+
+.sticky-steps__h2 {
+  letter-spacing: -.04em;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: .9;
+}
+
+.sticky-steps__p {
+  opacity: .6;
+  margin-bottom: 0;
+}
+
+.sticky-steps__sticky {
+  align-items: center;
+  width: 100%;
+  min-height: 100dvh;
+  display: flex;
+  position: sticky;
+  top: 0;
+}
+
+.sticky-steps__media {
+  width: 50%;
+  height: 100%;
+  padding-left: 3em;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.sticky-steps__visual {
+  aspect-ratio: 3 / 4;
+  border-radius: 1.5em;
+  width: 100%;
+  position: relative;
+}
+
+.sticky-steps__cover-image {
+  object-fit: cover;
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (min-width: 992px) {
+  [data-sticky-steps-item-status] .sticky-steps__visual {
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  [data-sticky-steps-item-status="before"] .sticky-steps__visual,
+  [data-sticky-steps-item-status="active"] .sticky-steps__visual {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  [data-sticky-steps-item-status] .sticky-steps__text {
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0.25;
+  }
+
+  [data-sticky-steps-item-status="active"] .sticky-steps__text {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .sticky-steps__list {
+    gap: 7.5em;
+    padding: 10em 0em;
+  }
+
+  .sticky-steps__text {
+    width: 100%;
+    padding-bottom: 5em;
+    padding-right: 0;
+  }
+
+  .sticky-steps__media {
+    width: 100%;
+    height: auto;
+    padding-left: 0;
+    position: relative;
+    top: auto;
+    right: auto;
+  }
+
+  .sticky-steps__sticky {
+    min-height: auto;
+    position: relative;
+    top: auto;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .sticky-steps__text {
+    gap: 1.5em;
+  }
+
+  .sticky-steps__eyebrow {
+    font-size: 1em;
+  }
+
+  .sticky-steps__h2 {
+    font-size: 4em;
+  }
+
+  .sticky-steps__p {
+    font-size: 1.125em;
+  }
+
+  .sticky-steps__h1 {
+    font-size: 6em;
+  }
+}

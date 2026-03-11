@@ -24,7 +24,7 @@ export default async function ContactPage() {
   };
 
   return (
-    <main className="py-4">
+    <main className="py-4 mt-32">
       <header className="py-12">
         <div className="px-4 md:container md:mx-auto">
           <div className="flex flex-col gap-6 md:grid md:grid-cols-2">
@@ -80,14 +80,16 @@ export default async function ContactPage() {
           />
         </div>
       </section>
-      <section id="project-inquiry" className="pt-12">
-        <div className="container">
-          <h2>Do you have a concrete idea?</h2>
-          <div className="p-2">
-            <TypeForm />
+      {/**
+        <section id="project-inquiry" className="pt-12">
+          <div className="container">
+            <h2>Do you have a concrete idea?</h2>
+            <div className="p-2">
+              <TypeForm />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+       */}
     </main>
   );
 }
