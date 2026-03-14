@@ -19,7 +19,7 @@ const PortfolioOverview = async ({ query, limit }: QueryProps) => {
   return (
     <div className={`mx-0 flex flex-wrap mt-0`}>
       <div
-        className={`w-full max-w-full mt-0 grid gap-8 grid-cols-1 lg:grid-cols-2`}
+        className={`w-full max-w-full mt-0 grid gap-6 grid-cols-1 lg:grid-cols-3`}
       >
         {projects.map((item: ProjectType) =>
           item.metadata.coming_soon ? (

@@ -32,7 +32,7 @@ const PortfolioOne = async ({ item }: { item: ProjectType }) => {
           <div className={`${styles.cardOverlay}`}>
             <div className={`${styles.heading}`}>
               <h4
-                className={`${styles.title} text-2xl mt-2 md:mt-3 mb-4 md:text-5xl lg:mb-6 lg:text-4xl`}
+                className={`${styles.title} text-2xl mt-2 md:mt-3 mb-4 md:text-5xl lg:mb-3 lg:text-2xl`}
               >
                 {item.title}
               </h4>
