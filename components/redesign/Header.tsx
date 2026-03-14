@@ -25,7 +25,7 @@ const Header = ({ services }: { services: any[] }) => {
                     );
                   })}
                 </div>
-                <h1 className="flex flex-col items-start text-h1 font-normal w-full">
+                <h1 className="flex flex-col items-start text-h1 font-normal w-full mb-6">
                   <span className="block" style={{ letterSpacing: "-0.07em" }}>
                     Performance
                   </span>
