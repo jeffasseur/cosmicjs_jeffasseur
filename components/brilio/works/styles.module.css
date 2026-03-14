@@ -35,16 +35,18 @@
   gap: 0.25em;
   padding: 0.5rem 0.75rem;
   border-radius: 50rem;
-  font-size: 1rem !important;
-  font-weight: 600 !important;
+  font-size: .75rem !important;
+    font-weight: 500 !important;
+    text-transform: uppercase !important;
   color: white;
   transition: all cubic-bezier(.645, .045, .355, 1) 0.35s;
+  margin-right: .5rem;
 }
 .badge.small {
   padding: 0.35rem 0.65rem;
 }
 .badge.outlined {
-  border: 1px solid currentColor;
+  border: .5px solid currentColor;
   color: currentColor;
 }
 .badge:not(.outlined) {

@@ -11,6 +11,7 @@ import {
 } from "@/cosmic/blocks/ecommerce/ProductCard";
 import { SingleVideo } from "@/cosmic/blocks/videos/SingleVideo";
 import StickySteps from "@/components/osmo/StickySteps";
+import { metadata } from "../../layout";
 
 export const revalidate = 60;
 
@@ -230,6 +231,30 @@ export default async function SingleProductPage(props: {
         </div>
       </section>
 
+      {product.metadata?.subservices.length > 0 && (
+        <section>
+          <div className="lg:container mb-12">
+            <div>
+              {product.metadata.subservices.map(
+                (subservice: any, index: number) => (
+                  <div
+                    key={index}
+                    className="pb-2 pt-4 border-b border-gray-200 flex gap-4 justify-between flex-wrap"
+                  >
+                    <span className="text-dark-90 font-medium lg:text-xl">
+                      {subservice.title}
+                    </span>
+                    <p className="text-dark-60 text-sm max-w-[30vw]">
+                      {subservice.description}
+                    </p>
+                  </div>
+                )
+              )}
+            </div>
+          </div>
+        </section>
+      )}
+
       {product.metadata?.sections.length > 0 && (
         <section>
           <div className="lg:container">
@@ -242,7 +267,7 @@ export default async function SingleProductPage(props: {
         <section>
           <div className="lg:container mb-12">
             <div className="flex justify-between items-center mb-12">
-              <h2 className="max-w-3xl">Some of the highlight projects</h2>
+              <h2 className="max-w-3xl">Some highlighted projects</h2>
               <Link
                 href="/work"
                 className="hidden text-primary underline lg:block"
