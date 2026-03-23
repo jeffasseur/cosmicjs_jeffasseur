@@ -36,9 +36,7 @@ export async function FAQs({
               <AccordionTrigger className="text-lg">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent>
-                <div dangerouslySetInnerHTML={{ __html: faq.answer }} />
-              </AccordionContent>
+              <AccordionContent>{faq.answer}</AccordionContent>
             </AccordionItem>
           </Accordion>
         );
