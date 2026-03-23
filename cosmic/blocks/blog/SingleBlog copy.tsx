@@ -29,7 +29,7 @@ export async function SingleBlogCopy({
 
     return (
       <div className={className}>
-        <section className="m-auto items-center pb-8 md:container">
+        <section className="m-auto items-center mt-28 pb-8 md:container">
           <div className="relative m-auto flex max-w-7xl flex-col items-start gap-2">
             {/* Back to blog link for smaller screens */}
             <div className="lg:top-2">

@@ -4,8 +4,8 @@ import "./../../components/brilio/insights/blog.css";
 
 export default async function BlogPage() {
   return (
-    <main className="p-4">
-      <div className="relative m-auto flex flex-col items-start gap-2 lg:container">
+    <section className="p-4">
+      <div className="relative m-auto flex flex-col items-start gap-2 lg:container mt-28">
         <div className="flex justify-between w-full items-baseline mb-4">
           <h1 className="md:mx-0 text-3xl md:text-6xl font-display text-zinc-900 dark:text-zinc-100 leading-tight tracking-tighter">
             Blog
@@ -22,6 +22,6 @@ export default async function BlogPage() {
           <BlogOne limit={1000} />
         </div>
       </div>
-    </main>
+    </section>
   );
 }

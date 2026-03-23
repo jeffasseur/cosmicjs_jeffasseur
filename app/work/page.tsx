@@ -42,7 +42,7 @@ export default async function WorkPage(props0: {
 
   return (
     <main className="p-4">
-      <section className="pb-8 m-auto">
+      <section className="pb-8 mt-28 m-auto">
         <div className="m-auto flex lg:container flex-col items-start gap-2">
           <h1 className="mb-4 m-auto md:mx-0 text-3xl md:text-6xl font-display text-zinc-900 dark:text-zinc-100 leading-tight tracking-tighter">
             {page.metadata.h1}
