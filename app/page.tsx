@@ -117,7 +117,7 @@ export default async function HomePage() {
               </Link>
             </div>
             <div className="lg:container mx-auto">
-              <PortfolioOverview query={projectsQuery} limit={4} />
+              <PortfolioOverview query={projectsQuery} limit={3} />
             </div>
           </div>
         </section>
