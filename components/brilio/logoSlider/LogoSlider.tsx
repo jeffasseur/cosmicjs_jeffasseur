@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./styles.module.css";
 import Link from "next/link";
+import { link } from "fs";
 
 const logos = [
   {
@@ -57,6 +58,16 @@ const logos = [
     title: "Kijzer",
     url: "https://imgix.cosmicjs.com/dafb1e00-d39a-11f0-8d90-59746c6baee3-kijzer.png?w=200&auto=format,compression",
     link: "https://kijzer.be",
+  },
+  {
+    title: "De Boer & Partners",
+    url: "https://res.cloudinary.com/dfi4sldbm/image/upload/v1774277849/svgviewer-png-output_t2z7vo.png",
+    link: "https://deboerenpartners.be",
+  },
+  {
+    title: "Reds Immo",
+    url: "https://res.cloudinary.com/dfi4sldbm/image/upload/v1774277947/reds-immo_mnlet0.png",
+    link: "https://reds.be",
   },
 ];
 
