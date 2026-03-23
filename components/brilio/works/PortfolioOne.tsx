@@ -16,12 +16,12 @@ const PortfolioOne = async ({ item }: { item: ProjectType }) => {
               <img
                 src={item.metadata.image.imgix_url}
                 alt={item.title}
-                className="aspect-square"
+                className="object-cover aspect-square"
               />
             )}
             {item.metadata?.hero_video && (
               <video
-                className="object-contain aspect-square"
+                className="object-cover aspect-square"
                 src={item.metadata.hero_video.imgix_url}
                 autoPlay
                 loop
