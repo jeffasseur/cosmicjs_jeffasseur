@@ -31,8 +31,7 @@ export const metadata: Metadata = {
       "en-US": "/",
     },
   },
-  title:
-    "JEF .F | Antwerp based Web(Flow) Developer & Photographer at your service",
+  title: "JEF .F | Antwerp based Web(Flow) Developer & Photographer",
   description:
     "Antwerp based Web(Flow) Developer & Photographer. I make cool websites and professional photos. We value personal contact and a good relationship with our customers. We are happy to help you with your project.",
 };
@@ -58,7 +57,7 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <Head>
-        <title>{JSON.stringify(metadata?.title)}</title>
+        {/* <title>{JSON.stringify(metadata?.title)}</title> */}
         <meta
           name="description"
           content={JSON.stringify(metadata?.description)}
