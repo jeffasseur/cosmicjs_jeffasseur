@@ -161,11 +161,17 @@
 .twostep-nav__ul.is--small {
   grid-column-gap: 1em;
   grid-row-gap: .25em;
-  flex-flow: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
+  display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
 
+.twostep-nav__ul .twostep-nav__li {
+  margin: 0;
+}
+
+.twostep-nav__ul .twostep-nav__li a {
+  padding: .375em 0;
+}
 .twostep-nav__link {
   color: inherit;
   width: 100%;
