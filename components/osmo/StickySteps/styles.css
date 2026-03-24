@@ -43,7 +43,7 @@
 
 .sticky-steps__p {
   margin-bottom: 0;
-  @apply text-dark-60;
+  @apply text-dark-60 dark:text-light-70;
 }
 
 .sticky-steps__sticky {

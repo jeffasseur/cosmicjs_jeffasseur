@@ -11,7 +11,7 @@ import {
 } from "@/cosmic/blocks/ecommerce/ProductCard";
 import { SingleVideo } from "@/cosmic/blocks/videos/SingleVideo";
 import StickySteps from "@/components/osmo/StickySteps";
-import { metadata } from "../../layout";
+import Head from "next/head";
 
 export const revalidate = 60;
 
@@ -122,6 +122,8 @@ export default async function SingleProductPage(props: {
       params.slug === "social-media-marketing"
         ? socialMediaAdsSteps
         : otherSteps;
+
+  console.log("meta title: ", product.metadata.seo?.title);
 
   return (
     <>
@@ -241,10 +243,10 @@ export default async function SingleProductPage(props: {
                     key={index}
                     className="pb-2 pt-4 border-b border-gray-200 flex gap-4 justify-between flex-wrap"
                   >
-                    <span className="text-dark-90 font-medium lg:text-xl">
+                    <span className="text-dark-90 font-medium lg:text-xl dark:text-light-90">
                       {subservice.title}
                     </span>
-                    <p className="text-dark-60 text-sm max-w-[30vw]">
+                    <p className="text-dark-60 text-sm max-w-[30vw] dark:text-light-70">
                       {subservice.description}
                     </p>
                   </div>
