@@ -9,6 +9,7 @@ import {
   NavLinkInterface,
 } from "@/interfaces";
 import CookieConsent from "./CookieConsent";
+import WhatsappBubble from "./Whatsapp";
 
 const Footer = async () => {
   const { object: settings } = await cosmic.objects
@@ -152,7 +153,12 @@ const Footer = async () => {
       </div>
       <div className="container mx-auto flex flex-col items-center gap-6 px-8 pt-6 md:flex-row md:justify-between md:gap-4">
         <div className="flex gap-4 justify-end order-last text-xs lg:text-sm">
-          {process.env.NODE_ENV === "production" && <CookieConsent />}
+          {process.env.NODE_ENV === "production" && (
+            <>
+              <CookieConsent />
+              <WhatsappBubble />
+            </>
+          )}
           <a
             href="https://www.iubenda.com/privacy-policy/15316412"
             className="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe"

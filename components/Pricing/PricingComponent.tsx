@@ -16,12 +16,12 @@ const PricingContainer = async () => {
     <div className="mt-28">
       <div className="mb-14">
         <h2 className="text-center max-w-[20ch] mx-auto">
-          Keep your Webflow website running smoothly
+          Keep your website running
         </h2>
         <p className="text-center mt-5 opacity-60 max-w-[30rem] mx-auto">
-          Prices are excl. VAT. All monthly plans can be cancelled at any time.
-          The yearly plans are paid in advance and can be cancelled at the end
-          of the year.
+          We take care of your website, so you can focus on your business. Our
+          care packets include regular updates, security checks, and performance
+          optimizations to ensure your website runs smoothly and securely.
         </p>
       </div>
       <div className="mb-6 flex justify-center">
@@ -38,6 +38,11 @@ const PricingContainer = async () => {
           />
         ))}
       </div>
+      <p className="text-center opacity-40 text-sm max-w-[30rem] mx-auto mt-8">
+        *Prices are excl. VAT. All monthly plans can be cancelled at any time.
+        The yearly plans are paid in advance and can be cancelled at the end of
+        the year.
+      </p>
     </div>
   );
 }

@@ -241,12 +241,12 @@ export default async function SingleProductPage(props: {
                 (subservice: any, index: number) => (
                   <div
                     key={index}
-                    className="pb-2 pt-4 border-b border-gray-200 flex gap-4 justify-between flex-wrap"
+                    className="pb-2 pt-6 border-b-2 border-gray-200 flex gap-4 justify-between flex-wrap"
                   >
-                    <span className="text-dark-90 font-medium lg:text-xl dark:text-light-90">
+                    <span className="text-dark-90 font-mono mt-1 lg:text-xl dark:text-light-90">
                       {subservice.title}
                     </span>
-                    <p className="text-dark-60 text-sm max-w-[30vw] dark:text-light-70">
+                    <p className="text-dark-60 text-right text-sm max-w-[20vw] dark:text-light-70">
                       {subservice.description}
                     </p>
                   </div>
@@ -317,7 +317,7 @@ export default async function SingleProductPage(props: {
         <div className="lg:container mb-12">
           <h2 className="max-w-3xl mb-12 text-center mx-auto">
             {params.slug === "social-media-marketing"
-              ? "Here's how we take you from zero to results"
+              ? "From zero to results"
               : "How we work"}
           </h2>
           <div className="pt-20">
@@ -365,12 +365,6 @@ export default async function SingleProductPage(props: {
         </div>
       </section>
 
-      <section>
-        <div className="lg:container">
-          <CtaSection />
-        </div>
-      </section>
-
       {
         //only show on webflow-website
         params.slug === "website-webshop" && (
@@ -385,7 +379,7 @@ export default async function SingleProductPage(props: {
       <section>
         <div className="lg:container">
           <h2 className="max-w-3xl mb-12 text-center mx-auto">
-            Other services we offer
+            Other services
           </h2>
           <div className="mt-6 w-full grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-3 xl:gap-x-8">
             {otherServices.map((service: ProductType) => (
