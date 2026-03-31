@@ -13,16 +13,33 @@ const PricingCard = ({ title, description, price, content }: {title: string, des
   return (
     <div className="gap-2 rounded-2xl p-6 cursor-pointer hover:scale-105 transition-all duration-500 flex-1 border-2 bg-light-80 border-light-70 dark:text-light-90 dark:bg-dark-80 dark:border-dark-50 shadow-md hover:shadow-xl">
       <h3 className="text-lg font-bold">{title}</h3>
-      <NumberFlow
-        value={showPrice}
-        format={{
-          style: "currency",
-          currency: "EUR",
-          trailingZeroDisplay: "stripIfInteger",
-        }}
-        suffix={yearly ? " /year" : " /month"}
-        className="text-3xl md:text-4xl font-light mb-8 text-dark-60 dark:text-light-90" // Add your custom class here
-      />
+      <div className="flex flex-col">
+        {yearly && (
+          <div className="relative inline-block w-max">
+            <NumberFlow
+              value={price * 12}
+              format={{
+                style: "currency",
+                currency: "EUR",
+                trailingZeroDisplay: "stripIfInteger",
+              }}
+              suffix={" /year"}
+              className="text-dark-80 opacity-70 dark:text-light-90 text-sm font-semibold" // Add your custom class here
+            />
+            <div className="h-[1px] w-full absolute left-0 top-1/2 bg-dark-80 dark:bg-light-90" />
+          </div>
+        )}
+        <NumberFlow
+          value={showPrice}
+          format={{
+            style: "currency",
+            currency: "EUR",
+            trailingZeroDisplay: "stripIfInteger",
+          }}
+          suffix={yearly ? " /year" : " /month"}
+          className="text-3xl md:text-4xl font-light mb-8 text-dark-60 dark:text-light-90" // Add your custom class here
+        />
+      </div>
       <Link href={mailtoLink} className="btn !rounded-full !block">
         Get started
       </Link>
