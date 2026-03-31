@@ -99,7 +99,7 @@ export default async function SingleProductPage(props: {
 }) {
   // const searchParams = await props.searchParams;
   const params = await props.params;
-  const yearly = params.slug === "website-sebshop" ? true : false;
+  const yearly = params.slug === "website-webshop" ? true : false;
 
   const { object: product } = await cosmic.objects
     .findOne({
