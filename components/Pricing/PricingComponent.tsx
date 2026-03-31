@@ -1,34 +1,33 @@
-import { cosmic } from "@/cosmic/client";
 import PricingCard from "./PricingCard";
 import PricingToggle from "./PricingToggle";
-import { useRouter } from "next/router";
+import { PricingPacket } from "@/interfaces";
 
-
-const PricingContainer = async () => {
-  const { objects: carePackets } = await cosmic.objects
-    .find({
-      type: "care-packets",
-    })
-    .props("title,metadata")
-    .depth(1);
-
+const PricingContainer = async ({
+  title,
+  description,
+  packets,
+  yearly,
+}: {
+  title: string;
+  description: string;
+  packets: PricingPacket[];
+  yearly: boolean;
+}) => {
   return (
     <div className="mt-28">
       <div className="mb-14">
-        <h2 className="text-center max-w-[20ch] mx-auto">
-          Keep your website running
-        </h2>
+        <h2 className="text-center max-w-[20ch] mx-auto">{title}</h2>
         <p className="text-center mt-5 opacity-60 max-w-[30rem] mx-auto">
-          We take care of your website, so you can focus on your business. Our
-          care packets include regular updates, security checks, and performance
-          optimizations to ensure your website runs smoothly and securely.
+          {description}
         </p>
       </div>
-      <div className="mb-6 flex justify-center">
-        <PricingToggle />
-      </div>
+      {yearly && (
+        <div className="mb-6 flex justify-center">
+          <PricingToggle />
+        </div>
+      )}
       <div className="flex flex-col-reverse gap-8 xl:flex-row-reverse xl:gap-6 pt-12">
-        {carePackets.map((carePacket: any, index: number) => (
+        {packets.map((carePacket: PricingPacket, index: number) => (
           <PricingCard
             key={index}
             title={carePacket.title}
@@ -45,6 +44,6 @@ const PricingContainer = async () => {
       </p>
     </div>
   );
-}
+};
 
 export default PricingContainer;

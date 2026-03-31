@@ -11,8 +11,8 @@ const PricingCard = ({ title, description, price, content }: {title: string, des
   const showPrice = yearly ? (price * 12) * 0.8 : price;
   const mailtoLink = `mailto:sayhi@jeffasseur.be?subject=Cover my website with the following plan: ${title} ${yearly ? "yearly" : "monthly"}`;
   return (
-    <div className="gap-2 rounded-2xl p-8 cursor-pointer hover:scale-105 transition-all duration-500 flex-1 border-2 bg-light-80 border-light-70 dark:text-light-90 dark:bg-dark-80 dark:border-dark-50">
-      <h3 className="text-lg md:text-xl font-bold">{title}</h3>
+    <div className="gap-2 rounded-2xl p-6 cursor-pointer hover:scale-105 transition-all duration-500 flex-1 border-2 bg-light-80 border-light-70 dark:text-light-90 dark:bg-dark-80 dark:border-dark-50 shadow-md hover:shadow-xl">
+      <h3 className="text-lg font-bold">{title}</h3>
       <NumberFlow
         value={showPrice}
         format={{
@@ -21,12 +21,12 @@ const PricingCard = ({ title, description, price, content }: {title: string, des
           trailingZeroDisplay: "stripIfInteger",
         }}
         suffix={yearly ? " /year" : " /month"}
-        className="text-3xl md:text-5xl font-light mb-8 text-dark-60 dark:text-light-90" // Add your custom class here
+        className="text-3xl md:text-4xl font-light mb-8 text-dark-60 dark:text-light-90" // Add your custom class here
       />
       <Link href={mailtoLink} className="btn !rounded-full !block">
         Get started
       </Link>
-      <p className="my-6 opacity-80 h-[4rem]">{description}</p>
+      <p className="my-6 opacity-80 text-center h-[4rem]">{description}</p>
       <div dangerouslySetInnerHTML={{ __html: content }} />
     </div>
   );

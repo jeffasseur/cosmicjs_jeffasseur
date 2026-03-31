@@ -2,7 +2,6 @@
 import { cosmic } from "@/cosmic/client";
 import Link from "next/link";
 import { ProjectIdToCard } from "@/components/ProjectIdToCard";
-import CtaSection from "@/components/CtaSection";
 import { ServiceHighlightedProjectsInterface } from "@/interfaces";
 import PricingComponent from "@/components/Pricing/PricingComponent";
 import {
@@ -11,7 +10,6 @@ import {
 } from "@/cosmic/blocks/ecommerce/ProductCard";
 import { SingleVideo } from "@/cosmic/blocks/videos/SingleVideo";
 import StickySteps from "@/components/osmo/StickySteps";
-import Head from "next/head";
 
 export const revalidate = 60;
 
@@ -71,6 +69,7 @@ export async function generateMetadata(props0: {
       status: "published",
     })
     .props("title,metadata");
+
   return {
     title: `${product.metadata.seo?.title} | ${product.title}`,
     description: product.metadata.seo?.description,
@@ -90,19 +89,33 @@ export async function generateStaticParams() {
     slug: product.slug,
   }));
 }
+
 export default async function SingleProductPage(props: {
   params: Promise<{ slug: string }>;
   searchParams: Promise<{
     success?: string;
   }>;
 }) {
-  const searchParams = await props.searchParams;
+  // const searchParams = await props.searchParams;
   const params = await props.params;
+  const yearly = params.slug === "website-sebshop" ? true : false;
 
   const { object: product } = await cosmic.objects
     .findOne({
       type: "services",
       slug: params.slug,
+    })
+    .props("id,title,metadata")
+    .depth(1);
+
+  const { objects: carePackets } = await cosmic.objects
+    .find({
+      type: "care-packets",
+      $and: [
+        {
+          "metadata.category": product.id,
+        },
+      ],
     })
     .props("title,metadata")
     .depth(1);
@@ -118,12 +131,8 @@ export default async function SingleProductPage(props: {
     .props("id,slug,title,metadata")
     .depth(1);
 
-    const steps =
-      params.slug === "social-media-marketing"
-        ? socialMediaAdsSteps
-        : otherSteps;
-
-  console.log("meta title: ", product.metadata.seo?.title);
+  const steps =
+    params.slug === "social-media-marketing" ? socialMediaAdsSteps : otherSteps;
 
   return (
     <>
@@ -344,7 +353,7 @@ export default async function SingleProductPage(props: {
                         className="translate-0 w-auto h-px bg-gradient-to-r flex-auto from-transparent from-10% to-light-50"
                       ></div>
                     </time>
-                    <h4 className="font-medium text-primary mb-4 dark:text-light-90">
+                    <h4 className="font-medium text-xl text-primary mb-4 dark:text-light-90">
                       {step.title}
                     </h4>
                     <p className="text-dark-70 font-light dark:text-light-70">
@@ -367,10 +376,17 @@ export default async function SingleProductPage(props: {
 
       {
         //only show on webflow-website
-        params.slug === "website-webshop" && (
+        carePackets.length > 0 && (
           <section id="webflow-pricing">
             <div className="lg:container">
-              <PricingComponent />
+              <PricingComponent
+                packets={carePackets}
+                yearly={yearly}
+                title={product.metadata.pricing_section?.title || ""}
+                description={
+                  product.metadata.pricing_section?.description || ""
+                }
+              />
             </div>
           </section>
         )
