@@ -250,12 +250,12 @@ export default async function SingleProductPage(props: {
                 (subservice: any, index: number) => (
                   <div
                     key={index}
-                    className="pb-2 pt-6 border-b-2 border-gray-200 flex gap-4 justify-between flex-wrap"
+                    className=" flex-col lg:flex-row pb-2 pt-6 border-b-2 border-gray-200 flex gap-4 justify-between flex-wrap"
                   >
                     <span className="text-dark-90 font-mono mt-1 lg:text-xl dark:text-light-90">
                       {subservice.title}
                     </span>
-                    <p className="text-dark-60 text-right text-sm max-w-[20vw] dark:text-light-70">
+                    <p className="text-dark-60 lg:text-right text-sm lg:max-w-[20vw] dark:text-light-70">
                       {subservice.description}
                     </p>
                   </div>

@@ -8,7 +8,6 @@
   max-width: 74em;
   margin-left: auto;
   margin-right: auto;
-  padding: 0em 1.5em;
 }
 
 .sticky-steps__collection {
@@ -37,7 +36,6 @@
   letter-spacing: -.04em;
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 2.75rem;
     line-height: 1.1;
 }
 
@@ -142,7 +140,7 @@
   }
 
   .sticky-steps__h2 {
-    font-size: 4em;
+    font-size: 2em;
   }
 
   .sticky-steps__p {
