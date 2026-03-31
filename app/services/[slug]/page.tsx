@@ -10,6 +10,7 @@ import {
 } from "@/cosmic/blocks/ecommerce/ProductCard";
 import { SingleVideo } from "@/cosmic/blocks/videos/SingleVideo";
 import StickySteps from "@/components/osmo/StickySteps";
+import { stat } from "fs";
 
 export const revalidate = 60;
 
@@ -104,6 +105,7 @@ export default async function SingleProductPage(props: {
     .findOne({
       type: "services",
       slug: params.slug,
+      status: "published",
     })
     .props("id,title,metadata")
     .depth(1);
@@ -111,6 +113,7 @@ export default async function SingleProductPage(props: {
     const { objects: carePackets } = await cosmic.objects
       .find({
         type: "care-packets",
+        status: "published",
         $and: [
           {
             "metadata.category": product.id,
