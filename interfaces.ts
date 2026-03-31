@@ -91,3 +91,12 @@ export type SettingsType = {
     ];
   };
 };
+
+export type PricingPacket = {
+  title: string;
+  metadata: {
+    content: string;
+    description: string;
+    price: number;
+  }
+}
