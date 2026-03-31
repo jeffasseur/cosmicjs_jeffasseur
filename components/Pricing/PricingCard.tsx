@@ -9,7 +9,7 @@ import "./index.css";
 const PricingCard = ({ title, description, price, content }: {title: string, description: string, price: number, content: any }) => {
   const yearly = useSearchParams().get('pricing') === 'yearly';
   const showPrice = yearly ? (price * 12) * 0.8 : price;
-  const mailtoLink = `mailto:sayhi@jeffasseur.be?subject=Cover my website with the following plan: ${title} ${yearly ? "yearly" : "monthly"}`;
+  const mailtoLink = `mailto:sayhi@jeffasseur.be?subject=Request for the following plan: ${title} ${yearly ? "yearly" : "monthly"}`;
   return (
     <div className="gap-2 rounded-2xl p-6 cursor-pointer hover:scale-105 transition-all duration-500 flex-1 border-2 bg-light-80 border-light-70 dark:text-light-90 dark:bg-dark-80 dark:border-dark-50 shadow-md hover:shadow-xl">
       <h3 className="text-lg font-bold">{title}</h3>
