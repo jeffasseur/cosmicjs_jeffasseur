@@ -374,23 +374,18 @@ export default async function SingleProductPage(props: {
         </div>
       </section>
 
-      {
-        //only show on webflow-website
-        carePackets.length > 0 && (
-          <section id="webflow-pricing">
-            <div className="lg:container">
-              <PricingComponent
-                packets={carePackets}
-                yearly={yearly}
-                title={product.metadata.pricing_section?.title || ""}
-                description={
-                  product.metadata.pricing_section?.description || ""
-                }
-              />
-            </div>
-          </section>
-        )
-      }
+      {carePackets && carePackets.length > 0 && (
+        <section id="webflow-pricing">
+          <div className="lg:container">
+            <PricingComponent
+              packets={carePackets}
+              yearly={yearly}
+              title={product.metadata.pricing_section?.title || ""}
+              description={product.metadata.pricing_section?.description || ""}
+            />
+          </div>
+        </section>
+      )}
 
       <section>
         <div className="lg:container">
