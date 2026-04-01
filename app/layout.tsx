@@ -118,7 +118,7 @@ export default async function RootLayout({
                     className="absolute top-0 left-0 right-0"
                   />
                 )}
-                {process.env.NODE_ENV != "production" && (
+                {process.env.NODE_ENV === "production" && (
                   <>
                     <Analytics />
                     <SpeedInsights />
