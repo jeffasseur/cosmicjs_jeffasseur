@@ -16,6 +16,9 @@ import TwoStepScalingNavigation from "@/components/osmo/twostepScalingNavigation
 import { cosmic } from "@/cosmic/client";
 import { SettingsType } from "@/interfaces";
 import Script from "next/script";
+import GTMScript from "@/components/ConsentModeV2/GTMScript";
+import { CookieConsentProvider } from "@/context/CookieConsentContext";
+import CookieBanner from "@/components/ConsentModeV2/CookieBanner";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   display: "swap",
@@ -90,45 +93,50 @@ export default async function RootLayout({
       <body
         className={`${plusJakartaSans.className} font-sans md:p-0 h-dvh w-full bg-white dark:bg-dark-90 text-dark-90 dark:text-light-90`}
       >
+        <GTMScript gtmId={process.env.NEXT_PUBLIC_GTM_ID ?? ""} />
+
         <Suspense>
-          <AuthProvider>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange
-              themes={["light", "dark"]}
-            >
-              {/* <CartProvider> */}
-              <div>
-                <TwoStepScalingNavigation settings={settings} />
-                <main>{children}</main>
-              </div>
-              <Footer />
-              {process.env.SNOWFLAKE_EFFECT_ENABLED === "true" && (
-                <SnowflakeEffect
-                  strength={3}
-                  infinite={true}
-                  className="absolute top-0 left-0 right-0"
-                />
-              )}
-              {process.env.NODE_ENV != "production" && (
-                <>
-                  <Analytics />
-                  <SpeedInsights />
-                </>
-              )}
-              {/* </CartProvider> */}
-              {
-                // only in dev environment
-                process.env.NODE_ENV === "development" && (
+          <CookieConsentProvider>
+            <AuthProvider>
+              <ThemeProvider
+                attribute="class"
+                defaultTheme="system"
+                enableSystem
+                disableTransitionOnChange
+                themes={["light", "dark"]}
+              >
+                {/* <CartProvider> */}
+                <div>
+                  <TwoStepScalingNavigation settings={settings} />
+                  <main>{children}</main>
+                </div>
+                <Footer />
+                {process.env.SNOWFLAKE_EFFECT_ENABLED === "true" && (
+                  <SnowflakeEffect
+                    strength={3}
+                    infinite={true}
+                    className="absolute top-0 left-0 right-0"
+                  />
+                )}
+                {process.env.NODE_ENV != "production" && (
                   <>
-                    <TailwindIndicator />
+                    <Analytics />
+                    <SpeedInsights />
+                    <CookieBanner />
                   </>
-                )
-              }
-            </ThemeProvider>
-          </AuthProvider>
+                )}
+                {/* </CartProvider> */}
+                {
+                  // only in dev environment
+                  process.env.NODE_ENV === "development" && (
+                    <>
+                      <TailwindIndicator />
+                    </>
+                  )
+                }
+              </ThemeProvider>
+            </AuthProvider>
+          </CookieConsentProvider>
         </Suspense>
         <Script src="https://static.claydar.com/init.v1.js?id=c6WrXSIOBc" />
       </body>
