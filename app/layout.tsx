@@ -20,6 +20,8 @@ import GTMScript from "@/components/ConsentModeV2/GTMScript";
 import { CookieConsentProvider } from "@/context/CookieConsentContext";
 import CookieBanner from "@/components/ConsentModeV2/CookieBanner";
 
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID ?? "";
+
 const plusJakartaSans = Plus_Jakarta_Sans({
   display: "swap",
   subsets: ["latin"],
@@ -93,7 +95,7 @@ export default async function RootLayout({
       <body
         className={`${plusJakartaSans.className} font-sans md:p-0 h-dvh w-full bg-white dark:bg-dark-90 text-dark-90 dark:text-light-90`}
       >
-        <GTMScript gtmId={process.env.NEXT_PUBLIC_GTM_ID ?? ""} />
+        <GTMScript gtmId={GTM_ID} />
 
         <Suspense>
           <CookieConsentProvider>
