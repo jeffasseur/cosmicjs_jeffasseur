@@ -63,6 +63,7 @@ export default async function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <Head>
         {/* <title>{JSON.stringify(metadata?.title)}</title> */}
+        <GTMScript gtmId={GTM_ID} />
         <meta
           name="description"
           content={JSON.stringify(metadata?.description)}
@@ -95,8 +96,6 @@ export default async function RootLayout({
       <body
         className={`${plusJakartaSans.className} font-sans md:p-0 h-dvh w-full bg-white dark:bg-dark-90 text-dark-90 dark:text-light-90`}
       >
-        <GTMScript gtmId={GTM_ID} />
-
         <Suspense>
           <CookieConsentProvider>
             <AuthProvider>
