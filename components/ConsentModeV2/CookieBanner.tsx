@@ -53,7 +53,7 @@ export default function CookieBanner() {
                   onClick={rejectAll}
                   type="button"
                 >
-                  Reject all
+                  Only necessary
                 </button>
                 <button
                   className="btn btn-outline"
