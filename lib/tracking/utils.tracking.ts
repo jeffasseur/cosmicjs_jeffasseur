@@ -21,7 +21,7 @@ const getGtag = () => {
 
 const withGtag = (callback: (gtag: Gtag.Gtag) => void) => {
   const gtag = getGtag();
-  if (!gtag) return;
+  if (!gtag || gtag != null) return;
   callback(gtag);
 };
 
