@@ -75,9 +75,7 @@ export default function CookieBanner() {
         )}
       </AnimatePresence>
 
-      <AnimatePresence>
-        {showSettings && <CookieSettings />}
-      </AnimatePresence>
+      <AnimatePresence>{showSettings && <CookieSettings />}</AnimatePresence>
     </>
   );
 }

@@ -30,6 +30,7 @@ export function CookieConsentProvider({ children }: { children: React.ReactNode 
   useEffect(() => {
     const stored = getCookie(COOKIE_NAME);
     if (stored) {
+      console.log("cookie stored consent", stored);
       try {
         const parsed: CookieConsent = JSON.parse(stored);
         setConsent(parsed);
@@ -39,6 +40,7 @@ export function CookieConsentProvider({ children }: { children: React.ReactNode 
         setShowBanner(true);
       }
     } else {
+      console.log("no stored consent found");
       // Push default (denied) consent immediately for Consent Mode V2
       pushConsentToGTM(defaultConsent);
       setShowBanner(true);
