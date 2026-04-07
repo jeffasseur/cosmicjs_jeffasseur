@@ -16,9 +16,10 @@ import TwoStepScalingNavigation from "@/components/osmo/twostepScalingNavigation
 import { cosmic } from "@/cosmic/client";
 import { SettingsType } from "@/interfaces";
 import Script from "next/script";
-import GTMScript from "@/components/ConsentModeV2/GTMScript";
 import { CookieConsentProvider } from "@/context/CookieConsentContext";
 import CookieBanner from "@/components/ConsentModeV2/CookieBanner";
+import { IS_GTM_ENABLED } from "@/lib/tracking/config.tracking";
+import { GoogleTagManager } from "@/components/tracking/GoogleTagManager";
 
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID ?? "";
 
@@ -95,16 +96,7 @@ export default async function RootLayout({
       <body
         className={`${plusJakartaSans.className} font-sans md:p-0 h-dvh w-full bg-white dark:bg-dark-90 text-dark-90 dark:text-light-90`}
       >
-        <GTMScript gtmId={GTM_ID} />
-        {/* GTM noscript fallback */}
-        <noscript>
-          <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
+        {IS_GTM_ENABLED && <GoogleTagManager />}
         <Suspense>
           <CookieConsentProvider>
             <AuthProvider>

@@ -4,9 +4,10 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useCookieConsent } from "./../../context/CookieConsentContext";
 import { consentCategories, CookieConsent } from "./../../lib/cookie-consent";
+import { grantConsentForEverything } from "@/lib/tracking/utils.tracking";
 
 export default function CookieSettings() {
-  const { consent, saveSettings, acceptAll, rejectAll, closeSettings } =
+  const { consent, saveSettings, rejectAll, closeSettings } =
     useCookieConsent();
 
   const [local, setLocal] = useState<CookieConsent>({ ...consent });
@@ -59,8 +60,7 @@ export default function CookieSettings() {
         <p className="settings-intro">
           Manage your cookie preferences below. Strictly necessary cookies
           cannot be disabled as they are required for the website to function
-          correctly. Your preferences are stored for{" "}
-          <strong>90 days</strong>.
+          correctly. Your preferences are stored for <strong>90 days</strong>.
         </p>
 
         {/* Categories */}
@@ -74,13 +74,13 @@ export default function CookieSettings() {
                 <div className="category-header">
                   <button
                     className="category-expand-btn"
-                    onClick={() =>
-                      setExpanded(isExpanded ? null : cat.key)
-                    }
+                    onClick={() => setExpanded(isExpanded ? null : cat.key)}
                     aria-expanded={isExpanded}
                     type="button"
                   >
-                    <span className="category-chevron">{isExpanded ? "▲" : "▼"}</span>
+                    <span className="category-chevron">
+                      {isExpanded ? "▲" : "▼"}
+                    </span>
                     <span className="category-label">{cat.label}</span>
                     {cat.required && (
                       <span className="category-required">Required</span>
@@ -114,7 +114,9 @@ export default function CookieSettings() {
                   <p className="category-description">{cat.description}</p>
                   <div className="category-examples">
                     {cat.examples.map((ex) => (
-                      <span key={ex} className="example-chip">{ex}</span>
+                      <span key={ex} className="example-chip">
+                        {ex}
+                      </span>
                     ))}
                   </div>
                 </motion.div>
@@ -136,7 +138,11 @@ export default function CookieSettings() {
             >
               Save preferences
             </button>
-            <button className="btn btn-primary" onClick={acceptAll} type="button">
+            <button
+              className="btn btn-primary"
+              onClick={grantConsentForEverything}
+              type="button"
+            >
               Accept all
             </button>
           </div>
